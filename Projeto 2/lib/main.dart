@@ -1,9 +1,8 @@
-library config.globals;
+//library config.globals; // Usado para mudança de ligth mode para night mode
 
 import 'package:flutter/material.dart';
-//import 'dart:math';
 
-MyTheme currentTheme = MyTheme();
+//MyTheme currentTheme = MyTheme(); // Usado para mudança de ligth mode para night mode
 
 void main() {
   runApp(MyFirstBottomNavigationBar());
@@ -23,10 +22,10 @@ class _MyBottomNavigationBar extends State<MyFirstBottomNavigationBar> {
   @override
   void initState() {
     super.initState();
-    currentTheme.addListener(() {
+    /* currentTheme.addListener(() { // Usado para mudança de ligth mode para night mode
       print("Changes");
       setState(() {});
-    });
+    });*/
     _currentPage = 0;
     _pages = [
       gerarSintaxeViewLarissa(),
@@ -42,7 +41,7 @@ class _MyBottomNavigationBar extends State<MyFirstBottomNavigationBar> {
         debugShowCheckedModeBanner: false,
         theme: ThemeData.light(),
         darkTheme: ThemeData.dark(),
-        themeMode: currentTheme.currentTheme(),
+        //themeMode: currentTheme.currentTheme(), // Usado para mudança de ligth mode para night mode
         home: Scaffold(
           resizeToAvoidBottomInset: false,
 
@@ -59,7 +58,7 @@ class _MyBottomNavigationBar extends State<MyFirstBottomNavigationBar> {
               ],
               fixedColor: Colors.white,
               backgroundColor:
-                  Colors.blue, //deixa o fundo do bottomnavigation azull
+                  Colors.blue, //deixa o fundo do bottomnavigation azul
               currentIndex: _currentPage,
               onTap: (int index) {
                 setState(() {
@@ -326,6 +325,7 @@ class LoginData {
   }
 }
 
+/*
 class MyTheme with ChangeNotifier {
   //classe para possivel mudança de tema do app
   static bool _isDark = true;
@@ -339,7 +339,7 @@ class MyTheme with ChangeNotifier {
     notifyListeners();
   }
 }
-
+*/
 class MyFirstFormWidget extends StatefulWidget {
   final LoginData loginData = new LoginData();
 
@@ -352,10 +352,16 @@ class MyFirstFormWidget extends StatefulWidget {
 class _MyFirstFormWidgetState extends State<MyFirstFormWidget> {
   final GlobalKey<FormState> formKey = new GlobalKey<FormState>();
   final LoginData loginData;
+
+  /* Lista com as cores em Modo escuro e Modo normal*/
   List listacolor = [Colors.pink, Colors.black];
   List listacolor1 = [Colors.blue, Colors.white];
+
+  /* Com o index em 0 o aplicativo começa com o plano de fundo azul e rosa*/
   int index = 0;
   int index1 = 0;
+
+/* O index recebe 1 depois que o switch muda de estado*/
   int count = 1;
 
   @override
@@ -521,7 +527,7 @@ class _MyFirstFormWidgetState extends State<MyFirstFormWidget> {
               Row(
                 children: [
                   Flexible(
-                      child: Text("Night Mode",
+                      child: Text("Modo escuro",
                           style: TextStyle(
                               fontFamily:
                                   'CourierPrime-Bold', // Fonte exportada
@@ -533,15 +539,15 @@ class _MyFirstFormWidgetState extends State<MyFirstFormWidget> {
                       onChanged: (bool inValue) {
                         setState(() {
                           loginData.switchValue = inValue;
-                          //currentTheme.switchTheme();
+                          //currentTheme.switchTheme(); // Usado para mudança de ligth mode para night mode
                           index = count;
                           index1 = count;
+                          //muda o estado de count para que quando clicar no switch de novo mude do modo escuro para o modo normal
                           if (count == 0) {
                             count = 1;
                           } else {
                             count = 0;
                           }
-                          // chamada para possível mudança de estado de cores do app
                         });
                       })
                 ],
