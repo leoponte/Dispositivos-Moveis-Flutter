@@ -1,6 +1,7 @@
 library config.globals;
 
 import 'package:flutter/material.dart';
+//import 'dart:math';
 
 MyTheme currentTheme = MyTheme();
 
@@ -351,6 +352,11 @@ class MyFirstFormWidget extends StatefulWidget {
 class _MyFirstFormWidgetState extends State<MyFirstFormWidget> {
   final GlobalKey<FormState> formKey = new GlobalKey<FormState>();
   final LoginData loginData;
+  List listacolor = [Colors.pink, Colors.black];
+  List listacolor1 = [Colors.blue, Colors.white];
+  int index = 0;
+  int index1 = 0;
+  int count = 1;
 
   @override
   _MyFirstFormWidgetState(this.loginData);
@@ -359,14 +365,13 @@ class _MyFirstFormWidgetState extends State<MyFirstFormWidget> {
   Widget build(BuildContext context) {
     return Container(
       //para decorar a tela
-      padding: EdgeInsets.only(left: 50, right: 50, top: 50, bottom: 50),
-//      margin: EdgeInsets.only(bottom: 50),
+      padding: EdgeInsets.only(left: 50, right: 50, top: 100, bottom: 50),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           //Fazer as cores gradientes na tela
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
-          colors: [Colors.blue, Colors.pink],
+          colors: [listacolor[index], listacolor1[index1]],
         ),
       ),
       child: Form(
@@ -415,43 +420,41 @@ class _MyFirstFormWidgetState extends State<MyFirstFormWidget> {
                 //SALVAR
                 onSaved: (String inValue) => loginData.password = inValue,
               ),
-              Expanded(
-                child: Row(
-                  children: [
-                    Text("Professor",
-                        style: TextStyle(
-                            fontFamily: 'CourierPrime-Bold', // Fonte exportada
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.normal,
-                            color: Colors.black)),
-                    Radio(
-                      value: 1,
-                      groupValue: loginData
-                          .radioValue, //direciona valor do conteúdo para variável do loginData
-                      onChanged: (int inValue) {
-                        setState(() {
-                          loginData.radioValue = inValue;
-                        });
-                      },
-                    ),
-                    Text("Aluno",
-                        style: TextStyle(
-                            fontFamily: 'CourierPrime-Bold', // Fonte exportada
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.normal,
-                            color: Colors.black)),
-                    Radio(
-                      value: 2,
-                      groupValue: loginData.radioValue,
-                      onChanged: (int inValue) {
-                        setState(() {
-                          // propriedade de mudança de estado proporcionada pelo StatefulWidget
-                          loginData.radioValue = inValue;
-                        });
-                      },
-                    ),
-                  ],
-                ),
+              Row(
+                children: [
+                  Text("Professor",
+                      style: TextStyle(
+                          fontFamily: 'CourierPrime-Bold', // Fonte exportada
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black)),
+                  Radio(
+                    value: 1,
+                    groupValue: loginData
+                        .radioValue, //direciona valor do conteúdo para variável do loginData
+                    onChanged: (int inValue) {
+                      setState(() {
+                        loginData.radioValue = inValue;
+                      });
+                    },
+                  ),
+                  Text("Aluno",
+                      style: TextStyle(
+                          fontFamily: 'CourierPrime-Bold', // Fonte exportada
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black)),
+                  Radio(
+                    value: 2,
+                    groupValue: loginData.radioValue,
+                    onChanged: (int inValue) {
+                      setState(() {
+                        // propriedade de mudança de estado proporcionada pelo StatefulWidget
+                        loginData.radioValue = inValue;
+                      });
+                    },
+                  ),
+                ],
               ),
 
               RaisedButton(
@@ -518,7 +521,7 @@ class _MyFirstFormWidgetState extends State<MyFirstFormWidget> {
               Row(
                 children: [
                   Flexible(
-                      child: Text("Night Mode (EM CONSTRUÇÃO...",
+                      child: Text("Night Mode",
                           style: TextStyle(
                               fontFamily:
                                   'CourierPrime-Bold', // Fonte exportada
@@ -530,8 +533,15 @@ class _MyFirstFormWidgetState extends State<MyFirstFormWidget> {
                       onChanged: (bool inValue) {
                         setState(() {
                           loginData.switchValue = inValue;
-                          currentTheme
-                              .switchTheme(); // chamada para possível mudança de estado de cores do app
+                          //currentTheme.switchTheme();
+                          index = count;
+                          index1 = count;
+                          if (count == 0) {
+                            count = 1;
+                          } else {
+                            count = 0;
+                          }
+                          // chamada para possível mudança de estado de cores do app
                         });
                       })
                 ],
