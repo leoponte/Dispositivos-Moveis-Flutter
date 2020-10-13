@@ -7,6 +7,6 @@ Repositório dedicado à disciplina de dispositivos móveis, do segundo semestre
 ![](Projeto1.gif)
 
 
-## Primeiro aplicativo
+## Segundo aplicativo
 
 ![](Projeto2.gif)
