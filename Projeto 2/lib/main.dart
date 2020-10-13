@@ -1,4 +1,8 @@
+library config.globals;
+
 import 'package:flutter/material.dart';
+
+MyTheme currentTheme = MyTheme();
 
 void main() {
   runApp(MyFirstBottomNavigationBar());
@@ -18,6 +22,10 @@ class _MyBottomNavigationBar extends State<MyFirstBottomNavigationBar> {
   @override
   void initState() {
     super.initState();
+    currentTheme.addListener(() {
+      print("Changes");
+      setState(() {});
+    });
     _currentPage = 0;
     _pages = [
       gerarSintaxeViewLarissa(),
@@ -30,7 +38,13 @@ class _MyBottomNavigationBar extends State<MyFirstBottomNavigationBar> {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: "Nosso primeiro BottomNavigationBar",
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.light(),
+        darkTheme: ThemeData.dark(),
+        themeMode: currentTheme.currentTheme(),
         home: Scaffold(
+          resizeToAvoidBottomInset: false,
+
           body: Center(child: _pages.elementAt(_currentPage)),
           //appBar: AppBar(title: Text("Nosso primeiro BottomNavigationBar")),
           bottomNavigationBar: BottomNavigationBar(
@@ -292,23 +306,61 @@ class LoginData {
   String username = "";
   String password = "";
 
+  var checkboxValue = false;
+  var checkboxValue1 = false;
+
+  var switchValue = false;
+  var sliderValue = .3;
+  var radioValue = 1;
+
   doSomething() {
     print("Username: $username");
     print("Password: $password");
     print("");
+    print("CheckBox: $checkboxValue");
+    print("Switch: $switchValue");
+    print("Slider: $sliderValue");
+    print("Radio: $radioValue");
+    print("");
   }
 }
 
-class MyFirstFormWidget extends StatelessWidget {
-  final GlobalKey<FormState> formKey =
-      new GlobalKey<FormState>(); // Final é pedido para Stateless Widget
+class MyTheme with ChangeNotifier {
+  //classe para possivel mudança de tema do app
+  static bool _isDark = true;
+
+  ThemeMode currentTheme() {
+    return _isDark ? ThemeMode.dark : ThemeMode.light;
+  }
+
+  void switchTheme() {
+    _isDark = !_isDark;
+    notifyListeners();
+  }
+}
+
+class MyFirstFormWidget extends StatefulWidget {
   final LoginData loginData = new LoginData();
+
+  @override
+  State<StatefulWidget> createState() {
+    return _MyFirstFormWidgetState(loginData);
+  }
+}
+
+class _MyFirstFormWidgetState extends State<MyFirstFormWidget> {
+  final GlobalKey<FormState> formKey = new GlobalKey<FormState>();
+  final LoginData loginData;
+
+  @override
+  _MyFirstFormWidgetState(this.loginData);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       //para decorar a tela
-      padding: EdgeInsets.all(50.0),
+      padding: EdgeInsets.only(left: 50, right: 50, top: 50, bottom: 50),
+//      margin: EdgeInsets.only(bottom: 50),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           //Fazer as cores gradientes na tela
@@ -317,66 +369,175 @@ class MyFirstFormWidget extends StatelessWidget {
           colors: [Colors.blue, Colors.pink],
         ),
       ),
-      child: SingleChildScrollView(
-        child: Form(
-            key: formKey,
-            child: Column(
-              children: <Widget>[
-                TextFormField(
-                  style: TextStyle(fontSize: 25),
-                  keyboardType: TextInputType.name,
-                  decoration: InputDecoration(
-                    icon: Icon(Icons.person),
-                    errorStyle: TextStyle(color: Colors.white, fontSize: 15),
-                  ),
-                  // VALIDADOR
-                  validator: (String inValue) {
-                    // Função anonima
-                    if (inValue.length == 0) {
-                      return "Please enter username";
-                    }
-                    return null;
-                  },
-                  //SALVAR
-                  onSaved: (String inValue) => loginData.username = inValue,
-                ), //Mudar o tamanho da fonte da letra
-
-                TextFormField(
-                  obscureText: true,
-                  style: TextStyle(fontSize: 25),
-                  decoration: InputDecoration(
-                    //textError styling
-                    icon: Icon(Icons.security),
-                    errorStyle: TextStyle(color: Colors.white, fontSize: 15),
-                  ),
-
-                  //VALIDADOR
-                  validator: (String inValue) {
-                    if (inValue.length < 10) {
-                      return "Password maior do que 10";
-                    }
-                    return null;
-                  },
-                  //SALVAR
-                  onSaved: (String inValue) => loginData.password = inValue,
+      child: Form(
+          key: formKey,
+          child: Column(
+            children: <Widget>[
+              TextFormField(
+                style: TextStyle(fontSize: 25),
+                keyboardType: TextInputType.name,
+                decoration: InputDecoration(
+                  hintText: 'Informe seu usuário',
+                  labelText: 'Usuário ',
+                  icon: Icon(Icons.person),
+                  errorStyle: TextStyle(color: Colors.white, fontSize: 15),
                 ),
-                RaisedButton(
-                  child: Text("Login", style: TextStyle(fontSize: 20)),
-                  onPressed: () {
-                    // Função anonima
-                    if (formKey.currentState.validate()) {
-                      formKey.currentState.save();
-                      loginData
-                          .doSomething(); //Guardar em um banco de dados por exemplo
-                      formKey.currentState
-                          .reset(); // Voltar ao seu estado inicial
-                    }
-                    // validar os valores do TextFormField
-                  },
+                // VALIDADOR
+                validator: (String inValue) {
+                  // Função anonima
+                  if (inValue.length == 0) {
+                    return "Por favor, insira usuário aqui";
+                  }
+                  return null;
+                },
+                //SALVAR
+                onSaved: (String inValue) => loginData.username = inValue,
+              ), //Mudar o tamanho da fonte da letra
+
+              TextFormField(
+                obscureText: true,
+                style: TextStyle(fontSize: 25),
+                decoration: InputDecoration(
+                  hintText: 'Informe sua senha',
+                  labelText: 'Senha ',
+                  //textError styling
+                  icon: Icon(Icons.security),
+                  errorStyle: TextStyle(color: Colors.white, fontSize: 15),
                 ),
-              ],
-            )),
-      ),
+
+                //VALIDADOR
+                validator: (String inValue) {
+                  if (inValue.length < 10) {
+                    return "Mínimo de 10 caracteres";
+                  }
+                  return null;
+                },
+                //SALVAR
+                onSaved: (String inValue) => loginData.password = inValue,
+              ),
+              Expanded(
+                child: Row(
+                  children: [
+                    Text("Professor",
+                        style: TextStyle(
+                            fontFamily: 'CourierPrime-Bold', // Fonte exportada
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black)),
+                    Radio(
+                      value: 1,
+                      groupValue: loginData
+                          .radioValue, //direciona valor do conteúdo para variável do loginData
+                      onChanged: (int inValue) {
+                        setState(() {
+                          loginData.radioValue = inValue;
+                        });
+                      },
+                    ),
+                    Text("Aluno",
+                        style: TextStyle(
+                            fontFamily: 'CourierPrime-Bold', // Fonte exportada
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black)),
+                    Radio(
+                      value: 2,
+                      groupValue: loginData.radioValue,
+                      onChanged: (int inValue) {
+                        setState(() {
+                          // propriedade de mudança de estado proporcionada pelo StatefulWidget
+                          loginData.radioValue = inValue;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
+
+              RaisedButton(
+                child: Text("Login", style: TextStyle(fontSize: 20)),
+                onPressed: () {
+                  // Função anonima
+                  if (formKey.currentState.validate()) {
+                    formKey.currentState.save();
+                    FocusScope.of(context).unfocus();
+                    loginData
+                        .doSomething(); //Guardar em um banco de dados por exemplo
+                    Scaffold.of(context).showSnackBar(SnackBar(
+                        content: Text(
+                            "Seja bem-vinda(o)!"))); // coloca mensagem no final da tela quando login dá certo
+                    formKey.currentState
+                        .reset(); // Voltar ao seu estado inicial
+                  }
+                  // validar os valores do TextFormField
+                },
+              ),
+              Text(""),
+              Text(""),
+              Text(""),
+              Text(""), // espaçamento do conteúdo
+
+              Row(
+                children: [
+                  Flexible(
+                    child: Text("Aceitar Políticas de Privacidade",
+                        style: TextStyle(
+                            fontFamily: 'CourierPrime-Bold', // Fonte exportada
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black)),
+                  ),
+                  Checkbox(
+                    onChanged: (bool inValue) {
+                      setState(() {
+                        loginData.checkboxValue =
+                            inValue; //checkbox colocando do lado do texto pela Row
+                      });
+                    },
+                    value: loginData.checkboxValue,
+                  ),
+                ],
+              ),
+              Row(children: [
+                Text("Remover Anúncios",
+                    style: TextStyle(
+                        fontFamily: 'CourierPrime-Bold', // Fonte exportada
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.black)),
+                Checkbox(
+                  onChanged: (bool inValue) {
+                    setState(() {
+                      loginData.checkboxValue1 =
+                          inValue; //mandando para loginData seu valor
+                    });
+                  },
+                  value: loginData.checkboxValue1,
+                )
+              ]),
+              Row(
+                children: [
+                  Flexible(
+                      child: Text("Night Mode (EM CONSTRUÇÃO...",
+                          style: TextStyle(
+                              fontFamily:
+                                  'CourierPrime-Bold', // Fonte exportada
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.normal,
+                              color: Colors.black))),
+                  Switch(
+                      value: loginData.switchValue,
+                      onChanged: (bool inValue) {
+                        setState(() {
+                          loginData.switchValue = inValue;
+                          currentTheme
+                              .switchTheme(); // chamada para possível mudança de estado de cores do app
+                        });
+                      })
+                ],
+              )
+            ],
+          )),
     );
   }
 }
