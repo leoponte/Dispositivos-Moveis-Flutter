@@ -310,7 +310,6 @@ class LoginData {
   var checkboxValue1 = false;
 
   var switchValue = false;
-  var sliderValue = .3;
   var radioValue = 1;
 
   doSomething() {
@@ -319,7 +318,6 @@ class LoginData {
     print("");
     print("CheckBox: $checkboxValue");
     print("Switch: $switchValue");
-    print("Slider: $sliderValue");
     print("Radio: $radioValue");
     print("");
   }
@@ -469,7 +467,8 @@ class _MyFirstFormWidgetState extends State<MyFirstFormWidget> {
                   // Função anonima
                   if (formKey.currentState.validate()) {
                     formKey.currentState.save();
-                    FocusScope.of(context).unfocus();
+                    FocusScope.of(context)
+                        .unfocus(); //Faz descer o teclado após apertar o botão
                     loginData
                         .doSomething(); //Guardar em um banco de dados por exemplo
                     Scaffold.of(context).showSnackBar(SnackBar(
