@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'main.dart';
 import 'register.dart';
+import 'dart:async';
 
 class MyMainDrawer extends StatelessWidget {
   // This widget is the root of your application.
@@ -30,35 +30,27 @@ class LoginData {
 class MyMainDrawerPage extends StatefulWidget {
   final LoginData loginData = new LoginData();
   @override
-  State<StatefulWidget> createState() => _MyMainDrawerPageState(loginData);
+  State<StatefulWidget> createState() => _MyMainDrawerPageState();
 }
 
 class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
-  //var _context;
-  final LoginData loginData;
-  final GlobalKey<FormState> formKey = new GlobalKey<FormState>();
-  final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
-  //final snackBar = SnackBar(content: Text('Yay! A SnackBar!'));
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  @override
-  _MyMainDrawerPageState(this.loginData);
+  _MyMainDrawerPageState() {
+    // coloca mensagem no final da tela
+    scheduleMicrotask(() => _scaffoldKey.currentState.showSnackBar(
+        SnackBar(content: Text('Hey!'), duration: Duration(seconds: 4))));
+  }
 
   @override
   Widget build(BuildContext context) {
     //this._context = context;
 
     return Scaffold(
-        key: scaffoldKey,
+        key: _scaffoldKey,
         appBar: AppBar(
           title: Text("Doido"),
         ),
-        body: SingleChildScrollView(child: Container(child: Center(
-          child: MaterialButton(
-            onPressed: () {
-              scaffoldKey.currentState.showSnackBar(
-                  new SnackBar(content: new Text("Saved Successfully")));
-            },
-          ),
-        ))));
+        body: Container());
   }
 }

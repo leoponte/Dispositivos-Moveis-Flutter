@@ -213,9 +213,7 @@ class _MyLoginPage extends State<MyAppPages> {
                                     FocusScope.of(context).unfocus();
                                     loginData
                                         .doSomething(); //Guardar em um banco de dados por exemplo
-                                    Scaffold.of(context).showSnackBar(SnackBar(
-                                        content: Text(
-                                            "Seja bem-vinda(o)!"))); // coloca mensagem no final da tela quando login dá certo
+
                                     formKey.currentState.reset();
                                     Navigator.push(
                                         _context,
