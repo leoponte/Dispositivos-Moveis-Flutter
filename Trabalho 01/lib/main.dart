@@ -223,6 +223,7 @@ class _MyLoginPage extends State<MyAppPages> {
                                 onSaved: (String inValue) =>
                                     loginData.password = inValue,
                               ),
+
                               Text("\n"),
                               MaterialButton(
                                 color: Colors.black,
@@ -237,12 +238,16 @@ class _MyLoginPage extends State<MyAppPages> {
                                     loginData
                                         .doSomething(); //Guardar em um banco de dados por exemplo
 
-                                    formKey.currentState.reset();
+                                    //formKey.currentState.reset();
+
+                                    // coloca mensagem no final da tela quando login dá certo
                                     Navigator.push(
                                         _context,
                                         MaterialPageRoute(
                                             builder: (BuildContext context) =>
-                                                MyMainDrawer())); // Voltar ao seu estado inicial
+                                                MyMainDrawer()));
+
+                                    // Voltar ao seu estado inicial
                                   }
                                   // validar os valores do TextFormField
                                 },
