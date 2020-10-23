@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final LoginData loginData;
   final GlobalKey<FormState> formKey = new GlobalKey<FormState>();
   bool _obscureText = true;
-
+  String dropdownValue = 'Salona';
   // Toggles the password show status
   void _toggle() {
     setState(() {
@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(children: [
           Container(
             //para decorar a tela
-            padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 100),
+            padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 20),
             decoration: BoxDecoration(
               color: Colors.red,
               borderRadius: BorderRadius.only(
@@ -90,7 +90,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   Text(" Cadastre-se",
                       //textAlign: TextAlign.left,
                       style: TextStyle(
-                          fontFamily: 'CourierPrime-Regular.ttf',
                           fontSize: 40.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
@@ -116,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   key: formKey,
                   child: Column(children: <Widget>[
                     TextFormField(
-                      style: TextStyle(fontSize: 25),
+                      style: TextStyle(fontSize: 20),
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         hintText: 'Informe seu nome',
@@ -136,7 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       onSaved: (String inValue) => loginData.nome = inValue,
                     ), //Mudar o tamanho da fonte da letra
                     TextFormField(
-                      style: TextStyle(fontSize: 25),
+                      style: TextStyle(fontSize: 20),
                       //keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         hintText: 'Informe seu usuário',
@@ -156,7 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       onSaved: (String inValue) => loginData.username = inValue,
                     ),
                     TextFormField(
-                      style: TextStyle(fontSize: 25),
+                      style: TextStyle(fontSize: 20),
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         hintText: 'Informe seu e-mail',
@@ -177,7 +176,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     TextFormField(
                       obscureText: _obscureText,
-                      style: TextStyle(fontSize: 25),
+                      style: TextStyle(fontSize: 20),
                       decoration: InputDecoration(
                         hintText: 'Informe sua senha',
                         labelText: 'Senha ',
@@ -207,62 +206,128 @@ class _MyHomePageState extends State<MyHomePage> {
                       //SALVAR
                       onSaved: (String inValue) => loginData.password = inValue,
                     ),
-                    Row(
-                      children: [
-                        Text("Professor",
-                            style: TextStyle(
-                                fontFamily:
-                                    'CourierPrime-Bold', // Fonte exportada
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.black)),
-                        Radio(
-                          value: 1,
-                          groupValue: loginData
-                              .radioValue1, //direciona valor do conteúdo para variável do loginData
-                          onChanged: (int inValue) {
-                            setState(() {
-                              loginData.radioValue1 = inValue;
-                            });
-                          },
-                        ),
-                        Text("Aluno",
-                            style: TextStyle(
-                                fontFamily:
-                                    'CourierPrime-Bold', // Fonte exportada
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.black)),
-                        Radio(
-                          value: 2,
-                          groupValue: loginData.radioValue1,
-                          onChanged: (int inValue) {
-                            setState(() {
-                              // propriedade de mudança de estado proporcionada pelo StatefulWidget
-                              loginData.radioValue1 = inValue;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                    RaisedButton(
-                      child: Text("Login", style: TextStyle(fontSize: 20)),
-                      onPressed: () {
-                        // Função anonima
-                        if (formKey.currentState.validate()) {
-                          formKey.currentState.save();
-                          FocusScope.of(context)
-                              .unfocus(); //Faz descer o teclado após apertar o botão
-                          loginData
-                              .doSomething(); //Guardar em um banco de dados por exemplo
-
-                          formKey.currentState
-                              .reset(); // Voltar ao seu estado inicial
-                        }
-                        // validar os valores do TextFormField
-                      },
-                    ),
                   ]))),
+          Text("\n"),
+          Container(
+              decoration: BoxDecoration(
+                color: Colors.red,
+                //borderRadius: BorderRadius.circular(50),
+                //border: Border.all(color: Colors.white, width: 10),
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                      child: Text("\n                       Quem é você?\n",
+                          style: TextStyle(
+                              // Fonte exportada
+                              fontSize: 22.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white)))
+                ],
+              )),
+          Container(
+              padding: EdgeInsets.only(left: 80, right: 5, top: 0, bottom: 0),
+              child: Row(
+                children: [
+                  Text("Professor",
+                      style: TextStyle(
+                          fontSize: 23.0,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black)),
+                  Radio(
+                    value: 1,
+                    activeColor: Colors.black,
+                    groupValue: loginData
+                        .radioValue1, //direciona valor do conteúdo para variável do loginData
+                    onChanged: (int inValue) {
+                      setState(() {
+                        loginData.radioValue1 = inValue;
+                      });
+                    },
+                  ),
+                  Text(" Aluno",
+                      style: TextStyle(
+                          fontSize: 23.0,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black)),
+                  Radio(
+                    value: 2,
+                    activeColor: Colors.black,
+                    groupValue: loginData.radioValue1,
+                    onChanged: (int inValue) {
+                      setState(() {
+                        // propriedade de mudança de estado proporcionada pelo StatefulWidget
+                        loginData.radioValue1 = inValue;
+                      });
+                    },
+                  ),
+                ],
+              )),
+          Container(
+              decoration: BoxDecoration(
+                color: Colors.red,
+                //borderRadius: BorderRadius.circular(50),
+                //border: Border.all(color: Colors.white, width: 10),
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                      child: Text("\n          De qual grupo você pertence?\n",
+                          style: TextStyle(
+                              // Fonte exportada
+                              fontSize: 22.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white)))
+                ],
+              )),
+          DropdownButton<String>(
+            value: dropdownValue,
+            icon: Icon(Icons.arrow_drop_down),
+            iconSize: 35,
+            elevation: 16,
+            style: TextStyle(color: Colors.black),
+            underline: Container(
+              height: 2,
+              color: Colors.black,
+            ),
+            onChanged: (String newValue) {
+              setState(() {
+                FocusScope.of(context).requestFocus(
+                    FocusNode()); //Para parar de abrir o teclado quando clicado no Dropdown
+                setState(() => dropdownValue = newValue);
+              });
+            },
+            items: <String>[
+              'Salona',
+              'Salinha',
+              'Grupo 3',
+              'Nenhuma das opções'
+            ].map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value, style: TextStyle(fontSize: 23.0)),
+              );
+            }).toList(),
+          ),
+          Text("\n"),
+          MaterialButton(
+            color: Colors.black,
+            child: Text("Login",
+                style: TextStyle(fontSize: 27, color: Colors.white)),
+            onPressed: () {
+              // Função anonima
+              if (formKey.currentState.validate()) {
+                formKey.currentState.save();
+                FocusScope.of(context)
+                    .unfocus(); //Faz descer o teclado após apertar o botão
+                loginData
+                    .doSomething(); //Guardar em um banco de dados por exemplo
+
+                formKey.currentState.reset(); // Voltar ao seu estado inicial
+              }
+              // validar os valores do TextFormField
+            },
+          ),
         ])));
   }
 }

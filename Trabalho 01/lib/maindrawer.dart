@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
-import 'register.dart';
+//import 'register.dart';
 import 'dart:async';
+import 'about.dart';
+import 'calendar.dart';
+import 'math.dart';
+import 'portuguese.dart';
+import 'history.dart';
+import 'geography.dart';
 
 class MyMainDrawer extends StatelessWidget {
   // This widget is the root of your application.
@@ -39,7 +45,7 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
   _MyMainDrawerPageState() {
     // coloca mensagem no final da tela
     scheduleMicrotask(() => _scaffoldKey.currentState.showSnackBar(
-        SnackBar(content: Text('Hey!'), duration: Duration(seconds: 4))));
+        SnackBar(content: Text('Bem vinde!'), duration: Duration(seconds: 5))));
   }
 
   @override
@@ -57,7 +63,7 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
 
   Widget mySecondListView() {
     return ListView(
-      children: [
+      children: <Widget>[
         Container(
             height: 150.0,
             child: DrawerHeader(
@@ -76,18 +82,72 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
                 style: TextStyle(fontSize: 20, color: Colors.black)),
             trailing: Icon(Icons.arrow_forward_ios),
             onTap: () {
-              print("ASDF");
-              Navigator.pop(context);
+              print("Sobre");
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => MyAbout()));
             }),
-        ListTile(
-            leading: Icon(Icons.book),
-            title: Text("Roteiro de Estudos",
-                style: TextStyle(fontSize: 20, color: Colors.black)),
-            trailing: Icon(Icons.arrow_forward_ios),
-            onTap: () {
-              print("ASDF");
-              Navigator.pop(context);
-            }),
+        ExpansionTile(
+          leading: Icon(Icons.book),
+          title: Text("Roteiro de Estudos",
+              style: TextStyle(fontSize: 20, color: Colors.black)),
+          trailing: Icon(Icons.arrow_forward_ios),
+          children: <Widget>[
+            ListTile(
+                title: Text("                  Matemática",
+                    style: TextStyle(
+                        fontSize: 19,
+                        color: Colors.black,
+                        fontWeight: FontWeight.normal)),
+                onTap: () {
+                  print("DEU CERTO");
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => MyMath()));
+                }),
+            ListTile(
+                title: Text("                   Português",
+                    style: TextStyle(
+                        fontSize: 19,
+                        color: Colors.black,
+                        fontWeight: FontWeight.normal)),
+                onTap: () {
+                  print("DEU CERTO");
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => MyPortuguese()));
+                }),
+            ListTile(
+                title: Text("                      História",
+                    style: TextStyle(
+                        fontSize: 19,
+                        color: Colors.black,
+                        fontWeight: FontWeight.normal)),
+                onTap: () {
+                  print("DEU CERTO");
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => MyHistory()));
+                }),
+            ListTile(
+                title: Text("                    Geografia",
+                    style: TextStyle(
+                        fontSize: 19,
+                        color: Colors.black,
+                        fontWeight: FontWeight.normal)),
+                onTap: () {
+                  print("DEU CERTO");
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => MyGeography()));
+                })
+          ],
+        ),
         ListTile(
             leading: Icon(Icons.calendar_today),
             title: Text("Calendário",
@@ -95,7 +155,10 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
             trailing: Icon(Icons.arrow_forward_ios),
             onTap: () {
               print("ASDF");
-              Navigator.pop(context);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => MyCalendar()));
             }),
         ListTile(
             leading: Icon(Icons.exit_to_app),
@@ -113,7 +176,7 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
             }),
         Container(
           //para decorar a tela
-          padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 300),
+          padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 338),
           decoration: BoxDecoration(
             color: Colors.red,
             borderRadius: BorderRadius.only(
