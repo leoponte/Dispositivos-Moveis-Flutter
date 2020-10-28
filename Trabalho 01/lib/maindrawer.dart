@@ -250,7 +250,7 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
                           builder: (BuildContext context) => MyMath()));
                 }),
             ListTile(
-                title: Text("                   Português",
+                title: Text("                  Português",
                     style: TextStyle(
                         fontSize: 19,
                         color: Colors.black,
@@ -263,7 +263,7 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
                           builder: (BuildContext context) => MyPortuguese()));
                 }),
             ListTile(
-                title: Text("                      História",
+                title: Text("                  História",
                     style: TextStyle(
                         fontSize: 19,
                         color: Colors.black,
@@ -276,7 +276,7 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
                           builder: (BuildContext context) => MyHistory()));
                 }),
             ListTile(
-                title: Text("                    Geografia",
+                title: Text("                  Geografia",
                     style: TextStyle(
                         fontSize: 19,
                         color: Colors.black,
