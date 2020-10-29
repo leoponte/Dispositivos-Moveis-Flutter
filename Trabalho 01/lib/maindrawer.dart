@@ -7,7 +7,7 @@ import 'calendar.dart';
 import 'math.dart';
 import 'portuguese.dart';
 import 'philosophy.dart';
-import 'geography.dart';
+import 'sociology.dart';
 
 class MyMainDrawer extends StatelessWidget {
   // This widget is the root of your application.
@@ -276,7 +276,7 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
                           builder: (BuildContext context) => MyPhilosophy()));
                 }),
             ListTile(
-                title: Text("                  Geografia",
+                title: Text("                  Sociologia",
                     style: TextStyle(
                         fontSize: 19,
                         color: Colors.black,
@@ -286,7 +286,7 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (BuildContext context) => MyGeography()));
+                          builder: (BuildContext context) => MySociology()));
                 })
           ],
         ),

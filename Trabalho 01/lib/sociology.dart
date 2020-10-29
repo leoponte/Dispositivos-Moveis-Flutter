@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 //import 'main.dart';
 import 'maindrawer.dart';
 
-class MyPhilosophy extends StatelessWidget {
+class MySociology extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -12,40 +12,34 @@ class MyPhilosophy extends StatelessWidget {
         primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyPhilosophyPage(),
+      home: MySociologyPage(),
     );
   }
 }
 
-class MyPhilosophyPage extends StatefulWidget {
+class MySociologyPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _MyPhilosophyPageState();
+  State<StatefulWidget> createState() => _MySociologyPageState();
 }
 
-class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
+class _MySociologyPageState extends State<MySociologyPage> {
   var _context;
-  final GlobalKey<FormState> formKey4 = new GlobalKey<FormState>();
-  var introducao1 = false;
+  final GlobalKey<FormState> formKey5 = new GlobalKey<FormState>();
+  var introSoc = false;
 
-  var antigOri1 = false;
-  var antigOri2 = false;
-  var antigOri3 = false;
-  var antigOri4 = false;
+  var natureza1 = false;
+  var natureza2 = false;
+  var natureza3 = false;
 
-  var antigOci1 = false;
-  var antigOci2 = false;
-  var antigOci3 = false;
-  var antigOci4 = false;
-  var antigOci5 = false;
-  var antigOci6 = false;
+  var fundamentos1 = false;
+  var fundamentos2 = false;
+  var fundamentos3 = false;
+  var fundamentos4 = false;
 
-  var transiIdm1 = false;
-  var transiIdm2 = false;
-  var transiIdm3 = false;
-
-  var filoMod1 = false;
-  var filoMod2 = false;
-  var filoMod3 = false;
+  var classicos1 = false;
+  var classicos2 = false;
+  var classicos3 = false;
+  var classicos4 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +56,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
         ),
         body: SingleChildScrollView(
             child: Form(
-                key: formKey4,
+                key: formKey5,
                 child: Column(
                   children: [
                     Container(
@@ -78,7 +72,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                       ),
                       child: Row(
                         children: [
-                          Text("  Filosofia      ",
+                          Text("  Sociologia",
                               //textAlign: TextAlign.left,
                               style: TextStyle(
                                   fontSize: 35.0,
@@ -113,7 +107,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                           child: Row(
                             children: [
                               Expanded(
-                                child: Text("Introdução à Filosofia",
+                                child: Text("Introdução ao Curso de Sociologia",
                                     style: TextStyle(
                                         fontSize: 19,
                                         color: Colors.black,
@@ -127,15 +121,15 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                           padding: EdgeInsets.only(
                               left: 20, right: 20, top: 10, bottom: 10),
                           child: CheckboxListTile(
-                            value: introducao1,
-                            title: const Text("Introdução à Filosofia",
+                            value: introSoc,
+                            title: const Text("O Conhecimento e a Ciência",
                                 style: TextStyle(
                                     fontSize: 19,
                                     color: Colors.black,
                                     fontWeight: FontWeight.normal)),
                             onChanged: (bool inValue) {
                               setState(() {
-                                introducao1 = inValue;
+                                introSoc = inValue;
                               });
                             },
                           )),
@@ -152,8 +146,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                           child: Row(
                             children: [
                               Expanded(
-                                child: Text(
-                                    "Filosofia Antiga - Antiguidade Oriental",
+                                child: Text("Natureza e Cultura",
                                     style: TextStyle(
                                         fontSize: 19,
                                         color: Colors.black,
@@ -167,16 +160,15 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                           padding: EdgeInsets.only(
                               left: 20, right: 20, top: 10, bottom: 10),
                           child: CheckboxListTile(
-                            value: antigOri1,
-                            title: const Text(
-                                "Introdução à Filosofia do Oriente Médio",
+                            value: natureza1,
+                            title: const Text("O que é o Homem?",
                                 style: TextStyle(
                                     fontSize: 19,
                                     color: Colors.black,
                                     fontWeight: FontWeight.normal)),
                             onChanged: (bool inValue) {
                               setState(() {
-                                antigOri1 = inValue;
+                                natureza1 = inValue;
                               });
                             },
                           )),
@@ -186,15 +178,15 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                           padding: EdgeInsets.only(
                               left: 20, right: 20, top: 10, bottom: 10),
                           child: CheckboxListTile(
-                            value: antigOri2,
-                            title: const Text("Os Egípcios",
+                            value: natureza2,
+                            title: const Text("Natureza e Cultura",
                                 style: TextStyle(
                                     fontSize: 19,
                                     color: Colors.black,
                                     fontWeight: FontWeight.normal)),
                             onChanged: (bool inValue) {
                               setState(() {
-                                antigOri2 = inValue;
+                                natureza2 = inValue;
                               });
                             },
                           )),
@@ -204,33 +196,15 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                           padding: EdgeInsets.only(
                               left: 20, right: 20, top: 10, bottom: 10),
                           child: CheckboxListTile(
-                            value: antigOri3,
-                            title: const Text("Os Mesopotâmicos",
+                            value: natureza3,
+                            title: const Text("Trabalho",
                                 style: TextStyle(
                                     fontSize: 19,
                                     color: Colors.black,
                                     fontWeight: FontWeight.normal)),
                             onChanged: (bool inValue) {
                               setState(() {
-                                antigOri3 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: CheckboxListTile(
-                            value: antigOri4,
-                            title: const Text("Os Hebreus",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                antigOri4 = inValue;
+                                natureza3 = inValue;
                               });
                             },
                           )),
@@ -247,8 +221,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                           child: Row(
                             children: [
                               Expanded(
-                                child: Text(
-                                    "Filosofia Antiga - Antiguidade Ocidental",
+                                child: Text("Fundamentos da Sociologia",
                                     style: TextStyle(
                                         fontSize: 19,
                                         color: Colors.black,
@@ -262,15 +235,15 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                           padding: EdgeInsets.only(
                               left: 20, right: 20, top: 10, bottom: 10),
                           child: CheckboxListTile(
-                            value: antigOci1,
-                            title: const Text("Introdução ao Mundo Grego",
+                            value: fundamentos1,
+                            title: const Text("A Modernidade",
                                 style: TextStyle(
                                     fontSize: 19,
                                     color: Colors.black,
                                     fontWeight: FontWeight.normal)),
                             onChanged: (bool inValue) {
                               setState(() {
-                                antigOci1 = inValue;
+                                fundamentos1 = inValue;
                               });
                             },
                           )),
@@ -280,16 +253,15 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                           padding: EdgeInsets.only(
                               left: 20, right: 20, top: 10, bottom: 10),
                           child: CheckboxListTile(
-                            value: antigOci2,
-                            title: const Text(
-                                "Pré-Socráticos ou Filósofos da Natureza",
+                            value: fundamentos2,
+                            title: const Text("O Nascimento da Sociologia",
                                 style: TextStyle(
                                     fontSize: 19,
                                     color: Colors.black,
                                     fontWeight: FontWeight.normal)),
                             onChanged: (bool inValue) {
                               setState(() {
-                                antigOci2 = inValue;
+                                fundamentos2 = inValue;
                               });
                             },
                           )),
@@ -299,15 +271,15 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                           padding: EdgeInsets.only(
                               left: 20, right: 20, top: 10, bottom: 10),
                           child: CheckboxListTile(
-                            value: antigOci3,
-                            title: const Text("Sofistas",
+                            value: fundamentos3,
+                            title: const Text("O Estudo da Antropologia",
                                 style: TextStyle(
                                     fontSize: 19,
                                     color: Colors.black,
                                     fontWeight: FontWeight.normal)),
                             onChanged: (bool inValue) {
                               setState(() {
-                                antigOci3 = inValue;
+                                fundamentos3 = inValue;
                               });
                             },
                           )),
@@ -317,51 +289,15 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                           padding: EdgeInsets.only(
                               left: 20, right: 20, top: 10, bottom: 10),
                           child: CheckboxListTile(
-                            value: antigOci4,
-                            title: const Text("Socráticos - Sócrates",
+                            value: fundamentos4,
+                            title: const Text("O Poder da Política",
                                 style: TextStyle(
                                     fontSize: 19,
                                     color: Colors.black,
                                     fontWeight: FontWeight.normal)),
                             onChanged: (bool inValue) {
                               setState(() {
-                                antigOci4 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: CheckboxListTile(
-                            value: antigOci5,
-                            title: const Text("Socráticos - Platão",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                antigOci5 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: CheckboxListTile(
-                            value: antigOci6,
-                            title: const Text("Socráticos - Aristóteles",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                antigOci6 = inValue;
+                                fundamentos4 = inValue;
                               });
                             },
                           )),
@@ -378,7 +314,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                           child: Row(
                             children: [
                               Expanded(
-                                child: Text("Transição da Id. para a Id. Média",
+                                child: Text("Clássicos da Sociologia",
                                     style: TextStyle(
                                         fontSize: 19,
                                         color: Colors.black,
@@ -392,15 +328,15 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                           padding: EdgeInsets.only(
                               left: 20, right: 20, top: 10, bottom: 10),
                           child: CheckboxListTile(
-                            value: transiIdm1,
-                            title: const Text("Filosofia Helenística",
+                            value: classicos1,
+                            title: const Text("Augusto Comte",
                                 style: TextStyle(
                                     fontSize: 19,
                                     color: Colors.black,
                                     fontWeight: FontWeight.normal)),
                             onChanged: (bool inValue) {
                               setState(() {
-                                transiIdm1 = inValue;
+                                classicos1 = inValue;
                               });
                             },
                           )),
@@ -410,15 +346,15 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                           padding: EdgeInsets.only(
                               left: 20, right: 20, top: 10, bottom: 10),
                           child: CheckboxListTile(
-                            value: transiIdm2,
-                            title: const Text("Filosofia Medieval",
+                            value: classicos2,
+                            title: const Text("Émile Durkheim",
                                 style: TextStyle(
                                     fontSize: 19,
                                     color: Colors.black,
                                     fontWeight: FontWeight.normal)),
                             onChanged: (bool inValue) {
                               setState(() {
-                                transiIdm2 = inValue;
+                                classicos2 = inValue;
                               });
                             },
                           )),
@@ -428,54 +364,15 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                           padding: EdgeInsets.only(
                               left: 20, right: 20, top: 10, bottom: 10),
                           child: CheckboxListTile(
-                            value: transiIdm3,
-                            title: const Text("Pensamento Cristão",
+                            value: classicos3,
+                            title: const Text("Max Weber",
                                 style: TextStyle(
                                     fontSize: 19,
                                     color: Colors.black,
                                     fontWeight: FontWeight.normal)),
                             onChanged: (bool inValue) {
                               setState(() {
-                                transiIdm3 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20),
-                              border:
-                                  Border.all(color: Colors.black, width: 4)),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Filosofia Moderna e Contemporânea",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                            ],
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: CheckboxListTile(
-                            value: filoMod1,
-                            title: const Text("Ciência Moderna",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                filoMod1 = inValue;
+                                classicos3 = inValue;
                               });
                             },
                           )),
@@ -485,33 +382,15 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                           padding: EdgeInsets.only(
                               left: 20, right: 20, top: 10, bottom: 10),
                           child: CheckboxListTile(
-                            value: filoMod2,
-                            title: const Text("Ética e Moral",
+                            value: classicos4,
+                            title: const Text("Karl Marx",
                                 style: TextStyle(
                                     fontSize: 19,
                                     color: Colors.black,
                                     fontWeight: FontWeight.normal)),
                             onChanged: (bool inValue) {
                               setState(() {
-                                filoMod2 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: CheckboxListTile(
-                            value: filoMod3,
-                            title: const Text("Verdade",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                filoMod3 = inValue;
+                                classicos4 = inValue;
                               });
                             },
                           )),
