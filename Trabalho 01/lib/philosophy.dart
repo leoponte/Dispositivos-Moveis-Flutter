@@ -125,7 +125,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: introducao1,
                             title: const Text("Introdução à Filosofia",
@@ -165,7 +165,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: antigOri1,
                             title: const Text(
@@ -184,7 +184,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: antigOri2,
                             title: const Text("Os Egípcios",
@@ -202,7 +202,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: antigOri3,
                             title: const Text("Os Mesopotâmicos",
@@ -220,7 +220,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: antigOri4,
                             title: const Text("Os Hebreus",
@@ -260,7 +260,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: antigOci1,
                             title: const Text("Introdução ao Mundo Grego",
@@ -278,7 +278,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: antigOci2,
                             title: const Text(
@@ -297,7 +297,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: antigOci3,
                             title: const Text("Sofistas",
@@ -315,7 +315,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: antigOci4,
                             title: const Text("Socráticos - Sócrates",
@@ -333,7 +333,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: antigOci5,
                             title: const Text("Socráticos - Platão",
@@ -351,7 +351,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: antigOci6,
                             title: const Text("Socráticos - Aristóteles",
@@ -390,7 +390,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: transiIdm1,
                             title: const Text("Filosofia Helenística",
@@ -408,7 +408,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: transiIdm2,
                             title: const Text("Filosofia Medieval",
@@ -426,7 +426,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: transiIdm3,
                             title: const Text("Pensamento Cristão",
@@ -465,7 +465,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: filoMod1,
                             title: const Text("Ciência Moderna",
@@ -483,7 +483,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: filoMod2,
                             title: const Text("Ética e Moral",
@@ -501,7 +501,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: filoMod3,
                             title: const Text("Verdade",

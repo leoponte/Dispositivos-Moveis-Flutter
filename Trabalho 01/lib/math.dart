@@ -110,231 +110,154 @@ class _MyMathPageState extends State<MyMathPage> {
                     ),
                     Text(""),
                     Text(""),
-                    Container(
-                        padding: EdgeInsets.only(
-                            left: 20, right: 20, top: 10, bottom: 10),
-                        //height: 130.0,
-                        //width: 500,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(color: Colors.black, width: 4)),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Text("Matemática Básica",
-                                  style: TextStyle(
-                                      fontSize: 19,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.normal)),
-                            ),
-                          ],
-                        )),
-                    Container(
-                        padding: EdgeInsets.only(
-                            left: 20, right: 20, top: 10, bottom: 10),
-                        //height: 130.0,
-                        //width: 500,
-                        //decoration: BoxDecoration(
-                        //color: Colors.white,
-                        // borderRadius: BorderRadius.circular(40),
-                        // border: Border.all(color: Colors.black, width: 4)),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Text("     Operações Básicas",
-                                  style: TextStyle(
-                                      fontSize: 19,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.normal)),
-                            ),
-                            Checkbox(
-                              value: matBasica1,
-                              onChanged: (bool inValue) {
-                                setState(() {
-                                  matBasica1 =
-                                      inValue; //checkbox colocando do lado do texto pela Row
-                                });
-                              },
-                            ),
-                          ],
-                        )),
-                    Container(
-                        padding: EdgeInsets.only(
-                            left: 20, right: 20, top: 10, bottom: 10),
-                        //height: 130.0,
-                        //width: 500,
-                        //decoration: BoxDecoration(
-                        //color: Colors.white,
-                        // borderRadius: BorderRadius.circular(40),
-                        // border: Border.all(color: Colors.black, width: 4)),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Text("     Potenciação e Radiciação",
-                                  style: TextStyle(
-                                      fontSize: 19,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.normal)),
-                            ),
-                            Checkbox(
-                              value: matBasica2,
-                              onChanged: (bool inValue) {
-                                setState(() {
-                                  matBasica2 =
-                                      inValue; //checkbox colocando do lado do texto pela Row
-                                });
-                              },
-                            ),
-                          ],
-                        )),
-                    Container(
-                        padding: EdgeInsets.only(
-                            left: 20, right: 20, top: 10, bottom: 10),
-                        //height: 130.0,
-                        //width: 500,
-                        //decoration: BoxDecoration(
-                        //color: Colors.white,
-                        // borderRadius: BorderRadius.circular(40),
-                        // border: Border.all(color: Colors.black, width: 4)),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Text("     Expressões Numéricas",
-                                  style: TextStyle(
-                                      fontSize: 19,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.normal)),
-                            ),
-                            Checkbox(
-                              value: matBasica3,
-                              onChanged: (bool inValue) {
-                                setState(() {
-                                  matBasica3 =
-                                      inValue; //checkbox colocando do lado do texto pela Row
-                                });
-                              },
-                            ),
-                          ],
-                        )),
-                    Container(
-                        padding: EdgeInsets.only(
-                            left: 20, right: 20, top: 10, bottom: 10),
-                        //height: 130.0,
-                        //width: 500,
-                        //decoration: BoxDecoration(
-                        //color: Colors.white,
-                        // borderRadius: BorderRadius.circular(40),
-                        // border: Border.all(color: Colors.black, width: 4)),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Text(
-                                  "     Múltiplos, Divisores, MDC e MMC",
-                                  style: TextStyle(
-                                      fontSize: 19,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.normal)),
-                            ),
-                            Checkbox(
-                              value: matBasica4,
-                              onChanged: (bool inValue) {
-                                setState(() {
-                                  matBasica4 =
-                                      inValue; //checkbox colocando do lado do texto pela Row
-                                });
-                              },
-                            ),
-                          ],
-                        )),
-                    Container(
-                        padding: EdgeInsets.only(
-                            left: 20, right: 20, top: 10, bottom: 10),
-                        //height: 130.0,
-                        //width: 500,
-                        //decoration: BoxDecoration(
-                        //color: Colors.white,
-                        // borderRadius: BorderRadius.circular(40),
-                        // border: Border.all(color: Colors.black, width: 4)),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Text(
-                                  "     Operações Básicas com Polinômios",
-                                  style: TextStyle(
-                                      fontSize: 19,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.normal)),
-                            ),
-                            Checkbox(
-                              value: matBasica5,
-                              onChanged: (bool inValue) {
-                                setState(() {
-                                  matBasica5 =
-                                      inValue; //checkbox colocando do lado do texto pela Row
-                                });
-                              },
-                            ),
-                          ],
-                        )),
-                    Container(
-                        padding: EdgeInsets.only(
-                            left: 20, right: 20, top: 10, bottom: 10),
-                        //height: 130.0,
-                        //width: 500,
-                        //decoration: BoxDecoration(
-                        //color: Colors.white,
-                        // borderRadius: BorderRadius.circular(40),
-                        // border: Border.all(color: Colors.black, width: 4)),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Text("     Frações, Decimais e Dízimas",
-                                  style: TextStyle(
-                                      fontSize: 19,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.normal)),
-                            ),
-                            Checkbox(
-                              value: matBasica6,
-                              onChanged: (bool inValue) {
-                                setState(() {
-                                  matBasica6 =
-                                      inValue; //checkbox colocando do lado do texto pela Row
-                                });
-                              },
-                            ),
-                          ],
-                        )),
-                    Container(
-                        padding: EdgeInsets.only(
-                            left: 20, right: 20, top: 10, bottom: 10),
-                        //height: 130.0,
-                        //width: 500,
-                        //decoration: BoxDecoration(
-                        //color: Colors.white,
-                        // borderRadius: BorderRadius.circular(40),
-                        // border: Border.all(color: Colors.black, width: 4)),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Text("     Notação Científica",
-                                  style: TextStyle(
-                                      fontSize: 19,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.normal)),
-                            ),
-                            Checkbox(
-                              value: matBasica7,
-                              onChanged: (bool inValue) {
-                                setState(() {
-                                  matBasica7 =
-                                      inValue; //checkbox colocando do lado do texto pela Row
-                                });
-                              },
-                            ),
-                          ],
-                        )),
+                    Card(
+                      child: Container(
+                          padding: EdgeInsets.only(
+                              left: 20, right: 20, top: 10, bottom: 10),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20),
+                              border:
+                                  Border.all(color: Colors.black, width: 4)),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Text("Matemática Básica",
+                                    style: TextStyle(
+                                        fontSize: 19,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.normal)),
+                              ),
+                            ],
+                          )),
+                    ),
+                    Card(
+                      child: Container(
+                          padding: EdgeInsets.only(
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: matBasica1,
+                            title: const Text("Operações Básicas",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                matBasica1 = inValue;
+                              });
+                            },
+                          )),
+                    ),
+                    Card(
+                      child: Container(
+                          padding: EdgeInsets.only(
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: matBasica2,
+                            title: const Text("Potenciação e Radiciação",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                matBasica2 = inValue;
+                              });
+                            },
+                          )),
+                    ),
+                    Card(
+                      child: Container(
+                          padding: EdgeInsets.only(
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: matBasica3,
+                            title: const Text("Expressões Numéricas",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                matBasica3 = inValue;
+                              });
+                            },
+                          )),
+                    ),
+                    Card(
+                      child: Container(
+                          padding: EdgeInsets.only(
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: matBasica4,
+                            title: const Text("Múltiplos, Divisores, MDC e MMC",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                matBasica4 = inValue;
+                              });
+                            },
+                          )),
+                    ),
+                    Card(
+                      child: Container(
+                          padding: EdgeInsets.only(
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: matBasica5,
+                            title: const Text(
+                                "Operações Básicas com Polinômios",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                matBasica5 = inValue;
+                              });
+                            },
+                          )),
+                    ),
+                    Card(
+                      child: Container(
+                          padding: EdgeInsets.only(
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: matBasica6,
+                            title: const Text("Frações, Decimais e Dízimas",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                matBasica6 = inValue;
+                              });
+                            },
+                          )),
+                    ),
+                    Card(
+                      child: Container(
+                          padding: EdgeInsets.only(
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: matBasica7,
+                            title: const Text("Notação Científica",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                matBasica7 = inValue;
+                              });
+                            },
+                          )),
+                    ),
                   ],
                 ))));
   }

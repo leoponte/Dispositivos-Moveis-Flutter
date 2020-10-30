@@ -150,297 +150,217 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          //height: 130.0,
-                          //width: 500,
-                          //decoration: BoxDecoration(
-                          //color: Colors.white,
-                          // borderRadius: BorderRadius.circular(40),
-                          // border: Border.all(color: Colors.black, width: 4)),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Substantivo",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: morfologia1,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    morfologia1 =
-                                        inValue; //checkbox colocando do lado do texto pela Row
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: morfologia1,
+                            title: const Text("Substantivo",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                morfologia1 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Artigo",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: morfologia2,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    morfologia2 =
-                                        inValue; //checkbox colocando do lado do texto pela Row
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: morfologia2,
+                            title: const Text("Artigo",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                morfologia2 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Adjetivo",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: morfologia3,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    morfologia3 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: morfologia3,
+                            title: const Text("Adjetivo",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                morfologia3 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Numeral",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: morfologia4,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    morfologia4 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: morfologia4,
+                            title: const Text("Numeral",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                morfologia4 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Pronome",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: morfologia5,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    morfologia5 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: morfologia5,
+                            title: const Text("Pronome",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                morfologia5 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Funções do Pronome Se",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: morfologia6,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    morfologia6 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: morfologia6,
+                            title: const Text("Função do Pronome Se",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                morfologia6 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Conectivos",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: morfologia7,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    morfologia7 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: morfologia7,
+                            title: const Text("Conectivos",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                morfologia7 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Interjeição",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: morfologia8,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    morfologia8 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: morfologia8,
+                            title: const Text("Interjeição",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                morfologia8 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Verbo",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: morfologia9,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    morfologia9 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: morfologia9,
+                            title: const Text("Verbo",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                morfologia9 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Advérbio",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: morfologia10,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    morfologia10 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: morfologia10,
+                            title: const Text("Advérbio",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                morfologia10 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Funções da Palavra Que",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: morfologia11,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    morfologia11 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: morfologia11,
+                            title: const Text("Funções da Palavra Que",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                morfologia11 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Análise Morfológica",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: morfologia12,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    morfologia12 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: morfologia12,
+                            title: const Text("Análise Morfológica",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                morfologia12 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Text(""),
@@ -468,73 +388,55 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Formação das Palavras",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: formacao1,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    formacao1 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: formacao1,
+                            title: const Text("Formação das Palavras",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                formacao1 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Colocação das Palavras",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: formacao2,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    formacao2 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: formacao2,
+                            title: const Text("Colocação das Palavras",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                formacao2 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Colocação Pronomial",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: formacao3,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    formacao3 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: formacao3,
+                            title: const Text("Colocação Pronomial",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                formacao3 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
@@ -561,97 +463,73 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Sujeito e Predicado",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: sintaxe1,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    sintaxe1 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: sintaxe1,
+                            title: const Text("Sujeito e Predicado",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                sintaxe1 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Vocativo",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: sintaxe2,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    sintaxe2 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: sintaxe2,
+                            title: const Text("Vocativo",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                sintaxe2 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Termos Associados ao Verbo",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: sintaxe3,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    sintaxe3 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: sintaxe3,
+                            title: const Text("Termos Associados ao Verbo",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                sintaxe3 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Termos Associados ao Nome",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: sintaxe4,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    sintaxe4 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: sintaxe4,
+                            title: const Text("Termos Associados ao Nome",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                sintaxe4 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
@@ -678,49 +556,37 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Concordância Verbal",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: concordancia1,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    concordancia1 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: concordancia1,
+                            title: const Text("Concordância Verbal",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                concordancia1 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Concordância Nominal",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: concordancia2,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    concordancia2 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: concordancia2,
+                            title: const Text("Concordância Nominal",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                concordancia2 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
@@ -747,25 +613,19 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Regência",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: regencia1,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    regencia1 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: regencia1,
+                            title: const Text("Regência",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                regencia1 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
@@ -789,146 +649,113 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                             ],
                           )),
                     ),
-                    Container(
-                        padding: EdgeInsets.only(
-                            left: 20, right: 20, top: 10, bottom: 10),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Text("Orações Subordinadas Substantivas",
-                                  style: TextStyle(
-                                      fontSize: 19,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.normal)),
-                            ),
-                            Checkbox(
-                              value: oracoes1,
-                              onChanged: (bool inValue) {
-                                setState(() {
-                                  oracoes1 = inValue;
-                                });
-                              },
-                            ),
-                          ],
-                        )),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Orações Subordinadas Adjetivas",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: oracoes2,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    oracoes2 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: oracoes1,
+                            title: const Text(
+                                "Orações Subordinadas Substantivas",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                oracoes1 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Orações Subordinadas Adverbiais",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: oracoes3,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    oracoes3 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: oracoes2,
+                            title: const Text("Orações Subordinadas Adjetivas",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                oracoes2 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Orações Subordinadas Reduzidas",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: oracoes4,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    oracoes4 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: oracoes3,
+                            title: const Text("Orações Subordinadas Adverbiais",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                oracoes3 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Orações Coordenadas",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: oracoes5,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    oracoes5 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: oracoes4,
+                            title: const Text("Orações Subordinadas Reduzidas",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                oracoes4 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Orações Intercaladas",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: oracoes6,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    oracoes6 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: oracoes5,
+                            title: const Text("Orações Coordenadas",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                oracoes5 = inValue;
+                              });
+                            },
+                          )),
+                    ),
+                    Card(
+                      child: Container(
+                          padding: EdgeInsets.only(
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: oracoes6,
+                            title: const Text("Orações Intercaladas",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                oracoes6 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
@@ -955,25 +782,19 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Ortografia",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: ortografia1,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    ortografia1 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: ortografia1,
+                            title: const Text("Ortografia",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                ortografia1 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
@@ -1000,25 +821,19 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Regras de Pontuação",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: regrasP1,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    regrasP1 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: regrasP1,
+                            title: const Text("Regras de Pontuação",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                regrasP1 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
@@ -1045,49 +860,37 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Acentuação Gráfica",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: regrasA1,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    regrasA1 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: regrasA1,
+                            title: const Text("Acentuação Gráfica",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                oracoes1 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Crase",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: regrasA2,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    regrasA2 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: regrasA2,
+                            title: const Text("Crase",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                regrasA2 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
@@ -1114,25 +917,19 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Semântica",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: semantica1,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    semantica1 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: semantica1,
+                            title: const Text("Semântica",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                semantica1 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Card(
@@ -1159,25 +956,19 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Variações Linguísticas",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(
-                                value: variacoes1,
-                                onChanged: (bool inValue) {
-                                  setState(() {
-                                    variacoes1 = inValue;
-                                  });
-                                },
-                              ),
-                            ],
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: variacoes1,
+                            title: const Text("Variações Linguísticas",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                variacoes1 = inValue;
+                              });
+                            },
                           )),
                     ),
                     Text(""),

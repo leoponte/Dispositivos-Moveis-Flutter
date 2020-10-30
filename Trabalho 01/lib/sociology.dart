@@ -119,7 +119,7 @@ class _MySociologyPageState extends State<MySociologyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: introSoc,
                             title: const Text("O Conhecimento e a Ciência",
@@ -158,7 +158,7 @@ class _MySociologyPageState extends State<MySociologyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: natureza1,
                             title: const Text("O que é o Homem?",
@@ -176,7 +176,7 @@ class _MySociologyPageState extends State<MySociologyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: natureza2,
                             title: const Text("Natureza e Cultura",
@@ -194,7 +194,7 @@ class _MySociologyPageState extends State<MySociologyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: natureza3,
                             title: const Text("Trabalho",
@@ -233,7 +233,7 @@ class _MySociologyPageState extends State<MySociologyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: fundamentos1,
                             title: const Text("A Modernidade",
@@ -251,7 +251,7 @@ class _MySociologyPageState extends State<MySociologyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: fundamentos2,
                             title: const Text("O Nascimento da Sociologia",
@@ -269,7 +269,7 @@ class _MySociologyPageState extends State<MySociologyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: fundamentos3,
                             title: const Text("O Estudo da Antropologia",
@@ -287,7 +287,7 @@ class _MySociologyPageState extends State<MySociologyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: fundamentos4,
                             title: const Text("O Poder da Política",
@@ -326,7 +326,7 @@ class _MySociologyPageState extends State<MySociologyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: classicos1,
                             title: const Text("Augusto Comte",
@@ -344,7 +344,7 @@ class _MySociologyPageState extends State<MySociologyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: classicos2,
                             title: const Text("Émile Durkheim",
@@ -362,7 +362,7 @@ class _MySociologyPageState extends State<MySociologyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: classicos3,
                             title: const Text("Max Weber",
@@ -380,7 +380,7 @@ class _MySociologyPageState extends State<MySociologyPage> {
                     Card(
                       child: Container(
                           padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
+                              left: 20, right: 0, top: 0, bottom: 0),
                           child: CheckboxListTile(
                             value: classicos4,
                             title: const Text("Karl Marx",
