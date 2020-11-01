@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
-//import 'register.dart';
 import 'dart:async';
 import 'about.dart';
 import 'calendar.dart';
@@ -10,7 +9,6 @@ import 'philosophy.dart';
 import 'sociology.dart';
 
 class MyMainDrawer extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -44,24 +42,20 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
 
   _MyMainDrawerPageState() {
     // coloca mensagem no final da tela
-    scheduleMicrotask(() => _scaffoldKey.currentState.showSnackBar(
-        SnackBar(content: Text('Bem vinde!'), duration: Duration(seconds: 5))));
+
+    scheduleMicrotask(() => _scaffoldKey.currentState.showSnackBar(SnackBar(
+        content: Text('Menu principal!'), duration: Duration(seconds: 5))));
   }
 
   @override
   Widget build(BuildContext context) {
-    //this._context = context;
-
     return Scaffold(
         key: _scaffoldKey,
-        appBar: AppBar(
-          title: Text(""),
-        ),
+        appBar: AppBar(),
         body: SingleChildScrollView(
           child: Column(
             children: [
               Container(
-                //para decorar a tela
                 padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 20),
                 decoration: BoxDecoration(
                   color: Colors.red,
@@ -73,7 +67,7 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
                 child: Column(children: [
                   Row(
                     children: [
-                      Text("  Nossas Lutas",
+                      Text("   Nossas Lutas",
                           //textAlign: TextAlign.left,
                           style: TextStyle(
                               fontSize: 35.0,
@@ -99,7 +93,6 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
                   margin: const EdgeInsets.only(
                       left: 10.0, right: 10.0, bottom: 10.0, top: 30.0),
                   child: Material(
-                    //color: Colors.red,
                     borderRadius: BorderRadius.circular(8.0),
                     elevation: 10.0,
                     child: Row(
@@ -121,7 +114,6 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
                   margin: const EdgeInsets.only(
                       left: 10.0, right: 10.0, bottom: 10.0, top: 30.0),
                   child: Material(
-                    //color: Colors.red,
                     borderRadius: BorderRadius.circular(8.0),
                     elevation: 10.0,
                     child: Row(
@@ -148,7 +140,6 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
                   margin: const EdgeInsets.only(
                       left: 10.0, right: 10.0, bottom: 10.0, top: 30.0),
                   child: Material(
-                    //color: Colors.red,
                     borderRadius: BorderRadius.circular(8.0),
                     elevation: 10.0,
                     child: Row(
@@ -179,7 +170,6 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
                     top: 30.0,
                   ),
                   child: Material(
-                    //color: Colors.red,
                     borderRadius: BorderRadius.circular(8.0),
                     elevation: 10.0,
                     child: Row(
@@ -218,13 +208,13 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
             ),
             margin: EdgeInsets.all(0.0),
             padding: EdgeInsets.all(0.0)),
+        //Usado na drawer como tópicos clicáveis
         ListTile(
             leading: Icon(Icons.info),
             title: Text("História",
                 style: TextStyle(fontSize: 20, color: Colors.black)),
             trailing: Icon(Icons.arrow_forward_ios),
             onTap: () {
-              print("Sobre");
               Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -243,7 +233,6 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
                         color: Colors.black,
                         fontWeight: FontWeight.normal)),
                 onTap: () {
-                  print("DEU CERTO");
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -256,7 +245,6 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
                         color: Colors.black,
                         fontWeight: FontWeight.normal)),
                 onTap: () {
-                  print("DEU CERTO");
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -269,7 +257,6 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
                         color: Colors.black,
                         fontWeight: FontWeight.normal)),
                 onTap: () {
-                  print("DEU CERTO");
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -282,7 +269,6 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
                         color: Colors.black,
                         fontWeight: FontWeight.normal)),
                 onTap: () {
-                  print("DEU CERTO");
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -296,7 +282,6 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
                 style: TextStyle(fontSize: 20, color: Colors.black)),
             trailing: Icon(Icons.arrow_forward_ios),
             onTap: () {
-              print("ASDF");
               Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -310,7 +295,6 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
                     fontWeight: FontWeight.bold,
                     color: Colors.black)),
             onTap: () {
-              print("ASDF");
               Navigator.push(
                   context,
                   MaterialPageRoute(

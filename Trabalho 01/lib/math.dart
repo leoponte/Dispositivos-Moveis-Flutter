@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'main.dart';
 import 'maindrawer.dart';
 
 class MyMath extends StatelessWidget {
@@ -52,6 +51,7 @@ class _MyMathPageState extends State<MyMathPage> {
   var matBasica5 = false;
   var matBasica6 = false;
   var matBasica7 = false;
+  var matBasica8 = false;
 
   @override
   _MyMathPageState(this.loginData1);
@@ -69,196 +69,199 @@ class _MyMathPageState extends State<MyMathPage> {
                     builder: (BuildContext context) => MyMainDrawer())),
           ),
         ),
-        body: SingleChildScrollView(
-            child: Form(
-                key: formKey2,
-                child: Column(
-                  children: [
-                    Container(
-                      //para decorar a tela
-                      padding: EdgeInsets.only(
-                          left: 0, right: 0, top: 0, bottom: 20),
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: const Radius.circular(10),
-                          bottomRight: const Radius.circular(600),
-                        ),
-                      ),
-                      child: Row(
-                        children: [
-                          Text("  Matemática",
-                              //textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  fontSize: 35.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
-                          Container(
-                              padding: EdgeInsets.only(
-                                  left: 60, right: 0, top: 10, bottom: 0),
-                              child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(50),
-                                  child: Stack(children: <Widget>[
-                                    Image.asset(
-                                      'assets/images/logoredondo.png',
-                                      width: 70.0,
-                                      height: 70.0,
-                                    )
-                                  ]))),
-                        ],
-                      ),
-                    ),
-                    Text(""),
-                    Text(""),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20),
-                              border:
-                                  Border.all(color: Colors.black, width: 4)),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Matemática Básica",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                            ],
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: matBasica1,
-                            title: const Text("Operações Básicas",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                matBasica1 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: matBasica2,
-                            title: const Text("Potenciação e Radiciação",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                matBasica2 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: matBasica3,
-                            title: const Text("Expressões Numéricas",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                matBasica3 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: matBasica4,
-                            title: const Text("Múltiplos, Divisores, MDC e MMC",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                matBasica4 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: matBasica5,
-                            title: const Text(
-                                "Operações Básicas com Polinômios",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                matBasica5 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: matBasica6,
-                            title: const Text("Frações, Decimais e Dízimas",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                matBasica6 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: matBasica7,
-                            title: const Text("Notação Científica",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                matBasica7 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                  ],
-                ))));
+        body: ListView(children: <Widget>[
+          Container(
+            //Para fazer uma linha de separação
+            padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 20),
+            decoration: BoxDecoration(
+              color: Colors.red,
+              borderRadius: BorderRadius.only(
+                bottomLeft: const Radius.circular(10),
+                bottomRight: const Radius.circular(600),
+              ),
+            ),
+            child: Row(
+              children: [
+                Text("  Matemática",
+                    style: TextStyle(
+                        fontSize: 35.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white)),
+                Container(
+                    padding:
+                        EdgeInsets.only(left: 60, right: 0, top: 10, bottom: 0),
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(50),
+                        child: Stack(children: <Widget>[
+                          Image.asset(
+                            'assets/images/logoredondo.png',
+                            width: 70.0,
+                            height: 70.0,
+                          )
+                        ]))),
+              ],
+            ),
+          ),
+          //Separados em tópicos espansivos
+
+          ExpansionTile(
+            title: Text("Matemática Básica",
+                style: TextStyle(fontSize: 24, color: Colors.black)),
+            children: <Widget>[
+              Card(
+                child: Container(
+                    padding:
+                        EdgeInsets.only(left: 20, right: 0, top: 0, bottom: 0),
+                    child: CheckboxListTile(
+                      value: matBasica1,
+                      title: const Text("Operações Básicas",
+                          style: TextStyle(
+                              fontSize: 19,
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal)),
+                      onChanged: (bool inValue) {
+                        setState(() {
+                          matBasica1 = inValue;
+                        });
+                      },
+                    )),
+              ),
+              Card(
+                child: Container(
+                    padding:
+                        EdgeInsets.only(left: 20, right: 0, top: 0, bottom: 0),
+                    child: CheckboxListTile(
+                      value: matBasica2,
+                      title: const Text("Operações Básicas",
+                          style: TextStyle(
+                              fontSize: 19,
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal)),
+                      onChanged: (bool inValue) {
+                        setState(() {
+                          matBasica2 = inValue;
+                        });
+                      },
+                    )),
+              ),
+              Card(
+                child: Container(
+                    padding:
+                        EdgeInsets.only(left: 20, right: 0, top: 0, bottom: 0),
+                    child: CheckboxListTile(
+                      value: matBasica3,
+                      title: const Text("Potenciação e Radiciação",
+                          style: TextStyle(
+                              fontSize: 19,
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal)),
+                      onChanged: (bool inValue) {
+                        setState(() {
+                          matBasica3 = inValue;
+                        });
+                      },
+                    )),
+              ),
+              Card(
+                child: Container(
+                    padding:
+                        EdgeInsets.only(left: 20, right: 0, top: 0, bottom: 0),
+                    child: CheckboxListTile(
+                      value: matBasica4,
+                      title: const Text("Expressões Numéricas",
+                          style: TextStyle(
+                              fontSize: 19,
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal)),
+                      onChanged: (bool inValue) {
+                        setState(() {
+                          matBasica4 = inValue;
+                        });
+                      },
+                    )),
+              ),
+              Card(
+                child: Container(
+                    padding:
+                        EdgeInsets.only(left: 20, right: 0, top: 0, bottom: 0),
+                    child: CheckboxListTile(
+                      value: matBasica5,
+                      title: const Text("Múltiplos, Divisores, MDC e MMC",
+                          style: TextStyle(
+                              fontSize: 19,
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal)),
+                      onChanged: (bool inValue) {
+                        setState(() {
+                          matBasica5 = inValue;
+                        });
+                      },
+                    )),
+              ),
+              Card(
+                child: Container(
+                    padding:
+                        EdgeInsets.only(left: 20, right: 0, top: 0, bottom: 0),
+                    child: CheckboxListTile(
+                      value: matBasica6,
+                      title: const Text("Operações Básicas com Polinômios",
+                          style: TextStyle(
+                              fontSize: 19,
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal)),
+                      onChanged: (bool inValue) {
+                        setState(() {
+                          matBasica6 = inValue;
+                        });
+                      },
+                    )),
+              ),
+              Card(
+                child: Container(
+                    padding:
+                        EdgeInsets.only(left: 20, right: 0, top: 0, bottom: 0),
+                    child: CheckboxListTile(
+                      value: matBasica7,
+                      title: const Text("Frações, Decimais e Dízimas",
+                          style: TextStyle(
+                              fontSize: 19,
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal)),
+                      onChanged: (bool inValue) {
+                        setState(() {
+                          matBasica7 = inValue;
+                        });
+                      },
+                    )),
+              ),
+              Card(
+                child: Container(
+                    padding:
+                        EdgeInsets.only(left: 20, right: 0, top: 0, bottom: 0),
+                    child: CheckboxListTile(
+                      value: matBasica8,
+                      title: const Text("Notação Científica",
+                          style: TextStyle(
+                              fontSize: 19,
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal)),
+                      onChanged: (bool inValue) {
+                        setState(() {
+                          matBasica8 = inValue;
+                        });
+                      },
+                    )),
+              ),
+            ],
+          ),
+          Container(
+            //Para fazer uma linha de separação
+            padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 5),
+            alignment: Alignment.bottomRight,
+            decoration: BoxDecoration(
+              color: Colors.red,
+            ),
+          ),
+        ]));
   }
 }
