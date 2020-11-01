@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'main.dart';
 
 class MyRegister extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -50,8 +49,9 @@ class _MyHomePageState extends State<MyHomePage> {
   final LoginData loginData;
   final GlobalKey<FormState> formKey = new GlobalKey<FormState>();
   bool _obscureText = true;
+  // Valor default para o dropdown
   String dropdownValue = 'Salona';
-  // Toggles the password show status
+  // Deixar visivel a senha.
   void _toggle() {
     setState(() {
       _obscureText = !_obscureText;
@@ -88,7 +88,6 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(
                 children: [
                   Text(" Cadastre-se",
-                      //textAlign: TextAlign.left,
                       style: TextStyle(
                           fontSize: 40.0,
                           fontWeight: FontWeight.bold,
@@ -133,10 +132,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                       //SALVAR
                       onSaved: (String inValue) => loginData.nome = inValue,
-                    ), //Mudar o tamanho da fonte da letra
+                    ),
                     TextFormField(
                       style: TextStyle(fontSize: 20),
-                      //keyboardType: TextInputType.name,
+
                       decoration: InputDecoration(
                         hintText: 'Informe seu usuário',
                         labelText: 'Usuário ',
@@ -180,12 +179,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       decoration: InputDecoration(
                         hintText: 'Informe sua senha',
                         labelText: 'Senha ',
-                        //border: InputBorder.none,
-                        //textError styling
                         icon: Icon(Icons.security),
                         errorStyle: TextStyle(color: Colors.red, fontSize: 15),
                         suffixIcon: InkWell(
                           onTap: _toggle,
+                          // Escurecer e mostrar senha
                           child: Icon(
                             _obscureText
                                 ? Icons.enhanced_encryption
@@ -211,8 +209,6 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(
               decoration: BoxDecoration(
                 color: Colors.red,
-                //borderRadius: BorderRadius.circular(50),
-                //border: Border.all(color: Colors.white, width: 10),
               ),
               child: Row(
                 children: [
@@ -312,7 +308,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Text("\n"),
           MaterialButton(
             color: Colors.black,
-            child: Text("Login",
+            child: Text("Cadastrar",
                 style: TextStyle(fontSize: 27, color: Colors.white)),
             onPressed: () {
               // Função anonima
@@ -323,7 +319,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 loginData
                     .doSomething(); //Guardar em um banco de dados por exemplo
 
-                formKey.currentState.reset(); // Voltar ao seu estado inicial
+                Navigator.push(
+                    _context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => MyApp()));
               }
               // validar os valores do TextFormField
             },

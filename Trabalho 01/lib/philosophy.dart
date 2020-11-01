@@ -60,463 +60,415 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                     builder: (BuildContext context) => MyMainDrawer())),
           ),
         ),
-        body: SingleChildScrollView(
-            child: Form(
-                key: formKey4,
-                child: Column(
-                  children: [
-                    Container(
-                      //para decorar a tela
+        body: ListView(children: <Widget>[
+          Container(
+            //Para fazer uma linha de separação
+            padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 20),
+            decoration: BoxDecoration(
+              color: Colors.red,
+              borderRadius: BorderRadius.only(
+                bottomLeft: const Radius.circular(10),
+                bottomRight: const Radius.circular(600),
+              ),
+            ),
+            child: Row(
+              children: [
+                Text("  Filosofia",
+                    //textAlign: TextAlign.left,
+                    style: TextStyle(
+                        fontSize: 35.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white)),
+                Container(
+                    padding:
+                        EdgeInsets.only(left: 60, right: 0, top: 10, bottom: 0),
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(50),
+                        child: Stack(children: <Widget>[
+                          Image.asset(
+                            'assets/images/logoredondo.png',
+                            width: 70.0,
+                            height: 70.0,
+                          )
+                        ]))),
+              ],
+            ),
+          ),
+          //Separados em tópicos espansivos
+
+          ExpansionTile(
+              title: Text("Introdução à Filosofia",
+                  style: TextStyle(fontSize: 24, color: Colors.black)),
+              children: <Widget>[
+                Card(
+                  child: Container(
                       padding: EdgeInsets.only(
-                          left: 0, right: 0, top: 0, bottom: 20),
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: const Radius.circular(10),
-                          bottomRight: const Radius.circular(600),
-                        ),
-                      ),
-                      child: Row(
-                        children: [
-                          Text("  Filosofia      ",
-                              //textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  fontSize: 35.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
-                          Container(
-                              padding: EdgeInsets.only(
-                                  left: 60, right: 0, top: 10, bottom: 0),
-                              child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(50),
-                                  child: Stack(children: <Widget>[
-                                    Image.asset(
-                                      'assets/images/logoredondo.png',
-                                      width: 70.0,
-                                      height: 70.0,
-                                    )
-                                  ]))),
-                        ],
-                      ),
-                    ),
-                    Text(""),
-                    Text(""),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20),
-                              border:
-                                  Border.all(color: Colors.black, width: 4)),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Introdução à Filosofia",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                            ],
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: introducao1,
-                            title: const Text("Introdução à Filosofia",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                introducao1 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20),
-                              border:
-                                  Border.all(color: Colors.black, width: 4)),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text(
-                                    "Filosofia Antiga - Antiguidade Oriental",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                            ],
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: antigOri1,
-                            title: const Text(
-                                "Introdução à Filosofia do Oriente Médio",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                antigOri1 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: antigOri2,
-                            title: const Text("Os Egípcios",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                antigOri2 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: antigOri3,
-                            title: const Text("Os Mesopotâmicos",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                antigOri3 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: antigOri4,
-                            title: const Text("Os Hebreus",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                antigOri4 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20),
-                              border:
-                                  Border.all(color: Colors.black, width: 4)),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text(
-                                    "Filosofia Antiga - Antiguidade Ocidental",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                            ],
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: antigOci1,
-                            title: const Text("Introdução ao Mundo Grego",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                antigOci1 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: antigOci2,
-                            title: const Text(
-                                "Pré-Socráticos ou Filósofos da Natureza",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                antigOci2 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: antigOci3,
-                            title: const Text("Sofistas",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                antigOci3 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: antigOci4,
-                            title: const Text("Socráticos - Sócrates",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                antigOci4 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: antigOci5,
-                            title: const Text("Socráticos - Platão",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                antigOci5 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: antigOci6,
-                            title: const Text("Socráticos - Aristóteles",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                antigOci6 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20),
-                              border:
-                                  Border.all(color: Colors.black, width: 4)),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Transição da Id. para a Id. Média",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                            ],
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: transiIdm1,
-                            title: const Text("Filosofia Helenística",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                transiIdm1 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: transiIdm2,
-                            title: const Text("Filosofia Medieval",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                transiIdm2 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: transiIdm3,
-                            title: const Text("Pensamento Cristão",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                transiIdm3 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 10, bottom: 10),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20),
-                              border:
-                                  Border.all(color: Colors.black, width: 4)),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text("Filosofia Moderna e Contemporânea",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                            ],
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: filoMod1,
-                            title: const Text("Ciência Moderna",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                filoMod1 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: filoMod2,
-                            title: const Text("Ética e Moral",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                filoMod2 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                    Card(
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: 20, right: 0, top: 0, bottom: 0),
-                          child: CheckboxListTile(
-                            value: filoMod3,
-                            title: const Text("Verdade",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal)),
-                            onChanged: (bool inValue) {
-                              setState(() {
-                                filoMod3 = inValue;
-                              });
-                            },
-                          )),
-                    ),
-                  ],
-                ))));
+                          left: 20, right: 0, top: 0, bottom: 0),
+                      child: CheckboxListTile(
+                        value: introducao1,
+                        title: const Text("Introdução à Filosofia",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) {
+                          setState(() {
+                            introducao1 = inValue;
+                          });
+                        },
+                      )),
+                ),
+              ]),
+          Container(
+            //Para fazer uma linha de separação
+            padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 5),
+            alignment: Alignment.bottomRight,
+            decoration: BoxDecoration(
+              color: Colors.red,
+            ),
+          ),
+          ExpansionTile(
+              title: Text("Filosofia Antiga - Antiguidade Oriental",
+                  style: TextStyle(fontSize: 24, color: Colors.black)),
+              children: <Widget>[
+                Card(
+                  child: Container(
+                      padding: EdgeInsets.only(
+                          left: 20, right: 0, top: 0, bottom: 0),
+                      child: CheckboxListTile(
+                        value: antigOri1,
+                        title: const Text(
+                            "Introdução à Filosofia do Oriente Médio",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) {
+                          setState(() {
+                            antigOri1 = inValue;
+                          });
+                        },
+                      )),
+                ),
+                Card(
+                  child: Container(
+                      padding: EdgeInsets.only(
+                          left: 20, right: 0, top: 0, bottom: 0),
+                      child: CheckboxListTile(
+                        value: antigOri2,
+                        title: const Text("Os Egípcios",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) {
+                          setState(() {
+                            antigOri2 = inValue;
+                          });
+                        },
+                      )),
+                ),
+                Card(
+                  child: Container(
+                      padding: EdgeInsets.only(
+                          left: 20, right: 0, top: 0, bottom: 0),
+                      child: CheckboxListTile(
+                        value: antigOri3,
+                        title: const Text("Os Mesopotâmicos",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) {
+                          setState(() {
+                            antigOri3 = inValue;
+                          });
+                        },
+                      )),
+                ),
+                Card(
+                  child: Container(
+                      padding: EdgeInsets.only(
+                          left: 20, right: 0, top: 0, bottom: 0),
+                      child: CheckboxListTile(
+                        value: antigOri4,
+                        title: const Text("Os Hebreus",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) {
+                          setState(() {
+                            antigOri4 = inValue;
+                          });
+                        },
+                      )),
+                ),
+              ]),
+          Container(
+            //Para fazer uma linha de separação
+            padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 5),
+            alignment: Alignment.bottomRight,
+            decoration: BoxDecoration(
+              color: Colors.red,
+            ),
+          ),
+          ExpansionTile(
+              title: Text("Filosofia Antiga - Antiguidade Ocidental",
+                  style: TextStyle(fontSize: 24, color: Colors.black)),
+              children: <Widget>[
+                Card(
+                  child: Container(
+                      padding: EdgeInsets.only(
+                          left: 20, right: 0, top: 0, bottom: 0),
+                      child: CheckboxListTile(
+                        value: antigOci1,
+                        title: const Text("Introdução ao Mundo Grego",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) {
+                          setState(() {
+                            antigOci1 = inValue;
+                          });
+                        },
+                      )),
+                ),
+                Card(
+                  child: Container(
+                      padding: EdgeInsets.only(
+                          left: 20, right: 0, top: 0, bottom: 0),
+                      child: CheckboxListTile(
+                        value: antigOci2,
+                        title: const Text(
+                            "Pré-Socráticos ou Filósofos da Natureza",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) {
+                          setState(() {
+                            antigOci2 = inValue;
+                          });
+                        },
+                      )),
+                ),
+                Card(
+                  child: Container(
+                      padding: EdgeInsets.only(
+                          left: 20, right: 0, top: 0, bottom: 0),
+                      child: CheckboxListTile(
+                        value: antigOci3,
+                        title: const Text("Sofistas",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) {
+                          setState(() {
+                            antigOci3 = inValue;
+                          });
+                        },
+                      )),
+                ),
+                Card(
+                  child: Container(
+                      padding: EdgeInsets.only(
+                          left: 20, right: 0, top: 0, bottom: 0),
+                      child: CheckboxListTile(
+                        value: antigOci4,
+                        title: const Text("Socráticos - Sócrates",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) {
+                          setState(() {
+                            antigOci4 = inValue;
+                          });
+                        },
+                      )),
+                ),
+                Card(
+                  child: Container(
+                      padding: EdgeInsets.only(
+                          left: 20, right: 0, top: 0, bottom: 0),
+                      child: CheckboxListTile(
+                        value: antigOci5,
+                        title: const Text("Socráticos - Platão",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) {
+                          setState(() {
+                            antigOci5 = inValue;
+                          });
+                        },
+                      )),
+                ),
+                Card(
+                  child: Container(
+                      padding: EdgeInsets.only(
+                          left: 20, right: 0, top: 0, bottom: 0),
+                      child: CheckboxListTile(
+                        value: antigOci6,
+                        title: const Text("Socráticos - Aristóteles",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) {
+                          setState(() {
+                            antigOci6 = inValue;
+                          });
+                        },
+                      )),
+                ),
+              ]),
+          Container(
+            //Para fazer uma linha de separação
+            padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 5),
+            alignment: Alignment.bottomRight,
+            decoration: BoxDecoration(
+              color: Colors.red,
+            ),
+          ),
+          ExpansionTile(
+              title: Text("Transição para a Idade Média",
+                  style: TextStyle(fontSize: 24, color: Colors.black)),
+              children: <Widget>[
+                Card(
+                  child: Container(
+                      padding: EdgeInsets.only(
+                          left: 20, right: 0, top: 0, bottom: 0),
+                      child: CheckboxListTile(
+                        value: transiIdm1,
+                        title: const Text("Filosofia Helenística",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) {
+                          setState(() {
+                            transiIdm1 = inValue;
+                          });
+                        },
+                      )),
+                ),
+                Card(
+                  child: Container(
+                      padding: EdgeInsets.only(
+                          left: 20, right: 0, top: 0, bottom: 0),
+                      child: CheckboxListTile(
+                        value: transiIdm2,
+                        title: const Text("Filosofia Medieval",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) {
+                          setState(() {
+                            transiIdm2 = inValue;
+                          });
+                        },
+                      )),
+                ),
+                Card(
+                  child: Container(
+                      padding: EdgeInsets.only(
+                          left: 20, right: 0, top: 0, bottom: 0),
+                      child: CheckboxListTile(
+                        value: transiIdm3,
+                        title: const Text("Pensamento Cristão",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) {
+                          setState(() {
+                            transiIdm3 = inValue;
+                          });
+                        },
+                      )),
+                ),
+              ]),
+          Container(
+            //Para fazer uma linha de separação
+            padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 5),
+            alignment: Alignment.bottomRight,
+            decoration: BoxDecoration(
+              color: Colors.red,
+            ),
+          ),
+          ExpansionTile(
+              title: Text("Filosofia Moderna e Contemporânea",
+                  style: TextStyle(fontSize: 24, color: Colors.black)),
+              children: <Widget>[
+                Card(
+                  child: Container(
+                      padding: EdgeInsets.only(
+                          left: 20, right: 0, top: 0, bottom: 0),
+                      child: CheckboxListTile(
+                        value: filoMod1,
+                        title: const Text("Ciência Moderna",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) {
+                          setState(() {
+                            filoMod1 = inValue;
+                          });
+                        },
+                      )),
+                ),
+                Card(
+                  child: Container(
+                      padding: EdgeInsets.only(
+                          left: 20, right: 0, top: 0, bottom: 0),
+                      child: CheckboxListTile(
+                        value: filoMod2,
+                        title: const Text("Ética e Moral",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) {
+                          setState(() {
+                            filoMod2 = inValue;
+                          });
+                        },
+                      )),
+                ),
+                Card(
+                  child: Container(
+                      padding: EdgeInsets.only(
+                          left: 20, right: 0, top: 0, bottom: 0),
+                      child: CheckboxListTile(
+                        value: filoMod3,
+                        title: const Text("Verdade",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) {
+                          setState(() {
+                            filoMod3 = inValue;
+                          });
+                        },
+                      )),
+                ),
+              ]),
+          Container(
+            //Para fazer uma linha de separação
+            padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 5),
+            alignment: Alignment.bottomRight,
+            decoration: BoxDecoration(
+              color: Colors.red,
+            ),
+          ),
+        ]));
   }
 }
