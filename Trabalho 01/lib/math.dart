@@ -21,19 +21,13 @@ class LoginData1 {
   String username = "";
   String password = "";
 
-  var checkboxValue = false;
-  var checkboxValue1 = false;
-
-  var switchValue = false;
-  var radioValue = 1;
+  var mycheckbox = false;
 
   doSomething() {
     print("Username: $username");
     print("Password: $password");
     print("");
-    print("CheckBox: $checkboxValue");
-    print("Switch: $switchValue");
-    print("Radio: $radioValue");
+    print("CheckBox: $mycheckbox");
     print("");
   }
 }
@@ -41,19 +35,32 @@ class LoginData1 {
 class MyMathPage extends StatefulWidget {
   final LoginData1 loginData1 = new LoginData1();
 
-  State<StatefulWidget> createState() => _MyMathPageState();
+  @override
+  State<StatefulWidget> createState() {
+    return _MyMathPageState(loginData1);
+  }
 }
 
 class _MyMathPageState extends State<MyMathPage> {
   var _context;
   final GlobalKey<FormState> formKey2 = new GlobalKey<FormState>();
+  final LoginData1 loginData1;
+  var matBasica1 = false;
+  var matBasica2 = false;
+  var matBasica3 = false;
+  var matBasica4 = false;
+  var matBasica5 = false;
+  var matBasica6 = false;
+  var matBasica7 = false;
+
+  @override
+  _MyMathPageState(this.loginData1);
 
   @override
   Widget build(BuildContext context) {
     this._context = context;
     return Scaffold(
         appBar: AppBar(
-          title: Text("Matemática"),
           leading: IconButton(
             icon: Icon(Icons.arrow_back, color: Colors.black),
             onPressed: () => Navigator.push(
@@ -68,57 +75,189 @@ class _MyMathPageState extends State<MyMathPage> {
                 child: Column(
                   children: [
                     Container(
+                      //para decorar a tela
                       padding: EdgeInsets.only(
-                          left: 20, right: 20, top: 10, bottom: 10),
-                      //height: 130.0,
-                      //width: 500,
+                          left: 0, right: 0, top: 0, bottom: 20),
                       decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(40),
-                          border: Border.all(color: Colors.black, width: 4)),
-                      child: Column(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: const Radius.circular(10),
+                          bottomRight: const Radius.circular(600),
+                        ),
+                      ),
+                      child: Row(
                         children: [
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Text("Matemática",
-                                    style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal)),
-                              ),
-                              Checkbox(value: false, onChanged: null),
-                            ],
-                          )
+                          Text("  Matemática",
+                              //textAlign: TextAlign.left,
+                              style: TextStyle(
+                                  fontSize: 35.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white)),
+                          Container(
+                              padding: EdgeInsets.only(
+                                  left: 60, right: 0, top: 10, bottom: 0),
+                              child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Stack(children: <Widget>[
+                                    Image.asset(
+                                      'assets/images/logoredondo.png',
+                                      width: 70.0,
+                                      height: 70.0,
+                                    )
+                                  ]))),
                         ],
                       ),
                     ),
-                    Container(
-                      padding: EdgeInsets.only(
-                          left: 20, right: 20, top: 10, bottom: 10),
-                      //height: 130.0,
-                      //width: 500,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(40),
-                          border: Border.all(color: Colors.black, width: 4)),
-                      child: Column(
-                        children: [
-                          Row(
+                    Text(""),
+                    Text(""),
+                    Card(
+                      child: Container(
+                          padding: EdgeInsets.only(
+                              left: 20, right: 20, top: 10, bottom: 10),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20),
+                              border:
+                                  Border.all(color: Colors.black, width: 4)),
+                          child: Row(
                             children: [
                               Expanded(
-                                child: Text("Matemática",
+                                child: Text("Matemática Básica",
                                     style: TextStyle(
                                         fontSize: 19,
                                         color: Colors.black,
                                         fontWeight: FontWeight.normal)),
                               ),
-                              Radio(value: 0, groupValue: null, onChanged: null)
                             ],
-                          )
-                        ],
-                      ),
-                    )
+                          )),
+                    ),
+                    Card(
+                      child: Container(
+                          padding: EdgeInsets.only(
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: matBasica1,
+                            title: const Text("Operações Básicas",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                matBasica1 = inValue;
+                              });
+                            },
+                          )),
+                    ),
+                    Card(
+                      child: Container(
+                          padding: EdgeInsets.only(
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: matBasica2,
+                            title: const Text("Potenciação e Radiciação",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                matBasica2 = inValue;
+                              });
+                            },
+                          )),
+                    ),
+                    Card(
+                      child: Container(
+                          padding: EdgeInsets.only(
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: matBasica3,
+                            title: const Text("Expressões Numéricas",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                matBasica3 = inValue;
+                              });
+                            },
+                          )),
+                    ),
+                    Card(
+                      child: Container(
+                          padding: EdgeInsets.only(
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: matBasica4,
+                            title: const Text("Múltiplos, Divisores, MDC e MMC",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                matBasica4 = inValue;
+                              });
+                            },
+                          )),
+                    ),
+                    Card(
+                      child: Container(
+                          padding: EdgeInsets.only(
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: matBasica5,
+                            title: const Text(
+                                "Operações Básicas com Polinômios",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                matBasica5 = inValue;
+                              });
+                            },
+                          )),
+                    ),
+                    Card(
+                      child: Container(
+                          padding: EdgeInsets.only(
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: matBasica6,
+                            title: const Text("Frações, Decimais e Dízimas",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                matBasica6 = inValue;
+                              });
+                            },
+                          )),
+                    ),
+                    Card(
+                      child: Container(
+                          padding: EdgeInsets.only(
+                              left: 20, right: 0, top: 0, bottom: 0),
+                          child: CheckboxListTile(
+                            value: matBasica7,
+                            title: const Text("Notação Científica",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal)),
+                            onChanged: (bool inValue) {
+                              setState(() {
+                                matBasica7 = inValue;
+                              });
+                            },
+                          )),
+                    ),
                   ],
                 ))));
   }
