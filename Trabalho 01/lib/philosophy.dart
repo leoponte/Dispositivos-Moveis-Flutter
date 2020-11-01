@@ -73,7 +73,7 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
             ),
             child: Row(
               children: [
-                Text("  Filosofia",
+                Text("            Filosofia",
                     //textAlign: TextAlign.left,
                     style: TextStyle(
                         fontSize: 35.0,

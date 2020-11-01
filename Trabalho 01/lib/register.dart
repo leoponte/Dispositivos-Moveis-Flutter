@@ -216,7 +216,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Text("\n                       Quem é você?\n",
                           style: TextStyle(
                               // Fonte exportada
-                              fontSize: 22.0,
+                              fontSize: 23.0,
                               fontWeight: FontWeight.bold,
                               color: Colors.white)))
                 ],
@@ -227,7 +227,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   Text("Professor",
                       style: TextStyle(
-                          fontSize: 23.0,
+                          fontSize: 20.0,
                           fontWeight: FontWeight.normal,
                           color: Colors.black)),
                   Radio(
@@ -243,7 +243,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Text(" Aluno",
                       style: TextStyle(
-                          fontSize: 23.0,
+                          fontSize: 20.0,
                           fontWeight: FontWeight.normal,
                           color: Colors.black)),
                   Radio(
@@ -262,8 +262,6 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(
               decoration: BoxDecoration(
                 color: Colors.red,
-                //borderRadius: BorderRadius.circular(50),
-                //border: Border.all(color: Colors.white, width: 10),
               ),
               child: Row(
                 children: [
@@ -271,7 +269,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Text("\n          De qual grupo você pertence?\n",
                           style: TextStyle(
                               // Fonte exportada
-                              fontSize: 22.0,
+                              fontSize: 23.0,
                               fontWeight: FontWeight.bold,
                               color: Colors.white)))
                 ],
@@ -301,31 +299,39 @@ class _MyHomePageState extends State<MyHomePage> {
             ].map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(
                 value: value,
-                child: Text(value, style: TextStyle(fontSize: 23.0)),
+                child: Text(value, style: TextStyle(fontSize: 20.0)),
               );
             }).toList(),
           ),
           Text("\n"),
-          MaterialButton(
-            color: Colors.black,
-            child: Text("Cadastrar",
-                style: TextStyle(fontSize: 27, color: Colors.white)),
-            onPressed: () {
-              // Função anonima
-              if (formKey.currentState.validate()) {
-                formKey.currentState.save();
-                FocusScope.of(context)
-                    .unfocus(); //Faz descer o teclado após apertar o botão
-                loginData
-                    .doSomething(); //Guardar em um banco de dados por exemplo
+          Container(
+            padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 20),
+            width: 350,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(29),
+              child: FlatButton(
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                color: Colors.black,
+                child: Text("Cadastrar",
+                    style: TextStyle(fontSize: 25, color: Colors.white)),
+                onPressed: () {
+                  // Função anonima
+                  if (formKey.currentState.validate()) {
+                    formKey.currentState.save();
+                    FocusScope.of(context)
+                        .unfocus(); //Faz descer o teclado após apertar o botão
+                    loginData
+                        .doSomething(); //Guardar em um banco de dados por exemplo
 
-                Navigator.push(
-                    _context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => MyApp()));
-              }
-              // validar os valores do TextFormField
-            },
+                    Navigator.push(
+                        _context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => MyApp()));
+                  }
+                  // validar os valores do TextFormField
+                },
+              ),
+            ),
           ),
         ])));
   }
