@@ -96,7 +96,7 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
             ),
             child: Row(
               children: [
-                Text("  Português",
+                Text("         Português",
                     //textAlign: TextAlign.left,
                     style: TextStyle(
                         fontSize: 35.0,

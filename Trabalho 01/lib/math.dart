@@ -82,7 +82,7 @@ class _MyMathPageState extends State<MyMathPage> {
             ),
             child: Row(
               children: [
-                Text("  Matemática",
+                Text("      Matemática",
                     style: TextStyle(
                         fontSize: 35.0,
                         fontWeight: FontWeight.bold,

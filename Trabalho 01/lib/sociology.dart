@@ -67,7 +67,7 @@ class _MySociologyPageState extends State<MySociologyPage> {
             ),
             child: Row(
               children: [
-                Text("  Sociologia",
+                Text("         Sociologia",
                     style: TextStyle(
                         fontSize: 35.0,
                         fontWeight: FontWeight.bold,
