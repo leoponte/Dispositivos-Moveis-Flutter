@@ -29,7 +29,7 @@ class DatabaseHelper {
   /* Criando o arquivo no sistema de arquivos */
   Future<Database> initializeDatabase() async {
     Directory directory = await getApplicationDocumentsDirectory();
-    String path = directory.path + "register.db";
+    String path = directory.path + "register1.db";
 
     var registerDatabase =
         await openDatabase(path, version: 1, onCreate: _createDb);
@@ -54,8 +54,18 @@ class DatabaseHelper {
 /* Pegar Valores do Banco*/
   getNoteMapList() async {
     Database db = await this.database;
-    var result = await db.rawQuery("SELECT * FROM $registerTable");
-    return print(result);
+    List<Map> result = await db.rawQuery("SELECT * FROM $registerTable");
+    print("LISTA DO BANCO DE DADOS EM CHAVE: VALOR \n $result");
+    for (var i = 0; i < result.length; i++) {
+      print(result[i]["id"]);
+      print(result[i]["name"]);
+      print(result[i]["username"]);
+      print(result[i]["email"]);
+      print(result[i]["password"]);
+      print(result[i]["role"]);
+      print(result[i]["class"]);
+      print("\n");
+    }
   }
 /*
   getNoteList() async {

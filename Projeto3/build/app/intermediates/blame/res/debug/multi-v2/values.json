@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/macbookpro/Desktop/Dispositivos-Moveis/Projeto 3/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/Users/macbookpro/Desktop/Dispositivos-Moveis/Projeto3/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
                 {
-                    "source": "/Users/macbookpro/Desktop/Dispositivos-Moveis/Projeto 3/android/app/src/main/res/values/styles.xml",
+                    "source": "/Users/macbookpro/Desktop/Dispositivos-Moveis/Projeto3/android/app/src/main/res/values/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
