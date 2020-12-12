@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">745153555675-e2plo7ofm4e4l1n65o67hr2v1f998e8r.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">745153555675</string>
+    <string name="google_api_key" translatable="false">AIzaSyC5vh6PaQ25TnO_cFWhO6wbGD9zKepe8Y0</string>
+    <string name="google_app_id" translatable="false">1:745153555675:android:6abfa152011a1980e730fe</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyC5vh6PaQ25TnO_cFWhO6wbGD9zKepe8Y0</string>
+    <string name="google_storage_bucket" translatable="false">projeto4leoelari.appspot.com</string>
+    <string name="project_id" translatable="false">projeto4leoelari</string>
+</resources>

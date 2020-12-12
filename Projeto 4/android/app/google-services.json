@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "745153555675",
+    "project_id": "projeto4leoelari",
+    "storage_bucket": "projeto4leoelari.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745153555675:android:6abfa152011a1980e730fe",
+        "android_client_info": {
+          "package_name": "br.unicamp.leoelari.projeto_4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "745153555675-e2plo7ofm4e4l1n65o67hr2v1f998e8r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5vh6PaQ25TnO_cFWhO6wbGD9zKepe8Y0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "745153555675-e2plo7ofm4e4l1n65o67hr2v1f998e8r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
