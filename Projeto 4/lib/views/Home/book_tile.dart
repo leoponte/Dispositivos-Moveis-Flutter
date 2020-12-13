@@ -10,7 +10,7 @@ class BookTile extends StatelessWidget {
   const BookTile({this.book}) : super();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext contextA) {
     return Padding(
         padding: EdgeInsets.only(top: 8),
         child: Card(
@@ -21,12 +21,67 @@ class BookTile extends StatelessWidget {
             ),
             title: Text(book.titulo),
             subtitle: Text(book.autor),
-            trailing: GestureDetector(
-                child: Icon(Icons.delete),
-                onTap: () {
-                  BlocProvider.of<DatabaseBloc>(context)
-                      .add(DeleteDatabase(docId: book.id));
-                }),
+            trailing: Row(mainAxisSize: MainAxisSize.min, children: [
+              GestureDetector(
+                  child: Icon(Icons.delete),
+                  onTap: () {
+                    BlocProvider.of<DatabaseBloc>(contextA)
+                        .add(DeleteDatabase(docId: book.id));
+                  }),
+              Text("             "),
+              GestureDetector(
+                  child: Icon(Icons.edit),
+                  onTap: () {
+                    showDialog(
+                        context: contextA,
+                        builder: (contextinho) {
+                          return AlertDialog(
+                            title: Text("Editar "),
+                            content: Column(
+                              children: [
+                                Text("Titulo:"),
+                                TextField(
+                                  controller: TextEditingController()
+                                    ..text = book.titulo,
+                                  onChanged: (text) => {book.titulo = text},
+                                ),
+                                Text("Autor:"),
+                                TextField(
+                                  controller: TextEditingController()
+                                    ..text = book.autor,
+                                  onChanged: (text) => {book.autor = text},
+                                ),
+                                Text("Nota:"),
+                                TextField(
+                                  controller: TextEditingController()
+                                    ..text = book.nota.toString(),
+                                  onChanged: (text) =>
+                                      {book.nota = int.parse(text)},
+                                ),
+                              ],
+                            ),
+                            actions: <Widget>[
+                              MaterialButton(
+                                onPressed: () {
+                                  BlocProvider.of<DatabaseBloc>(contextA).add(
+                                      UpdateDatabase(
+                                          bookId: book.id,
+                                          titulo: book.titulo,
+                                          autor: book.autor,
+                                          nota: book.nota));
+                                  Navigator.of(contextinho).pop();
+                                },
+                                child: Text("submit"),
+                              )
+                            ],
+                          );
+                        });
+
+                    /*BlocProvider.of<DatabaseBloc>(context)
+                        .add(DeleteDatabase(docId: book.id));
+*/
+                  }),
+            ]),
           ),
         ));
   }

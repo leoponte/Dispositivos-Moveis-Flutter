@@ -6,6 +6,7 @@ INJECTED from /home/bene/Documents/projeto_4/android/app/src/main/AndroidManifes
 INJECTED from /home/bene/Documents/projeto_4/android/app/src/main/AndroidManifest.xml:1:1-47:12
 MERGED from /home/bene/Documents/projeto_4/android/app/src/main/AndroidManifest.xml:1:1-47:12
 MERGED from [:firebase_auth] /home/bene/Documents/projeto_4/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
+MERGED from [:connectivity_plus] /home/bene/Documents/projeto_4/build/connectivity_plus/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-10:12
 MERGED from [:cloud_firestore] /home/bene/Documents/projeto_4/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_core] /home/bene/Documents/projeto_4/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
 MERGED from [com.google.firebase:firebase-auth:20.0.1] /home/bene/.gradle/caches/transforms-2/files-2.1/e0ceb77d03acd232db57fc8bc89ade87/jetified-firebase-auth-20.0.1/AndroidManifest.xml:17:1-83:12
@@ -174,6 +175,8 @@ INJECTED from /home/bene/Documents/projeto_4/android/app/src/main/AndroidManifes
 INJECTED from /home/bene/Documents/projeto_4/android/app/src/main/AndroidManifest.xml
 MERGED from [:firebase_auth] /home/bene/Documents/projeto_4/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_auth] /home/bene/Documents/projeto_4/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:connectivity_plus] /home/bene/Documents/projeto_4/build/connectivity_plus/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:connectivity_plus] /home/bene/Documents/projeto_4/build/connectivity_plus/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:cloud_firestore] /home/bene/Documents/projeto_4/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:cloud_firestore] /home/bene/Documents/projeto_4/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] /home/bene/Documents/projeto_4/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
@@ -320,6 +323,30 @@ ADDED from [:firebase_auth] /home/bene/Documents/projeto_4/build/firebase_auth/i
 		ADDED from [:firebase_auth] /home/bene/Documents/projeto_4/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
 	android:name
 		ADDED from [:firebase_auth] /home/bene/Documents/projeto_4/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-124
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:connectivity_plus] /home/bene/Documents/projeto_4/build/connectivity_plus/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-79
+MERGED from [com.google.firebase:firebase-auth:20.0.1] /home/bene/.gradle/caches/transforms-2/files-2.1/e0ceb77d03acd232db57fc8bc89ade87/jetified-firebase-auth-20.0.1/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-auth:20.0.1] /home/bene/.gradle/caches/transforms-2/files-2.1/e0ceb77d03acd232db57fc8bc89ade87/jetified-firebase-auth-20.0.1/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-firestore:22.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/223a6ac0276b85d48a8e4869d4183057/jetified-firebase-firestore-22.0.0/AndroidManifest.xml:13:5-79
+MERGED from [com.google.firebase:firebase-firestore:22.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/223a6ac0276b85d48a8e4869d4183057/jetified-firebase-firestore-22.0.0/AndroidManifest.xml:13:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:18.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/a1427d643374604029ba240672e36c13/play-services-measurement-api-18.0.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:18.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/a1427d643374604029ba240672e36c13/play-services-measurement-api-18.0.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-installations:16.3.4] /home/bene/.gradle/caches/transforms-2/files-2.1/9bc976a2f32d4cf67f89804d54607e58/firebase-installations-16.3.4/AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-installations:16.3.4] /home/bene/.gradle/caches/transforms-2/files-2.1/9bc976a2f32d4cf67f89804d54607e58/firebase-installations-16.3.4/AndroidManifest.xml:10:5-79
+MERGED from [com.google.android.gms:play-services-measurement:18.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/ca08b22c284dcee426e12d80c7ff2a13/play-services-measurement-18.0.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement:18.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/ca08b22c284dcee426e12d80c7ff2a13/play-services-measurement-18.0.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/807b305be27beeba27a14200844a8d96/play-services-measurement-impl-18.0.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/807b305be27beeba27a14200844a8d96/play-services-measurement-impl-18.0.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/0148bf4b67d90ab3ed3379b83b344796/play-services-measurement-sdk-api-18.0.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/0148bf4b67d90ab3ed3379b83b344796/play-services-measurement-sdk-api-18.0.0/AndroidManifest.xml:24:5-79
+MERGED from [io.grpc:grpc-android:1.28.0] /home/bene/.gradle/caches/transforms-2/files-2.1/4526a9c01fabd3735f7a21ffe9548f90/grpc-android-1.28.0/AndroidManifest.xml:11:5-79
+MERGED from [io.grpc:grpc-android:1.28.0] /home/bene/.gradle/caches/transforms-2/files-2.1/4526a9c01fabd3735f7a21ffe9548f90/grpc-android-1.28.0/AndroidManifest.xml:11:5-79
+	android:name
+		ADDED from [:connectivity_plus] /home/bene/Documents/projeto_4/build/connectivity_plus/intermediates/library_manifest/debug/AndroidManifest.xml:7:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from [:connectivity_plus] /home/bene/Documents/projeto_4/build/connectivity_plus/intermediates/library_manifest/debug/AndroidManifest.xml:8:5-76
+	android:name
+		ADDED from [:connectivity_plus] /home/bene/Documents/projeto_4/build/connectivity_plus/intermediates/library_manifest/debug/AndroidManifest.xml:8:22-73
 meta-data#com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar
 ADDED from [:cloud_firestore] /home/bene/Documents/projeto_4/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
 	android:value
@@ -332,24 +359,6 @@ ADDED from [:firebase_core] /home/bene/Documents/projeto_4/build/firebase_core/i
 		ADDED from [:firebase_core] /home/bene/Documents/projeto_4/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
 	android:name
 		ADDED from [:firebase_core] /home/bene/Documents/projeto_4/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-124
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.firebase:firebase-auth:20.0.1] /home/bene/.gradle/caches/transforms-2/files-2.1/e0ceb77d03acd232db57fc8bc89ade87/jetified-firebase-auth-20.0.1/AndroidManifest.xml:24:5-79
-MERGED from [com.google.firebase:firebase-firestore:22.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/223a6ac0276b85d48a8e4869d4183057/jetified-firebase-firestore-22.0.0/AndroidManifest.xml:13:5-79
-MERGED from [com.google.firebase:firebase-firestore:22.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/223a6ac0276b85d48a8e4869d4183057/jetified-firebase-firestore-22.0.0/AndroidManifest.xml:13:5-79
-MERGED from [com.google.android.gms:play-services-measurement-api:18.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/a1427d643374604029ba240672e36c13/play-services-measurement-api-18.0.0/AndroidManifest.xml:23:5-79
-MERGED from [com.google.android.gms:play-services-measurement-api:18.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/a1427d643374604029ba240672e36c13/play-services-measurement-api-18.0.0/AndroidManifest.xml:23:5-79
-MERGED from [com.google.firebase:firebase-installations:16.3.4] /home/bene/.gradle/caches/transforms-2/files-2.1/9bc976a2f32d4cf67f89804d54607e58/firebase-installations-16.3.4/AndroidManifest.xml:10:5-79
-MERGED from [com.google.firebase:firebase-installations:16.3.4] /home/bene/.gradle/caches/transforms-2/files-2.1/9bc976a2f32d4cf67f89804d54607e58/firebase-installations-16.3.4/AndroidManifest.xml:10:5-79
-MERGED from [com.google.android.gms:play-services-measurement:18.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/ca08b22c284dcee426e12d80c7ff2a13/play-services-measurement-18.0.0/AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement:18.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/ca08b22c284dcee426e12d80c7ff2a13/play-services-measurement-18.0.0/AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/807b305be27beeba27a14200844a8d96/play-services-measurement-impl-18.0.0/AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/807b305be27beeba27a14200844a8d96/play-services-measurement-impl-18.0.0/AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/0148bf4b67d90ab3ed3379b83b344796/play-services-measurement-sdk-api-18.0.0/AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.0] /home/bene/.gradle/caches/transforms-2/files-2.1/0148bf4b67d90ab3ed3379b83b344796/play-services-measurement-sdk-api-18.0.0/AndroidManifest.xml:24:5-79
-MERGED from [io.grpc:grpc-android:1.28.0] /home/bene/.gradle/caches/transforms-2/files-2.1/4526a9c01fabd3735f7a21ffe9548f90/grpc-android-1.28.0/AndroidManifest.xml:11:5-79
-MERGED from [io.grpc:grpc-android:1.28.0] /home/bene/.gradle/caches/transforms-2/files-2.1/4526a9c01fabd3735f7a21ffe9548f90/grpc-android-1.28.0/AndroidManifest.xml:11:5-79
-	android:name
-		ADDED from [com.google.firebase:firebase-auth:20.0.1] /home/bene/.gradle/caches/transforms-2/files-2.1/e0ceb77d03acd232db57fc8bc89ade87/jetified-firebase-auth-20.0.1/AndroidManifest.xml:24:22-76
 activity#com.google.firebase.auth.internal.GenericIdpActivity
 ADDED from [com.google.firebase:firebase-auth:20.0.1] /home/bene/.gradle/caches/transforms-2/files-2.1/e0ceb77d03acd232db57fc8bc89ade87/jetified-firebase-auth-20.0.1/AndroidManifest.xml:27:9-44:20
 	android:excludeFromRecents
