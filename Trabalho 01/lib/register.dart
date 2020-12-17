@@ -119,7 +119,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       decoration: InputDecoration(
                         hintText: 'Informe seu nome',
                         labelText: 'Nome ',
-                        icon: Icon(Icons.person),
+                        labelStyle: TextStyle(color: Colors.black),
+                        icon: Icon(Icons.person, color: Colors.black),
                         errorStyle: TextStyle(color: Colors.red, fontSize: 15),
                       ),
                       // VALIDADOR
@@ -135,31 +136,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     TextFormField(
                       style: TextStyle(fontSize: 20),
-
-                      decoration: InputDecoration(
-                        hintText: 'Informe seu usuário',
-                        labelText: 'Usuário ',
-                        icon: Icon(Icons.person),
-                        errorStyle: TextStyle(color: Colors.red, fontSize: 15),
-                      ),
-                      // VALIDADOR
-                      validator: (String inValue) {
-                        // Função anonima
-                        if (inValue.length == 0) {
-                          return "Por favor, insira usuário aqui";
-                        }
-                        return null;
-                      },
-                      //SALVAR
-                      onSaved: (String inValue) => loginData.username = inValue,
-                    ),
-                    TextFormField(
-                      style: TextStyle(fontSize: 20),
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         hintText: 'Informe seu e-mail',
                         labelText: 'E-mail ',
-                        icon: Icon(Icons.mail),
+                        labelStyle: TextStyle(color: Colors.black),
+                        icon: Icon(Icons.mail, color: Colors.black),
                         errorStyle: TextStyle(color: Colors.red, fontSize: 15),
                       ),
                       // VALIDADOR
@@ -179,7 +161,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       decoration: InputDecoration(
                         hintText: 'Informe sua senha',
                         labelText: 'Senha ',
-                        icon: Icon(Icons.security),
+                        labelStyle: TextStyle(color: Colors.black),
+                        icon: Icon(Icons.security, color: Colors.black),
                         errorStyle: TextStyle(color: Colors.red, fontSize: 15),
                         suffixIcon: InkWell(
                           onTap: _toggle,
@@ -259,51 +242,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               )),
-          Container(
-              decoration: BoxDecoration(
-                color: Colors.red,
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                      child: Text("\n          De qual grupo você pertence?\n",
-                          style: TextStyle(
-                              // Fonte exportada
-                              fontSize: 23.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white)))
-                ],
-              )),
-          DropdownButton<String>(
-            value: dropdownValue,
-            icon: Icon(Icons.arrow_drop_down),
-            iconSize: 35,
-            elevation: 16,
-            style: TextStyle(color: Colors.black),
-            underline: Container(
-              height: 2,
-              color: Colors.black,
-            ),
-            onChanged: (String newValue) {
-              setState(() {
-                FocusScope.of(context).requestFocus(
-                    FocusNode()); //Para parar de abrir o teclado quando clicado no Dropdown
-                setState(() => dropdownValue = newValue);
-              });
-            },
-            items: <String>[
-              'Salona',
-              'Salinha',
-              'Grupo 3',
-              'Nenhuma das opções'
-            ].map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value, style: TextStyle(fontSize: 20.0)),
-              );
-            }).toList(),
-          ),
-          Text("\n"),
+          Text("\n\n"),
           Container(
             padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 20),
             width: 350,

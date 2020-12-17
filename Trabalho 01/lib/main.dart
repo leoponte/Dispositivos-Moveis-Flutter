@@ -21,7 +21,7 @@ class _MyAppCreate extends State<MyApp> {
       title: "Nosso primeiro BottomNavigationBar",
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
+      //darkTheme: ThemeData.dark(),
       home: Scaffold(
         resizeToAvoidBottomInset: false,
         body: MyAppPages(),
@@ -122,13 +122,13 @@ class _MyLoginPage extends State<MyAppPages> {
             Row(children: [
               Column(
                 children: [
-                  Text(" Cursinho",
+                  Text("Cursinho",
                       style: TextStyle(
                           fontFamily: 'mistral.ttf',
                           fontSize: 25.0,
                           fontWeight: FontWeight.normal,
                           color: Colors.black)),
-                  Text("  Comunitário",
+                  Text("Comunitário",
                       style: TextStyle(
                           fontFamily: 'britannic-bold.ttf',
                           fontSize: 31.0,
@@ -150,7 +150,7 @@ class _MyLoginPage extends State<MyAppPages> {
           alignment: Alignment.bottomCenter,
           child: Container(
               //Caixa branca para colocar usuário e senha.
-              padding: EdgeInsets.only(left: 30, right: 20, top: 10, bottom: 0),
+              padding: EdgeInsets.only(left: 22, right: 10, top: 10, bottom: 0),
               child: Stack(children: <Widget>[
                 Positioned(
                     top: 300.0,
@@ -172,9 +172,10 @@ class _MyLoginPage extends State<MyAppPages> {
                                 style: TextStyle(fontSize: 20),
                                 keyboardType: TextInputType.name,
                                 decoration: InputDecoration(
-                                  hintText: 'Informe seu usuário',
-                                  labelText: 'Usuário ',
-                                  icon: Icon(Icons.person),
+                                  hintText: 'Informe seu e-mail',
+                                  labelText: 'E-mail ',
+                                  labelStyle: TextStyle(color: Colors.black),
+                                  icon: Icon(Icons.person, color: Colors.black),
                                   errorStyle: TextStyle(
                                       color: Colors.red, fontSize: 15),
                                 ),
@@ -182,7 +183,7 @@ class _MyLoginPage extends State<MyAppPages> {
                                 validator: (String inValue) {
                                   // Função anonima
                                   if (inValue.length == 0) {
-                                    return "Por favor, insira usuário aqui";
+                                    return "Por favor, insira e-mail aqui";
                                   }
                                   return null;
                                 },
@@ -198,8 +199,10 @@ class _MyLoginPage extends State<MyAppPages> {
                                 decoration: InputDecoration(
                                   hintText: 'Informe sua senha',
                                   labelText: 'Senha ',
+                                  labelStyle: TextStyle(color: Colors.black),
                                   //textError styling
-                                  icon: Icon(Icons.security),
+                                  icon:
+                                      Icon(Icons.security, color: Colors.black),
                                   errorStyle: TextStyle(
                                       color: Colors.red, fontSize: 15),
                                 ),

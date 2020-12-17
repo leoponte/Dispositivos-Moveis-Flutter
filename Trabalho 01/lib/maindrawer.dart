@@ -302,7 +302,7 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
             }),
         Container(
           //para decorar a tela
-          padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 338),
+          padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 402),
           decoration: BoxDecoration(
             color: Colors.red,
             borderRadius: BorderRadius.only(

@@ -1,4 +1,4 @@
-#Mon Nov 02 20:16:28 BRT 2020
-base.0=/Users/macbookpro/Desktop/Dispositivos-Moveis/Trabalho 01/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+#Thu Dec 17 17:52:52 BRT 2020
+base.0=/home/bene/Desktop/Dispositivos-Moveis/Trabalho 01/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
