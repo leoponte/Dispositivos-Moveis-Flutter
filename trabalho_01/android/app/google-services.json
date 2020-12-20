@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "487272567877",
+    "project_id": "cursinhocomunitariopimen-5e19e",
+    "storage_bucket": "cursinhocomunitariopimen-5e19e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:487272567877:android:d26ce91f0d194351083f2c",
+        "android_client_info": {
+          "package_name": "cursinho.comunitario.pimentas.trabalho_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "487272567877-pl4oqi0v9ist00mr4lb758fjv5j0jttr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQ_RvTGBGMqrL32PRTlvfiLwAFbAM_hAA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "487272567877-pl4oqi0v9ist00mr4lb758fjv5j0jttr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
