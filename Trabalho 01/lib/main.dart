@@ -21,7 +21,7 @@ class _MyAppCreate extends State<MyApp> {
       title: "Nosso primeiro BottomNavigationBar",
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
+      //darkTheme: ThemeData.dark(),
       home: Scaffold(
         resizeToAvoidBottomInset: false,
         body: MyAppPages(),
@@ -77,7 +77,7 @@ class _MyLoginPage extends State<MyAppPages> {
         child: Stack(children: <Widget>[
       SingleChildScrollView(
           child: Container(
-        //para decorar a tela
+        //parte do cursinho comunitário pimentas
         padding: EdgeInsets.only(left: 110, right: 110, top: 10, bottom: 100),
         decoration: BoxDecoration(
           color: Colors.red,
@@ -87,8 +87,7 @@ class _MyLoginPage extends State<MyAppPages> {
             Row(
               children: [
                 Container(
-                    padding:
-                        EdgeInsets.only(left: 0, right: 100, top: 0, bottom: 0),
+                    // Utilizado para informar quem são os desenvolvedores
                     child: IconButton(
                         icon: Icon(Icons.info),
                         iconSize: 35,
@@ -108,7 +107,6 @@ class _MyLoginPage extends State<MyAppPages> {
               ],
             ),
             Container(
-                padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 0),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(500),
                     border: Border.all(color: Colors.white, width: 5)),
@@ -125,7 +123,6 @@ class _MyLoginPage extends State<MyAppPages> {
               Column(
                 children: [
                   Text("Cursinho",
-                      //textAlign: TextAlign.left,
                       style: TextStyle(
                           fontFamily: 'mistral.ttf',
                           fontSize: 25.0,
@@ -152,12 +149,8 @@ class _MyLoginPage extends State<MyAppPages> {
       Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-              //para decorar a tela
-              padding: EdgeInsets.only(
-                  left: 20,
-                  right: 20,
-                  top: 10,
-                  bottom: 0), // Da caixinha branca
+              //Caixa branca para colocar usuário e senha.
+              padding: EdgeInsets.only(left: 22, right: 10, top: 10, bottom: 0),
               child: Stack(children: <Widget>[
                 Positioned(
                     top: 300.0,
@@ -179,9 +172,10 @@ class _MyLoginPage extends State<MyAppPages> {
                                 style: TextStyle(fontSize: 20),
                                 keyboardType: TextInputType.name,
                                 decoration: InputDecoration(
-                                  hintText: 'Informe seu usuário',
-                                  labelText: 'Usuário ',
-                                  icon: Icon(Icons.person),
+                                  hintText: 'Informe seu e-mail',
+                                  labelText: 'E-mail ',
+                                  labelStyle: TextStyle(color: Colors.black),
+                                  icon: Icon(Icons.person, color: Colors.black),
                                   errorStyle: TextStyle(
                                       color: Colors.red, fontSize: 15),
                                 ),
@@ -189,7 +183,7 @@ class _MyLoginPage extends State<MyAppPages> {
                                 validator: (String inValue) {
                                   // Função anonima
                                   if (inValue.length == 0) {
-                                    return "Por favor, insira usuário aqui";
+                                    return "Por favor, insira e-mail aqui";
                                   }
                                   return null;
                                 },
@@ -197,8 +191,7 @@ class _MyLoginPage extends State<MyAppPages> {
                                 onSaved: (String inValue) =>
                                     loginData.username = inValue,
                               ),
-                              //Mudar o tamanho da fonte da letra
-                              //Text("\n"),
+
                               TextFormField(
                                 obscureText: true,
                                 style: TextStyle(fontSize: 20),
@@ -206,8 +199,10 @@ class _MyLoginPage extends State<MyAppPages> {
                                 decoration: InputDecoration(
                                   hintText: 'Informe sua senha',
                                   labelText: 'Senha ',
+                                  labelStyle: TextStyle(color: Colors.black),
                                   //textError styling
-                                  icon: Icon(Icons.security),
+                                  icon:
+                                      Icon(Icons.security, color: Colors.black),
                                   errorStyle: TextStyle(
                                       color: Colors.red, fontSize: 15),
                                 ),
@@ -225,32 +220,75 @@ class _MyLoginPage extends State<MyAppPages> {
                               ),
 
                               Text("\n"),
-                              MaterialButton(
-                                color: Colors.black,
-                                child: Text("Login",
-                                    style: TextStyle(
-                                        fontSize: 20, color: Colors.white)),
-                                onPressed: () {
-                                  // Função anonima
-                                  if (formKey.currentState.validate()) {
-                                    formKey.currentState.save();
-                                    FocusScope.of(context).unfocus();
-                                    loginData
-                                        .doSomething(); //Guardar em um banco de dados por exemplo
-
-                                    //formKey.currentState.reset();
-
-                                    // coloca mensagem no final da tela quando login dá certo
-                                    Navigator.push(
-                                        _context,
-                                        MaterialPageRoute(
-                                            builder: (BuildContext context) =>
-                                                MyMainDrawer()));
-
-                                    // Voltar ao seu estado inicial
-                                  }
-                                  // validar os valores do TextFormField
-                                },
+                              Container(
+                                width: 200,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(29),
+                                  child: FlatButton(
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 10, horizontal: 20),
+                                    color: Colors.black,
+                                    child: Text("Entrar",
+                                        style: TextStyle(
+                                            fontSize: 20, color: Colors.white)),
+                                    onPressed: () {
+                                      // Função anonima
+                                      if (formKey.currentState.validate()) {
+                                        formKey.currentState.save();
+                                        FocusScope.of(context).unfocus();
+                                        loginData
+                                            .doSomething(); //Guardar em um banco de dados por exemplo
+                                        return showDialog(
+                                            context: context,
+                                            builder: (BuildContext context) {
+                                              return Container(
+                                                padding: EdgeInsets.only(
+                                                    left: 10,
+                                                    right: 10,
+                                                    top: 50,
+                                                    bottom: 100),
+                                                child: SingleChildScrollView(
+                                                    // Mostrar Politica de Privacidade
+                                                    child: AlertDialog(
+                                                        title: Text(
+                                                            "Politica de Privacidade"),
+                                                        content: Text(
+                                                            " A sua privacidade é importante para nós.\n  É política do Cursinho Comunitário Pimentas respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site Cursinho Comunitário Pimentas, e outros sites que possuímos e operamos.\n  Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço.\n Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado.\n Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado.\n Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis ​​para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados.\n Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.\n  O nosso site pode ter links para sites externos que não são operados por nós. Esteja ciente de que não temos controle sobre o conteúdo e práticas desses sites e não podemos aceitar responsabilidade por suas respectivas políticas de privacidade.\n Você é livre para recusar a nossa solicitação de informações pessoais, entendendo que talvez não possamos fornecer alguns dos serviços desejados.\n O uso continuado de nosso site será considerado como aceitação de nossas práticas em torno de privacidade e informações pessoais. Se você tiver alguma dúvida sobre como lidamos com dados do usuário e informações pessoais, entre em contato conosco.\n Esperemos que esteja esclarecido e, como mencionado anteriormente, se houver algo que você não tem certeza se precisa ou não, geralmente é mais seguro deixar os cookies ativados, caso interaja com um dos recursos que você usa em nosso site.\n  Esta política é efetiva a partir de November/2020."),
+                                                        actions: [
+                                                          FlatButton(
+                                                            child:
+                                                                Text("Aceitar"),
+                                                            onPressed: () {
+                                                              Navigator.of(
+                                                                      context)
+                                                                  .pop();
+                                                              Navigator.push(
+                                                                  _context,
+                                                                  MaterialPageRoute(
+                                                                      builder: (BuildContext
+                                                                              context) =>
+                                                                          MyMainDrawer()));
+                                                            },
+                                                          ),
+                                                          FlatButton(
+                                                            child: Text(
+                                                                "Discordar"),
+                                                            onPressed: () {
+                                                              // Faça algo
+                                                              Navigator.of(
+                                                                      context)
+                                                                  .pop();
+                                                            },
+                                                          ),
+                                                        ],
+                                                        elevation: 24.0)),
+                                              );
+                                            },
+                                            barrierDismissible: true);
+                                      }
+                                    },
+                                  ),
+                                ),
                               ),
                               // espaçamento do conteúdo
                               Text("\n"),

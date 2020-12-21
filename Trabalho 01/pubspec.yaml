@@ -71,7 +71,6 @@ flutter:
         fonts:
           - asset: fonts/mistral.ttf
           - asset: fonts/mistral-regular.ttf
-          - asset: fonts/MISTRAL.TTF
       - family: Mistral
         fonts:
           - asset: fonts/britannic-bold.ttf
