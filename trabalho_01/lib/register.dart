@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trabalho_01/bloc/auth_bloc.dart';
 import 'package:trabalho_01/bloc/auth_event.dart';
+import 'package:trabalho_01/bloc/database_bloc.dart';
+import 'package:trabalho_01/bloc/database_event.dart';
 import 'package:trabalho_01/login.dart';
 import 'main.dart';
+
+import 'bloc/auth_bloc.dart';
 
 class MyRegister extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -18,6 +21,7 @@ class MyRegister extends StatelessWidget {
     );
   }
 }
+
 /*
 class LoginData {
   String nome = "";
@@ -63,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // this._context = context;
+    //this._context = context;
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -262,8 +266,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     FocusScope.of(context)
                         .unfocus(); //Faz descer o teclado após apertar o botão
                     BlocProvider.of<AuthBloc>(context).add(registerData);
-                    BlocProvider.of<AuthBloc>(context).add(
-                        Logout()); // GAMBIARRA PARA PARAR NA TELA DE LOGIN (PERGUNTAR PARA O PROFESSOR)
+
+                    BlocProvider.of<AuthBloc>(context).add(Logout());
+                    // GAMBIARRA PARA PARAR NA TELA DE LOGIN (PERGUNTAR PARA O PROFESSOR)
                     Navigator.push(
                         context,
                         MaterialPageRoute(

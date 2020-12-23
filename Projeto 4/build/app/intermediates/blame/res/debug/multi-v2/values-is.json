@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/bene/Documents/projeto_4/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-is/values-is.xml",
+            "outputFile": "/home/bene/Desktop/Dispositivos-Moveis/Projeto 4/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-is/values-is.xml",
             "map": [
                 {
                     "source": "/home/bene/.gradle/caches/transforms-2/files-2.1/12b2a981af48a4d34665a895e1a50203/play-services-base-17.1.0/res/values-is/values.xml",

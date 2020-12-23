@@ -2,8 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:projeto_4/bloc/auth_bloc.dart';
-import 'package:projeto_4/firebase/auth.dart';
-import 'package:projeto_4/views/auth/authenticate.dart';
 import 'package:projeto_4/views/wrapper.dart';
 
 void main() async {
