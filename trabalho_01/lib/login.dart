@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trabalho_01/bloc/auth_event.dart';
-import 'package:trabalho_01/maindrawer.dart';
+
 import 'package:trabalho_01/register.dart';
 
 import 'bloc/auth_bloc.dart';

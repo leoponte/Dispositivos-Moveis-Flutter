@@ -7,7 +7,6 @@ class RegisterUser extends AuthEvent {
   String name;
   String username;
   String password;
-  AddDatabase aulas = new AddDatabase();
   int role;
 }
 

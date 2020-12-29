@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trabalho_01/bloc/auth_event.dart';
-import 'package:trabalho_01/login.dart';
-import 'bloc/auth_bloc.dart';
-import 'main.dart';
+import 'package:trabalho_01/views/maindrawer/math.dart';
+import 'package:trabalho_01/views/maindrawer/philosophy.dart';
+import 'package:trabalho_01/views/maindrawer/portuguese.dart';
+import 'package:trabalho_01/views/maindrawer/sociology.dart';
+
+import '../../bloc/auth_bloc.dart';
+
 import 'dart:async';
 import 'about.dart';
 import 'calendar.dart';
-import 'math.dart';
-import 'portuguese.dart';
-import 'philosophy.dart';
-import 'sociology.dart';
 
 class MyMainDrawer extends StatelessWidget {
   @override

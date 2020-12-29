@@ -1,4 +1,4 @@
-import 'package:trabalho_01/models/book_models.dart';
+import 'package:trabalho_01/models/studies_models.dart';
 
 abstract class DatabaseState {}
 

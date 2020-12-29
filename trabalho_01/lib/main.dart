@@ -7,7 +7,7 @@ import 'package:trabalho_01/login.dart';
 import 'bloc/auth_bloc.dart';
 import 'bloc/auth_state.dart';
 
-import 'maindrawer.dart';
+import 'views/maindrawer/maindrawer.dart';
 
 //MyTheme currentTheme = MyTheme(); // Usado para mudança de ligth mode para night mode
 

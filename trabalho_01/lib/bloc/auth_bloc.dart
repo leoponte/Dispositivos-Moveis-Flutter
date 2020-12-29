@@ -29,7 +29,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       } else if (event is RegisterUser) {
         print("TENTEI NO BLOC");
         await _authenticationService.createUserWithEmailAndPassword(
-            email: event.username, password: event.password);
+            email: event.username,
+            password: event.password,
+            nome: event.name,
+            role: event.role);
         //} else if (event is LoginAnonymousUser) {
         //await _authenticationService.signInAnonimo();
       } else if (event is LoginUser) {

@@ -1,11 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trabalho_01/bloc/auth_bloc.dart';
 import 'package:trabalho_01/bloc/auth_event.dart';
 import 'package:trabalho_01/bloc/database_bloc.dart';
 import 'package:trabalho_01/bloc/database_event.dart';
+
 import 'package:trabalho_01/login.dart';
-import 'main.dart';
 
 import 'bloc/auth_bloc.dart';
 
@@ -22,37 +23,14 @@ class MyRegister extends StatelessWidget {
   }
 }
 
-/*
-class LoginData {
-  String nome = "";
-  String username = "";
-  String password = "";
-  String email = "";
-  var checkboxValue = false;
-  var checkboxValue1 = false;
-
-  var switchValue = false;
-  var radioValue1 = 1;
-
-  doSomething() {
-    print("Username: $nome");
-    print("Username: $username");
-    print("Password: $password");
-    print("");
-    print("CheckBox: $checkboxValue");
-    print("Switch: $switchValue");
-    print("Radio: $radioValue1");
-    print("");
-  }
-}
-*/
-
 class MyHomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final FirebaseAuth auth = FirebaseAuth.instance;
+
   GlobalKey<FormState> formKey = new GlobalKey<FormState>();
   RegisterUser registerData = RegisterUser();
   bool _obscureText = true;

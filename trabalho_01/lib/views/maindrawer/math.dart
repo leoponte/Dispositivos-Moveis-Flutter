@@ -1,12 +1,18 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'maindrawer.dart';
+import 'package:trabalho_01/bloc/database_event.dart';
+import 'package:trabalho_01/firebase/database.dart';
+import 'package:trabalho_01/views/maindrawer/maindrawer.dart';
+
+import 'package:trabalho_01/models/studies_models.dart';
 
 class MyMath extends StatelessWidget {
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -16,34 +22,54 @@ class MyMath extends StatelessWidget {
   }
 }
 
-class LoginData1 {
-  String username = "";
-  String password = "";
-
-  var mycheckbox = false;
-
-  doSomething() {
-    print("Username: $username");
-    print("Password: $password");
-    print("");
-    print("CheckBox: $mycheckbox");
-    print("");
-  }
-}
-
 class MyMathPage extends StatefulWidget {
-  final LoginData1 loginData1 = new LoginData1();
-
   @override
   State<StatefulWidget> createState() {
-    return _MyMathPageState(loginData1);
+    return MyMathPageState();
   }
 }
 
-class _MyMathPageState extends State<MyMathPage> {
+class MyMathPageState extends State<MyMathPage> {
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  final CollectionReference matematica =
+      FirebaseFirestore.instance.collection("Matematica");
+
+  bool residentialUnit;
+/*
+  someData() {
+    String result1;
+    FirebaseFirestore.instance
+        .collection("Matematica")
+        .get()
+        .then((querySnapshot) {
+      querySnapshot.docs.forEach((result) {
+        result1 = (result.data()["matBasica1"]);
+      });
+      print(Future.value(result1));
+      return result1 as bool;
+    });
+  }
+*/
+
+/*
+  teste() async {
+    Firestore.instance
+        .collection("Matematica")
+        .document(someMethod())
+        .snapshots()
+        .listen((snapshot) {
+      print(residentialUnit);
+      residentialUnit = snapshot.data()["matBasica1"];
+      print(residentialUnit);
+      return residentialUnit;
+    });
+  }
+*/
   var _context;
   final GlobalKey<FormState> formKey2 = new GlobalKey<FormState>();
-  final LoginData1 loginData1;
+  final Math book;
+  MyMathPageState({this.book}) : super();
+
   var matBasica1 = false;
   var matBasica2 = false;
   var matBasica3 = false;
@@ -54,10 +80,22 @@ class _MyMathPageState extends State<MyMathPage> {
   var matBasica8 = false;
 
   @override
-  _MyMathPageState(this.loginData1);
-
-  @override
   Widget build(BuildContext context) {
+    // var docRef = mathCollections.doc(someMethod());
+    //bool value = (bool) docRef.;
+/*
+    Firestore.instance
+        .collection("Matematica")
+        .document(someMethod())
+        .snapshots()
+        .listen((snapshot) {
+      print(residentialUnit);
+      residentialUnit = snapshot.data()["matBasica1"];
+      print(residentialUnit);
+    });
+*/
+    //bool sim = dataData();
+
     this._context = context;
     return Scaffold(
         appBar: AppBar(
@@ -113,18 +151,21 @@ class _MyMathPageState extends State<MyMathPage> {
                     padding:
                         EdgeInsets.only(left: 20, right: 0, top: 0, bottom: 0),
                     child: CheckboxListTile(
-                      value: matBasica1,
-                      title: const Text("Operações Básicas",
-                          style: TextStyle(
-                              fontSize: 19,
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
-                        setState(() {
-                          matBasica1 = inValue;
-                        });
-                      },
-                    )),
+                        value: matBasica1,
+                        title: const Text("Operações Básicas",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) async {
+                          setState(() {
+                            matBasica1 = inValue;
+                          });
+                          print(getCurrentUserId());
+                          await matematica.doc(getCurrentUserId()).update({
+                            "matBasica1": inValue,
+                          });
+                        })),
               ),
               Card(
                 child: Container(
@@ -132,7 +173,7 @@ class _MyMathPageState extends State<MyMathPage> {
                         EdgeInsets.only(left: 20, right: 0, top: 0, bottom: 0),
                     child: CheckboxListTile(
                       value: matBasica2,
-                      title: const Text("Operações Básicas",
+                      title: const Text("Porcentagem",
                           style: TextStyle(
                               fontSize: 19,
                               color: Colors.black,

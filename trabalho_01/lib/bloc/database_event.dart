@@ -1,4 +1,4 @@
-import 'package:trabalho_01/models/book_models.dart';
+import 'package:trabalho_01/models/studies_models.dart';
 
 abstract class DatabaseEvent {}
 
@@ -12,16 +12,15 @@ class UpdateDatabase extends DatabaseEvent {
   bool matBasica6;
   bool matBasica7;
   bool matBasica8;
-  UpdateDatabase(
-      {this.mathId,
-      this.matBasica1,
+  UpdateDatabase(this.mathId,
+      [this.matBasica1,
       this.matBasica2,
       this.matBasica3,
       this.matBasica4,
       this.matBasica5,
       this.matBasica6,
       this.matBasica7,
-      this.matBasica8});
+      this.matBasica8]);
 }
 
 class AddDatabase extends DatabaseEvent {

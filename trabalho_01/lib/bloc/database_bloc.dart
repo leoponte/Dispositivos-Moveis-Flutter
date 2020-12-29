@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:trabalho_01/bloc/database_event.dart';
 import 'package:trabalho_01/bloc/database_state.dart';
 import 'package:trabalho_01/firebase/database.dart';
-import 'package:trabalho_01/models/book_models.dart';
+import 'package:trabalho_01/models/studies_models.dart';
 
 class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
   DatabaseService _databaseService;
@@ -20,7 +20,8 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
   @override
   Stream<DatabaseState> mapEventToState(DatabaseEvent event) async* {
     if (event is AddDatabase) {
-      _databaseService.addBook(
+      _databaseService.addBookMatematica(
+          // VER SE PRECISA MODIFICAR DEPOIS
           event.matBasica1,
           event.matBasica2,
           event.matBasica3,

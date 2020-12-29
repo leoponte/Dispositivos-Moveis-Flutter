@@ -4,7 +4,7 @@ abstract class AuthRepo {
   //Future<UserModel> signInAnonimo();
   Future<UserModel> signInWithEmailAndPassword({String email, String password});
   Future<UserModel> createUserWithEmailAndPassword(
-      {String email, String password});
+      {String email, String password, String nome, int role});
   Future<void> signOut();
   Stream<UserModel> get user;
 }
