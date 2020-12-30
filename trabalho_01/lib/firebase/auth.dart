@@ -8,7 +8,7 @@ import 'package:trabalho_01/repo/auth.dart';
 
 class FirebaseAuthenticationService implements AuthRepo {
   FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  AddDatabase addatabase = AddDatabase();
+
   String papel;
 
   Stream<UserModel> get user {
@@ -68,9 +68,6 @@ class FirebaseAuthenticationService implements AuthRepo {
       "matBasica7": false,
       "matBasica8": false,
     });
-
-    addatabase.matBasica1 = false;
-    addatabase.matBasica2 = false;
 
     await portugues.doc(user.uid).set({
       "morfologia1": false,

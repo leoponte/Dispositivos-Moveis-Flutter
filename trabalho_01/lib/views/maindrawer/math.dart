@@ -13,89 +13,73 @@ class MyMath extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyMathPage(),
-    );
+        theme: ThemeData(
+          primarySwatch: Colors.red,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: StreamBuilder<DocumentSnapshot>(
+          stream: FirebaseFirestore.instance
+              .collection("Matematica")
+              .doc(getCurrentUserId())
+              .snapshots(),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return Center(
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation(Colors.white),
+                ),
+              );
+            } else {
+              return MyMathPage(category: snapshot.data);
+            }
+          },
+        ));
   }
 }
 
+//,
 class MyMathPage extends StatefulWidget {
+  final DocumentSnapshot category;
+
+  MyMathPage({this.category});
   @override
   State<StatefulWidget> createState() {
-    return MyMathPageState();
+    return MyMathPageState(category: category);
   }
 }
 
 class MyMathPageState extends State<MyMathPage> {
+  final DocumentSnapshot category;
+
+  MyMathPageState({this.category}) {
+    matBasica1 = category["matBasica1"];
+    matBasica2 = category["matBasica2"];
+    matBasica3 = category["matBasica3"];
+    matBasica4 = category["matBasica4"];
+    matBasica5 = category["matBasica5"];
+    matBasica6 = category["matBasica6"];
+    matBasica7 = category["matBasica7"];
+    matBasica8 = category["matBasica8"];
+  }
+
   final FirebaseAuth auth = FirebaseAuth.instance;
   final CollectionReference matematica =
       FirebaseFirestore.instance.collection("Matematica");
 
-  bool residentialUnit;
-/*
-  someData() {
-    String result1;
-    FirebaseFirestore.instance
-        .collection("Matematica")
-        .get()
-        .then((querySnapshot) {
-      querySnapshot.docs.forEach((result) {
-        result1 = (result.data()["matBasica1"]);
-      });
-      print(Future.value(result1));
-      return result1 as bool;
-    });
-  }
-*/
-
-/*
-  teste() async {
-    Firestore.instance
-        .collection("Matematica")
-        .document(someMethod())
-        .snapshots()
-        .listen((snapshot) {
-      print(residentialUnit);
-      residentialUnit = snapshot.data()["matBasica1"];
-      print(residentialUnit);
-      return residentialUnit;
-    });
-  }
-*/
   var _context;
   final GlobalKey<FormState> formKey2 = new GlobalKey<FormState>();
-  final Math book;
-  MyMathPageState({this.book}) : super();
 
-  var matBasica1 = false;
-  var matBasica2 = false;
-  var matBasica3 = false;
-  var matBasica4 = false;
-  var matBasica5 = false;
-  var matBasica6 = false;
-  var matBasica7 = false;
-  var matBasica8 = false;
+  var matBasica1;
+  var matBasica2;
+  var matBasica3;
+  var matBasica4;
+  var matBasica5;
+  var matBasica6;
+  var matBasica7;
+  var matBasica8;
 
   @override
   Widget build(BuildContext context) {
-    // var docRef = mathCollections.doc(someMethod());
-    //bool value = (bool) docRef.;
-/*
-    Firestore.instance
-        .collection("Matematica")
-        .document(someMethod())
-        .snapshots()
-        .listen((snapshot) {
-      print(residentialUnit);
-      residentialUnit = snapshot.data()["matBasica1"];
-      print(residentialUnit);
-    });
-*/
-    //bool sim = dataData();
-
     this._context = context;
     return Scaffold(
         appBar: AppBar(
@@ -158,12 +142,11 @@ class MyMathPageState extends State<MyMathPage> {
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
                         onChanged: (bool inValue) async {
-                          setState(() {
-                            matBasica1 = inValue;
-                          });
-                          print(getCurrentUserId());
                           await matematica.doc(getCurrentUserId()).update({
                             "matBasica1": inValue,
+                          });
+                          setState(() {
+                            matBasica1 = inValue;
                           });
                         })),
               ),
@@ -172,126 +155,140 @@ class MyMathPageState extends State<MyMathPage> {
                     padding:
                         EdgeInsets.only(left: 20, right: 0, top: 0, bottom: 0),
                     child: CheckboxListTile(
-                      value: matBasica2,
-                      title: const Text("Porcentagem",
-                          style: TextStyle(
-                              fontSize: 19,
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
-                        setState(() {
-                          matBasica2 = inValue;
-                        });
-                      },
-                    )),
+                        value: matBasica2,
+                        title: const Text("Porcentagem",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) async {
+                          await matematica.doc(getCurrentUserId()).update({
+                            "matBasica2": inValue,
+                          });
+                          setState(() {
+                            matBasica2 = inValue;
+                          });
+                        })),
               ),
               Card(
                 child: Container(
                     padding:
                         EdgeInsets.only(left: 20, right: 0, top: 0, bottom: 0),
                     child: CheckboxListTile(
-                      value: matBasica3,
-                      title: const Text("Potenciação e Radiciação",
-                          style: TextStyle(
-                              fontSize: 19,
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
-                        setState(() {
-                          matBasica3 = inValue;
-                        });
-                      },
-                    )),
+                        value: matBasica3,
+                        title: const Text("Potenciação e Radiciação",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) async {
+                          await matematica.doc(getCurrentUserId()).update({
+                            "matBasica3": inValue,
+                          });
+                          setState(() {
+                            matBasica3 = inValue;
+                          });
+                        })),
               ),
               Card(
                 child: Container(
                     padding:
                         EdgeInsets.only(left: 20, right: 0, top: 0, bottom: 0),
                     child: CheckboxListTile(
-                      value: matBasica4,
-                      title: const Text("Expressões Numéricas",
-                          style: TextStyle(
-                              fontSize: 19,
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
-                        setState(() {
-                          matBasica4 = inValue;
-                        });
-                      },
-                    )),
+                        value: matBasica4,
+                        title: const Text("Expressões Numéricas",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) async {
+                          await matematica.doc(getCurrentUserId()).update({
+                            "matBasica4": inValue,
+                          });
+                          setState(() {
+                            matBasica4 = inValue;
+                          });
+                        })),
               ),
               Card(
                 child: Container(
                     padding:
                         EdgeInsets.only(left: 20, right: 0, top: 0, bottom: 0),
                     child: CheckboxListTile(
-                      value: matBasica5,
-                      title: const Text("Múltiplos, Divisores, MDC e MMC",
-                          style: TextStyle(
-                              fontSize: 19,
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
-                        setState(() {
-                          matBasica5 = inValue;
-                        });
-                      },
-                    )),
+                        value: matBasica5,
+                        title: const Text("Múltiplos, Divisores, MDC e MMC",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) async {
+                          await matematica.doc(getCurrentUserId()).update({
+                            "matBasica5": inValue,
+                          });
+                          setState(() {
+                            matBasica5 = inValue;
+                          });
+                        })),
               ),
               Card(
                 child: Container(
                     padding:
                         EdgeInsets.only(left: 20, right: 0, top: 0, bottom: 0),
                     child: CheckboxListTile(
-                      value: matBasica6,
-                      title: const Text("Operações Básicas com Polinômios",
-                          style: TextStyle(
-                              fontSize: 19,
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
-                        setState(() {
-                          matBasica6 = inValue;
-                        });
-                      },
-                    )),
+                        value: matBasica6,
+                        title: const Text("Operações Básicas com Polinômios",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) async {
+                          await matematica.doc(getCurrentUserId()).update({
+                            "matBasica6": inValue,
+                          });
+                          setState(() {
+                            matBasica6 = inValue;
+                          });
+                        })),
               ),
               Card(
                 child: Container(
                     padding:
                         EdgeInsets.only(left: 20, right: 0, top: 0, bottom: 0),
                     child: CheckboxListTile(
-                      value: matBasica7,
-                      title: const Text("Frações, Decimais e Dízimas",
-                          style: TextStyle(
-                              fontSize: 19,
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
-                        setState(() {
-                          matBasica7 = inValue;
-                        });
-                      },
-                    )),
+                        value: matBasica7,
+                        title: const Text("Frações, Decimais e Dízimas",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) async {
+                          await matematica.doc(getCurrentUserId()).update({
+                            "matBasica7": inValue,
+                          });
+                          setState(() {
+                            matBasica7 = inValue;
+                          });
+                        })),
               ),
               Card(
                 child: Container(
                     padding:
                         EdgeInsets.only(left: 20, right: 0, top: 0, bottom: 0),
                     child: CheckboxListTile(
-                      value: matBasica8,
-                      title: const Text("Notação Científica",
-                          style: TextStyle(
-                              fontSize: 19,
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
-                        setState(() {
-                          matBasica8 = inValue;
-                        });
-                      },
-                    )),
+                        value: matBasica8,
+                        title: const Text("Notação Científica",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal)),
+                        onChanged: (bool inValue) async {
+                          await matematica.doc(getCurrentUserId()).update({
+                            "matBasica8": inValue,
+                          });
+                          setState(() {
+                            matBasica8 = inValue;
+                          });
+                        })),
               ),
             ],
           ),

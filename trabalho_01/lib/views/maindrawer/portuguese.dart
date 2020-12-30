@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:trabalho_01/firebase/database.dart';
 //import 'main.dart';
 import 'maindrawer.dart';
 
@@ -12,63 +15,136 @@ class MyPortuguese extends StatelessWidget {
         primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyPortuguesePage(),
+      home: StreamBuilder<DocumentSnapshot>(
+        stream: FirebaseFirestore.instance
+            .collection("Portugues")
+            .doc(getCurrentUserId())
+            .snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation(Colors.white),
+              ),
+            );
+          } else {
+            return MyPortuguesePage(category: snapshot.data);
+          }
+        },
+      ),
     );
   }
 }
 
 class MyPortuguesePage extends StatefulWidget {
+  final DocumentSnapshot category;
+
+  MyPortuguesePage({this.category});
+
   @override
-  State<StatefulWidget> createState() => _MyPortuguesePageState();
+  State<StatefulWidget> createState() =>
+      MyPortuguesePageState(category: category);
 }
 
-class _MyPortuguesePageState extends State<MyPortuguesePage> {
-  var _context;
+class MyPortuguesePageState extends State<MyPortuguesePage> {
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  final CollectionReference portugues =
+      FirebaseFirestore.instance.collection("Portugues");
   final GlobalKey<FormState> formKey3 = new GlobalKey<FormState>();
-  var morfologia1 = false;
-  var morfologia2 = false;
-  var morfologia3 = false;
-  var morfologia4 = false;
-  var morfologia5 = false;
-  var morfologia6 = false;
-  var morfologia7 = false;
-  var morfologia8 = false;
-  var morfologia9 = false;
-  var morfologia10 = false;
-  var morfologia11 = false;
-  var morfologia12 = false;
+  final DocumentSnapshot category;
+  var _context;
 
-  var formacao1 = false;
-  var formacao2 = false;
-  var formacao3 = false;
+  MyPortuguesePageState({this.category}) {
+    morfologia1 = category["morfologia1"];
+    morfologia2 = category["morfologia2"];
+    morfologia3 = category["morfologia3"];
+    morfologia4 = category["morfologia4"];
+    morfologia5 = category["morfologia5"];
+    morfologia6 = category["morfologia6"];
+    morfologia7 = category["morfologia7"];
+    morfologia8 = category["morfologia8"];
+    morfologia9 = category["morfologia9"];
+    morfologia10 = category["morfologia10"];
+    morfologia11 = category["morfologia11"];
+    morfologia12 = category["morfologia12"];
 
-  var sintaxe1 = false;
-  var sintaxe2 = false;
-  var sintaxe3 = false;
-  var sintaxe4 = false;
+    formacao1 = category["formacao1"];
+    formacao2 = category["formacao2"];
+    formacao3 = category["formacao3"];
 
-  var concordancia1 = false;
-  var concordancia2 = false;
+    sintaxe1 = category["sintaxe1"];
+    sintaxe2 = category["sintaxe2"];
+    sintaxe3 = category["sintaxe3"];
+    sintaxe4 = category["sintaxe4"];
 
-  var regencia1 = false;
+    concordancia1 = category["concordancia1"];
+    concordancia2 = category["concordancia2"];
 
-  var oracoes1 = false;
-  var oracoes2 = false;
-  var oracoes3 = false;
-  var oracoes4 = false;
-  var oracoes5 = false;
-  var oracoes6 = false;
+    regencia1 = category["regencia1"];
 
-  var ortografia1 = false;
+    oracoes1 = category["oracoes1"];
+    oracoes2 = category["oracoes2"];
+    oracoes3 = category["oracoes3"];
+    oracoes4 = category["oracoes4"];
+    oracoes5 = category["oracoes5"];
+    oracoes6 = category["oracoes6"];
 
-  var regrasP1 = false;
+    ortografia1 = category["ortografia1"];
 
-  var regrasA1 = false;
-  var regrasA2 = false;
+    regrasP1 = category["regrasP1"];
 
-  var semantica1 = false;
+    regrasA1 = category["regrasA1"];
+    regrasA2 = category["regrasA2"];
 
-  var variacoes1 = false;
+    semantica1 = category["semantica1"];
+
+    variacoes1 = category["variacoes1"];
+  }
+
+  var morfologia1;
+  var morfologia2;
+  var morfologia3;
+  var morfologia4;
+  var morfologia5;
+  var morfologia6;
+  var morfologia7;
+  var morfologia8;
+  var morfologia9;
+  var morfologia10;
+  var morfologia11;
+  var morfologia12;
+
+  var formacao1;
+  var formacao2;
+  var formacao3;
+
+  var sintaxe1;
+  var sintaxe2;
+  var sintaxe3;
+  var sintaxe4;
+
+  var concordancia1;
+  var concordancia2;
+
+  var regencia1;
+
+  var oracoes1;
+  var oracoes2;
+  var oracoes3;
+  var oracoes4;
+  var oracoes5;
+  var oracoes6;
+
+  var ortografia1;
+
+  var regrasP1;
+
+  var regrasA1;
+  var regrasA2;
+
+  var semantica1;
+
+  var variacoes1;
 
   @override
   Widget build(BuildContext context) {
@@ -134,7 +210,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "morfologia1": inValue,
+                          });
                           setState(() {
                             morfologia1 = inValue;
                           });
@@ -152,7 +231,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "morfologia2": inValue,
+                          });
                           setState(() {
                             morfologia2 = inValue;
                           });
@@ -170,7 +252,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "morfologia3": inValue,
+                          });
                           setState(() {
                             morfologia3 = inValue;
                           });
@@ -188,7 +273,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "morfologia4": inValue,
+                          });
                           setState(() {
                             morfologia4 = inValue;
                           });
@@ -206,7 +294,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "morfologia5": inValue,
+                          });
                           setState(() {
                             morfologia5 = inValue;
                           });
@@ -224,7 +315,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "morfologia6": inValue,
+                          });
                           setState(() {
                             morfologia6 = inValue;
                           });
@@ -242,7 +336,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "morfologia7": inValue,
+                          });
                           setState(() {
                             morfologia7 = inValue;
                           });
@@ -260,7 +357,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "morfologia8": inValue,
+                          });
                           setState(() {
                             morfologia8 = inValue;
                           });
@@ -278,7 +378,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "morfologia9": inValue,
+                          });
                           setState(() {
                             morfologia9 = inValue;
                           });
@@ -296,7 +399,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "morfologia10": inValue,
+                          });
                           setState(() {
                             morfologia10 = inValue;
                           });
@@ -314,7 +420,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "morfologia11": inValue,
+                          });
                           setState(() {
                             morfologia11 = inValue;
                           });
@@ -332,7 +441,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "morfologia12": inValue,
+                          });
                           setState(() {
                             morfologia12 = inValue;
                           });
@@ -363,7 +475,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "formacao1": inValue,
+                          });
                           setState(() {
                             formacao1 = inValue;
                           });
@@ -381,7 +496,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "formacao2": inValue,
+                          });
                           setState(() {
                             formacao2 = inValue;
                           });
@@ -399,7 +517,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "formacao3": inValue,
+                          });
                           setState(() {
                             formacao3 = inValue;
                           });
@@ -430,7 +551,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "sintaxe1": inValue,
+                          });
                           setState(() {
                             sintaxe1 = inValue;
                           });
@@ -448,7 +572,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "sintaxe2": inValue,
+                          });
                           setState(() {
                             sintaxe2 = inValue;
                           });
@@ -466,7 +593,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "sintaxe3": inValue,
+                          });
                           setState(() {
                             sintaxe3 = inValue;
                           });
@@ -484,7 +614,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "sintaxe4": inValue,
+                          });
                           setState(() {
                             sintaxe4 = inValue;
                           });
@@ -515,7 +648,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "concordancia1": inValue,
+                          });
                           setState(() {
                             concordancia1 = inValue;
                           });
@@ -533,7 +669,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "concordancia2": inValue,
+                          });
                           setState(() {
                             concordancia2 = inValue;
                           });
@@ -564,7 +703,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "regencia1": inValue,
+                          });
                           setState(() {
                             regencia1 = inValue;
                           });
@@ -595,7 +737,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "oracoes1": inValue,
+                          });
                           setState(() {
                             oracoes1 = inValue;
                           });
@@ -613,7 +758,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "oracoes2": inValue,
+                          });
                           setState(() {
                             oracoes2 = inValue;
                           });
@@ -631,7 +779,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "oracoes3": inValue,
+                          });
                           setState(() {
                             oracoes3 = inValue;
                           });
@@ -649,7 +800,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "oracoes4": inValue,
+                          });
                           setState(() {
                             oracoes4 = inValue;
                           });
@@ -667,7 +821,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "oracoes5": inValue,
+                          });
                           setState(() {
                             oracoes5 = inValue;
                           });
@@ -685,7 +842,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "oracoes6": inValue,
+                          });
                           setState(() {
                             oracoes6 = inValue;
                           });
@@ -710,18 +870,20 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: ortografia1,
-                        title: const Text("Ortografia",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            ortografia1 = inValue;
-                          });
-                        },
-                      )),
+                          value: ortografia1,
+                          title: const Text("Ortografia",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await portugues.doc(getCurrentUserId()).update({
+                              "ortografia1": inValue,
+                            });
+                            setState(() {
+                              ortografia1 = inValue;
+                            });
+                          })),
                 ),
               ]),
           Container(
@@ -741,18 +903,20 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: regrasP1,
-                        title: const Text("Regras de Pontuação",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            regrasP1 = inValue;
-                          });
-                        },
-                      )),
+                          value: regrasP1,
+                          title: const Text("Regras de Pontuação",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await portugues.doc(getCurrentUserId()).update({
+                              "regrasP1": inValue,
+                            });
+                            setState(() {
+                              regrasP1 = inValue;
+                            });
+                          })),
                 ),
               ]),
           Container(
@@ -772,18 +936,20 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: regrasA1,
-                        title: const Text("Acentuação Gráfica",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            regrasA1 = inValue;
-                          });
-                        },
-                      )),
+                          value: regrasA1,
+                          title: const Text("Acentuação Gráfica",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await portugues.doc(getCurrentUserId()).update({
+                              "regrasA1": inValue,
+                            });
+                            setState(() {
+                              regrasA1 = inValue;
+                            });
+                          })),
                 ),
                 Card(
                   child: Container(
@@ -796,7 +962,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "regrasA2": inValue,
+                          });
                           setState(() {
                             regrasA2 = inValue;
                           });
@@ -827,7 +996,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "semantica1": inValue,
+                          });
                           setState(() {
                             semantica1 = inValue;
                           });
@@ -858,7 +1030,10 @@ class _MyPortuguesePageState extends State<MyPortuguesePage> {
                                 fontSize: 19,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
+                        onChanged: (bool inValue) async {
+                          await portugues.doc(getCurrentUserId()).update({
+                            "variacoes1": inValue,
+                          });
                           setState(() {
                             variacoes1 = inValue;
                           });

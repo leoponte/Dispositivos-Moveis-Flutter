@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:trabalho_01/firebase/database.dart';
 //import 'main.dart';
 import 'maindrawer.dart';
 
@@ -7,39 +10,82 @@ class MySociology extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MySociologyPage(),
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.red,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: StreamBuilder<DocumentSnapshot>(
+          stream: FirebaseFirestore.instance
+              .collection("Sociologia")
+              .doc(getCurrentUserId())
+              .snapshots(),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return Center(
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation(Colors.white),
+                ),
+              );
+            } else {
+              return MySociologyPage(category: snapshot.data);
+            }
+          },
+        ));
   }
 }
 
 class MySociologyPage extends StatefulWidget {
+  final DocumentSnapshot category;
+
+  MySociologyPage({this.category});
+
   @override
-  State<StatefulWidget> createState() => _MySociologyPageState();
+  State<StatefulWidget> createState() =>
+      MySociologyPageState(category: category);
 }
 
-class _MySociologyPageState extends State<MySociologyPage> {
-  var _context;
+class MySociologyPageState extends State<MySociologyPage> {
+  final DocumentSnapshot category;
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  final CollectionReference sociologia =
+      FirebaseFirestore.instance.collection("Sociologia");
   final GlobalKey<FormState> formKey5 = new GlobalKey<FormState>();
-  var introSoc = false;
+  var _context;
 
-  var natureza1 = false;
-  var natureza2 = false;
-  var natureza3 = false;
+  MySociologyPageState({this.category}) {
+    introSoc = category["introSoc"];
 
-  var fundamentos1 = false;
-  var fundamentos2 = false;
-  var fundamentos3 = false;
-  var fundamentos4 = false;
+    natureza1 = category["natureza1"];
+    natureza2 = category["natureza2"];
+    natureza3 = category["natureza3"];
 
-  var classicos1 = false;
-  var classicos2 = false;
-  var classicos3 = false;
-  var classicos4 = false;
+    fundamentos1 = category["fundamentos1"];
+    fundamentos2 = category["fundamentos2"];
+    fundamentos3 = category["fundamentos3"];
+    fundamentos4 = category["fundamentos4"];
+
+    classicos1 = category["classicos1"];
+    classicos2 = category["classicos2"];
+    classicos3 = category["classicos3"];
+    classicos4 = category["classicos4"];
+  }
+
+  var introSoc;
+
+  var natureza1;
+  var natureza2;
+  var natureza3;
+
+  var fundamentos1;
+  var fundamentos2;
+  var fundamentos3;
+  var fundamentos4;
+
+  var classicos1;
+  var classicos2;
+  var classicos3;
+  var classicos4;
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +150,10 @@ class _MySociologyPageState extends State<MySociologyPage> {
                               fontSize: 19,
                               color: Colors.black,
                               fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
+                      onChanged: (bool inValue) async {
+                        await sociologia.doc(getCurrentUserId()).update({
+                          "introSoc": inValue,
+                        });
                         setState(() {
                           introSoc = inValue;
                         });
@@ -136,7 +185,10 @@ class _MySociologyPageState extends State<MySociologyPage> {
                               fontSize: 19,
                               color: Colors.black,
                               fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
+                      onChanged: (bool inValue) async {
+                        await sociologia.doc(getCurrentUserId()).update({
+                          "natureza1": inValue,
+                        });
                         setState(() {
                           natureza1 = inValue;
                         });
@@ -154,7 +206,10 @@ class _MySociologyPageState extends State<MySociologyPage> {
                               fontSize: 19,
                               color: Colors.black,
                               fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
+                      onChanged: (bool inValue) async {
+                        await sociologia.doc(getCurrentUserId()).update({
+                          "natureza2": inValue,
+                        });
                         setState(() {
                           natureza2 = inValue;
                         });
@@ -172,7 +227,10 @@ class _MySociologyPageState extends State<MySociologyPage> {
                               fontSize: 19,
                               color: Colors.black,
                               fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
+                      onChanged: (bool inValue) async {
+                        await sociologia.doc(getCurrentUserId()).update({
+                          "natureza3": inValue,
+                        });
                         setState(() {
                           natureza3 = inValue;
                         });
@@ -204,7 +262,10 @@ class _MySociologyPageState extends State<MySociologyPage> {
                               fontSize: 19,
                               color: Colors.black,
                               fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
+                      onChanged: (bool inValue) async {
+                        await sociologia.doc(getCurrentUserId()).update({
+                          "fundamentos1": inValue,
+                        });
                         setState(() {
                           fundamentos1 = inValue;
                         });
@@ -222,7 +283,10 @@ class _MySociologyPageState extends State<MySociologyPage> {
                               fontSize: 19,
                               color: Colors.black,
                               fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
+                      onChanged: (bool inValue) async {
+                        await sociologia.doc(getCurrentUserId()).update({
+                          "fundamentos2": inValue,
+                        });
                         setState(() {
                           fundamentos2 = inValue;
                         });
@@ -240,7 +304,10 @@ class _MySociologyPageState extends State<MySociologyPage> {
                               fontSize: 19,
                               color: Colors.black,
                               fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
+                      onChanged: (bool inValue) async {
+                        await sociologia.doc(getCurrentUserId()).update({
+                          "fundamentos3": inValue,
+                        });
                         setState(() {
                           fundamentos3 = inValue;
                         });
@@ -258,7 +325,10 @@ class _MySociologyPageState extends State<MySociologyPage> {
                               fontSize: 19,
                               color: Colors.black,
                               fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
+                      onChanged: (bool inValue) async {
+                        await sociologia.doc(getCurrentUserId()).update({
+                          "fundamentos4": inValue,
+                        });
                         setState(() {
                           fundamentos4 = inValue;
                         });
@@ -290,7 +360,10 @@ class _MySociologyPageState extends State<MySociologyPage> {
                               fontSize: 19,
                               color: Colors.black,
                               fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
+                      onChanged: (bool inValue) async {
+                        await sociologia.doc(getCurrentUserId()).update({
+                          "classicos1": inValue,
+                        });
                         setState(() {
                           classicos1 = inValue;
                         });
@@ -308,7 +381,10 @@ class _MySociologyPageState extends State<MySociologyPage> {
                               fontSize: 19,
                               color: Colors.black,
                               fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
+                      onChanged: (bool inValue) async {
+                        await sociologia.doc(getCurrentUserId()).update({
+                          "classicos2": inValue,
+                        });
                         setState(() {
                           classicos2 = inValue;
                         });
@@ -326,7 +402,10 @@ class _MySociologyPageState extends State<MySociologyPage> {
                               fontSize: 19,
                               color: Colors.black,
                               fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
+                      onChanged: (bool inValue) async {
+                        await sociologia.doc(getCurrentUserId()).update({
+                          "classicos3": inValue,
+                        });
                         setState(() {
                           classicos3 = inValue;
                         });
@@ -344,7 +423,10 @@ class _MySociologyPageState extends State<MySociologyPage> {
                               fontSize: 19,
                               color: Colors.black,
                               fontWeight: FontWeight.normal)),
-                      onChanged: (bool inValue) {
+                      onChanged: (bool inValue) async {
+                        await sociologia.doc(getCurrentUserId()).update({
+                          "classicos4": inValue,
+                        });
                         setState(() {
                           classicos4 = inValue;
                         });

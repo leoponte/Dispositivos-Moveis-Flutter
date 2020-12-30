@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trabalho_01/bloc/auth_event.dart';
+import 'package:trabalho_01/views/maindrawer/itemhomepage.dart';
 import 'package:trabalho_01/views/maindrawer/math.dart';
 import 'package:trabalho_01/views/maindrawer/philosophy.dart';
 import 'package:trabalho_01/views/maindrawer/portuguese.dart';
@@ -58,144 +60,112 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
         appBar: AppBar(
           backgroundColor: Colors.red,
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 20),
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: const Radius.circular(10),
-                    bottomRight: const Radius.circular(600),
-                  ),
-                ),
-                child: Column(children: [
-                  Row(
-                    children: [
-                      Text("   Nossas Lutas",
-                          //textAlign: TextAlign.left,
-                          style: TextStyle(
-                              fontSize: 35.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white)),
-                      Container(
-                          padding: EdgeInsets.only(
-                              left: 60, right: 0, top: 10, bottom: 0),
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(50),
-                              child: Stack(children: <Widget>[
-                                Image.asset(
-                                  'assets/images/logoredondo.png',
-                                  width: 70.0,
-                                  height: 70.0,
-                                )
-                              ]))),
-                    ],
-                  )
-                ]),
+        body: ListView(children: [
+          Container(
+            padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 20),
+            decoration: BoxDecoration(
+              color: Colors.red,
+              borderRadius: BorderRadius.only(
+                bottomLeft: const Radius.circular(10),
+                bottomRight: const Radius.circular(600),
               ),
-              Container(
-                  margin: const EdgeInsets.only(
-                      left: 10.0, right: 10.0, bottom: 10.0, top: 30.0),
-                  child: Material(
-                    borderRadius: BorderRadius.circular(8.0),
-                    elevation: 10.0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ClipRRect(
-                            borderRadius: BorderRadius.circular(15),
-                            child: Stack(children: <Widget>[
-                              Image.asset(
-                                'assets/images/cursinho.jpg',
-                                width: 360.0,
-                                height: 200.0,
-                              )
-                            ]))
-                      ],
-                    ),
-                  )),
-              Container(
-                  margin: const EdgeInsets.only(
-                      left: 10.0, right: 10.0, bottom: 10.0, top: 30.0),
-                  child: Material(
-                    borderRadius: BorderRadius.circular(8.0),
-                    elevation: 10.0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/images/one.jpg',
-                          fit: BoxFit.cover,
-                          width: 200.0,
-                          height: 200.0,
-                        ),
-                        Container(
-                            child: Flexible(
-                          child: Text(
-                              "   Você sabia que uma de\n nossas prioridades no \n CCP também é zelar pelo\n meio ambiente?\n   Esse projeto é um de\n muitos!\n   Nossos companheiros \n se reunem de manhã para\n separar os materiais de\n reciclagem coletados na\n região.",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.normal,
-                                  color: Colors.black)),
-                        ))
-                      ],
-                    ),
-                  )),
-              Container(
-                  margin: const EdgeInsets.only(
-                      left: 10.0, right: 10.0, bottom: 10.0, top: 30.0),
-                  child: Material(
-                    borderRadius: BorderRadius.circular(8.0),
-                    elevation: 10.0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/images/mfeminista.jpg',
-                          fit: BoxFit.cover,
-                          width: 200.0,
-                          height: 210.0,
-                        ),
-                        Container(
-                            child: Flexible(
-                          child: Text(
-                              "   O Manifesto Feminista é\n o coletivo de mulheres\n formado pelas estudantes\n e voluntárias do CCP.\n   Desde 2008, o coletivo\n tem pautado as questões\n de gênero junto aos\n estudantes do cursinho,\n através de aulas de\n cidadania e dinamização\n de debates a partir da\n exibição de\n documentários.",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.normal,
-                                  color: Colors.black)),
-                        ))
-                      ],
-                    ),
-                  )),
-              Container(
-                  margin: const EdgeInsets.only(
-                    left: 10.0,
-                    right: 10.0,
-                    bottom: 30.0,
-                    top: 30.0,
-                  ),
-                  child: Material(
-                    borderRadius: BorderRadius.circular(8.0),
-                    elevation: 10.0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ClipRRect(
-                            borderRadius: BorderRadius.circular(15),
-                            child: Stack(children: <Widget>[
-                              Image.asset(
-                                'assets/images/three.jpg',
-                                width: 360.0,
-                                height: 200.0,
-                              )
-                            ]))
-                      ],
-                    ),
-                  )),
-            ],
+            ),
+            child: Column(children: [
+              Row(
+                children: [
+                  Text("   Nossas Lutas",
+                      //textAlign: TextAlign.left,
+                      style: TextStyle(
+                          fontSize: 35.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white)),
+                  Container(
+                      padding: EdgeInsets.only(
+                          left: 60, right: 0, top: 10, bottom: 0),
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(50),
+                          child: Stack(children: <Widget>[
+                            Image.asset(
+                              'assets/images/logoredondo.png',
+                              width: 70.0,
+                              height: 70.0,
+                            )
+                          ]))),
+                ],
+              )
+            ]),
           ),
-        ),
+          Container(
+              margin: const EdgeInsets.only(
+                  left: 10.0, right: 10.0, bottom: 10.0, top: 30.0),
+              child: Material(
+                borderRadius: BorderRadius.circular(8.0),
+                elevation: 10.0,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Stack(children: <Widget>[
+                          Image.asset(
+                            'assets/images/cursinho.jpg',
+                            width: 360.0,
+                            height: 200.0,
+                          )
+                        ]))
+                  ],
+                ),
+              )),
+          StreamBuilder<QuerySnapshot>(
+            stream: FirebaseFirestore.instance.collection("Home").snapshots(),
+            builder: (context, snapshot) {
+              if (!snapshot.hasData) {
+                return Center(
+                  child: CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation(Colors.white),
+                  ),
+                );
+              } else {
+                //Listar os conteudos do menu principal
+                return ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: snapshot.data.docs.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return ItemHomePage(
+                        url: snapshot.data.docs[index]["url"],
+                        text: snapshot.data.docs[index]["text"]);
+                  },
+                );
+              }
+            },
+          ),
+          Container(
+              margin: const EdgeInsets.only(
+                left: 10.0,
+                right: 10.0,
+                bottom: 30.0,
+                top: 30.0,
+              ),
+              child: Material(
+                borderRadius: BorderRadius.circular(8.0),
+                elevation: 10.0,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Stack(children: <Widget>[
+                          Image.asset(
+                            'assets/images/three.jpg',
+                            width: 360.0,
+                            height: 200.0,
+                          )
+                        ]))
+                  ],
+                ),
+              )),
+        ]),
         drawer: Drawer(child: mySecondListView()));
   }
 

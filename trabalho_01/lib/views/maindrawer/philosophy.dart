@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:trabalho_01/firebase/database.dart';
 //import 'main.dart';
 import 'maindrawer.dart';
 
@@ -7,45 +10,86 @@ class MyPhilosophy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyPhilosophyPage(),
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.red,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: StreamBuilder<DocumentSnapshot>(
+          stream: FirebaseFirestore.instance
+              .collection("Filosofia")
+              .doc(getCurrentUserId())
+              .snapshots(),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return Center(
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation(Colors.white),
+                ),
+              );
+            } else {
+              return MyPhilosophyPage(category: snapshot.data);
+            }
+          },
+        ));
   }
 }
 
 class MyPhilosophyPage extends StatefulWidget {
+  final DocumentSnapshot category;
+
+  MyPhilosophyPage({this.category});
   @override
-  State<StatefulWidget> createState() => _MyPhilosophyPageState();
+  State<StatefulWidget> createState() =>
+      MyPhilosophyPageState(category: category);
 }
 
-class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
-  var _context;
+class MyPhilosophyPageState extends State<MyPhilosophyPage> {
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  final CollectionReference filosofia =
+      FirebaseFirestore.instance.collection("Filosofia");
+
   final GlobalKey<FormState> formKey4 = new GlobalKey<FormState>();
-  var introducao1 = false;
+  final DocumentSnapshot category;
+  var _context;
 
-  var antigOri1 = false;
-  var antigOri2 = false;
-  var antigOri3 = false;
-  var antigOri4 = false;
+  MyPhilosophyPageState({this.category}) {
+    introducao1 = category["introducao1"];
+    antigOri1 = category["antigOri1"];
+    antigOri2 = category["antigOri2"];
+    antigOri3 = category["antigOri3"];
+    antigOri4 = category["antigOri4"];
+    antigOci1 = category["antigOci1"];
+    antigOci2 = category["antigOci2"];
+    antigOci3 = category["antigOci3"];
+    antigOci4 = category["antigOci4"];
+    antigOci5 = category["antigOci5"];
+    antigOci6 = category["antigOci6"];
+    transiIdm1 = category["transiIdm1"];
+    transiIdm2 = category["transiIdm2"];
+    transiIdm3 = category["transiIdm3"];
+    filoMod1 = category["filoMod1"];
+    filoMod2 = category["filoMod2"];
+    filoMod3 = category["filoMod3"];
+  }
 
-  var antigOci1 = false;
-  var antigOci2 = false;
-  var antigOci3 = false;
-  var antigOci4 = false;
-  var antigOci5 = false;
-  var antigOci6 = false;
-
-  var transiIdm1 = false;
-  var transiIdm2 = false;
-  var transiIdm3 = false;
-
-  var filoMod1 = false;
-  var filoMod2 = false;
-  var filoMod3 = false;
+  var introducao1;
+  var antigOri1;
+  var antigOri2;
+  var antigOri3;
+  var antigOri4;
+  var antigOci1;
+  var antigOci2;
+  var antigOci3;
+  var antigOci4;
+  var antigOci5;
+  var antigOci6;
+  var transiIdm1;
+  var transiIdm2;
+  var transiIdm3;
+  var filoMod1;
+  var filoMod2;
+  var filoMod3;
 
   @override
   Widget build(BuildContext context) {
@@ -105,18 +149,20 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: introducao1,
-                        title: const Text("Introdução à Filosofia",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            introducao1 = inValue;
-                          });
-                        },
-                      )),
+                          value: introducao1,
+                          title: const Text("Introdução à Filosofia",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await filosofia.doc(getCurrentUserId()).update({
+                              "introducao1": inValue,
+                            });
+                            setState(() {
+                              introducao1 = inValue;
+                            });
+                          })),
                 ),
               ]),
           Container(
@@ -136,73 +182,81 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: antigOri1,
-                        title: const Text(
-                            "Introdução à Filosofia do Oriente Médio",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            antigOri1 = inValue;
-                          });
-                        },
-                      )),
+                          value: antigOri1,
+                          title: const Text(
+                              "Introdução à Filosofia do Oriente Médio",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await filosofia.doc(getCurrentUserId()).update({
+                              "antigOri1": inValue,
+                            });
+                            setState(() {
+                              antigOri1 = inValue;
+                            });
+                          })),
                 ),
                 Card(
                   child: Container(
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: antigOri2,
-                        title: const Text("Os Egípcios",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            antigOri2 = inValue;
-                          });
-                        },
-                      )),
+                          value: antigOri2,
+                          title: const Text("Os Egípcios",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await filosofia.doc(getCurrentUserId()).update({
+                              "antigOri2": inValue,
+                            });
+                            setState(() {
+                              antigOri2 = inValue;
+                            });
+                          })),
                 ),
                 Card(
                   child: Container(
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: antigOri3,
-                        title: const Text("Os Mesopotâmicos",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            antigOri3 = inValue;
-                          });
-                        },
-                      )),
+                          value: antigOri3,
+                          title: const Text("Os Mesopotâmicos",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await filosofia.doc(getCurrentUserId()).update({
+                              "antigOri3": inValue,
+                            });
+                            setState(() {
+                              antigOri3 = inValue;
+                            });
+                          })),
                 ),
                 Card(
                   child: Container(
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: antigOri4,
-                        title: const Text("Os Hebreus",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            antigOri4 = inValue;
-                          });
-                        },
-                      )),
+                          value: antigOri4,
+                          title: const Text("Os Hebreus",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await filosofia.doc(getCurrentUserId()).update({
+                              "antigOri4": inValue,
+                            });
+                            setState(() {
+                              antigOri4 = inValue;
+                            });
+                          })),
                 ),
               ]),
           Container(
@@ -222,109 +276,121 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: antigOci1,
-                        title: const Text("Introdução ao Mundo Grego",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            antigOci1 = inValue;
-                          });
-                        },
-                      )),
+                          value: antigOci1,
+                          title: const Text("Introdução ao Mundo Grego",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await filosofia.doc(getCurrentUserId()).update({
+                              "antigOci1": inValue,
+                            });
+                            setState(() {
+                              antigOci1 = inValue;
+                            });
+                          })),
                 ),
                 Card(
                   child: Container(
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: antigOci2,
-                        title: const Text(
-                            "Pré-Socráticos ou Filósofos da Natureza",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            antigOci2 = inValue;
-                          });
-                        },
-                      )),
+                          value: antigOci2,
+                          title: const Text(
+                              "Pré-Socráticos ou Filósofos da Natureza",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await filosofia.doc(getCurrentUserId()).update({
+                              "antigOci2": inValue,
+                            });
+                            setState(() {
+                              antigOci2 = inValue;
+                            });
+                          })),
                 ),
                 Card(
                   child: Container(
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: antigOci3,
-                        title: const Text("Sofistas",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            antigOci3 = inValue;
-                          });
-                        },
-                      )),
+                          value: antigOci3,
+                          title: const Text("Sofistas",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await filosofia.doc(getCurrentUserId()).update({
+                              "antigOci3": inValue,
+                            });
+                            setState(() {
+                              antigOci3 = inValue;
+                            });
+                          })),
                 ),
                 Card(
                   child: Container(
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: antigOci4,
-                        title: const Text("Socráticos - Sócrates",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            antigOci4 = inValue;
-                          });
-                        },
-                      )),
+                          value: antigOci4,
+                          title: const Text("Socráticos - Sócrates",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await filosofia.doc(getCurrentUserId()).update({
+                              "antigOci4": inValue,
+                            });
+                            setState(() {
+                              antigOci4 = inValue;
+                            });
+                          })),
                 ),
                 Card(
                   child: Container(
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: antigOci5,
-                        title: const Text("Socráticos - Platão",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            antigOci5 = inValue;
-                          });
-                        },
-                      )),
+                          value: antigOci5,
+                          title: const Text("Socráticos - Platão",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await filosofia.doc(getCurrentUserId()).update({
+                              "antigOci5": inValue,
+                            });
+                            setState(() {
+                              antigOci5 = inValue;
+                            });
+                          })),
                 ),
                 Card(
                   child: Container(
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: antigOci6,
-                        title: const Text("Socráticos - Aristóteles",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            antigOci6 = inValue;
-                          });
-                        },
-                      )),
+                          value: antigOci6,
+                          title: const Text("Socráticos - Aristóteles",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await filosofia.doc(getCurrentUserId()).update({
+                              "antigOci6": inValue,
+                            });
+                            setState(() {
+                              antigOci6 = inValue;
+                            });
+                          })),
                 ),
               ]),
           Container(
@@ -344,54 +410,60 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: transiIdm1,
-                        title: const Text("Filosofia Helenística",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            transiIdm1 = inValue;
-                          });
-                        },
-                      )),
+                          value: transiIdm1,
+                          title: const Text("Filosofia Helenística",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await filosofia.doc(getCurrentUserId()).update({
+                              "transiIdm1": inValue,
+                            });
+                            setState(() {
+                              transiIdm1 = inValue;
+                            });
+                          })),
                 ),
                 Card(
                   child: Container(
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: transiIdm2,
-                        title: const Text("Filosofia Medieval",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            transiIdm2 = inValue;
-                          });
-                        },
-                      )),
+                          value: transiIdm2,
+                          title: const Text("Filosofia Medieval",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await filosofia.doc(getCurrentUserId()).update({
+                              "transiIdm2": inValue,
+                            });
+                            setState(() {
+                              transiIdm2 = inValue;
+                            });
+                          })),
                 ),
                 Card(
                   child: Container(
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: transiIdm3,
-                        title: const Text("Pensamento Cristão",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            transiIdm3 = inValue;
-                          });
-                        },
-                      )),
+                          value: transiIdm3,
+                          title: const Text("Pensamento Cristão",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await filosofia.doc(getCurrentUserId()).update({
+                              "transiIdm3": inValue,
+                            });
+                            setState(() {
+                              transiIdm3 = inValue;
+                            });
+                          })),
                 ),
               ]),
           Container(
@@ -411,54 +483,60 @@ class _MyPhilosophyPageState extends State<MyPhilosophyPage> {
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: filoMod1,
-                        title: const Text("Ciência Moderna",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            filoMod1 = inValue;
-                          });
-                        },
-                      )),
+                          value: filoMod1,
+                          title: const Text("Ciência Moderna",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await filosofia.doc(getCurrentUserId()).update({
+                              "filoMod1": inValue,
+                            });
+                            setState(() {
+                              filoMod1 = inValue;
+                            });
+                          })),
                 ),
                 Card(
                   child: Container(
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: filoMod2,
-                        title: const Text("Ética e Moral",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            filoMod2 = inValue;
-                          });
-                        },
-                      )),
+                          value: filoMod2,
+                          title: const Text("Ética e Moral",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await filosofia.doc(getCurrentUserId()).update({
+                              "filoMod2": inValue,
+                            });
+                            setState(() {
+                              filoMod2 = inValue;
+                            });
+                          })),
                 ),
                 Card(
                   child: Container(
                       padding: EdgeInsets.only(
                           left: 20, right: 0, top: 0, bottom: 0),
                       child: CheckboxListTile(
-                        value: filoMod3,
-                        title: const Text("Verdade",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                        onChanged: (bool inValue) {
-                          setState(() {
-                            filoMod3 = inValue;
-                          });
-                        },
-                      )),
+                          value: filoMod3,
+                          title: const Text("Verdade",
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal)),
+                          onChanged: (bool inValue) async {
+                            await filosofia.doc(getCurrentUserId()).update({
+                              "filoMod3": inValue,
+                            });
+                            setState(() {
+                              filoMod3 = inValue;
+                            });
+                          })),
                 ),
               ]),
           Container(
