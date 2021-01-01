@@ -256,7 +256,7 @@ class _MyLoginPage extends State<MyAppPages> {
                                           child: Text("Discordar"),
                                           onPressed: () {
                                             // Faça algo
-                                            Navigator.of(context).pop();
+                                            Navigator.of(contextA).pop();
                                           },
                                         ),
                                       ],

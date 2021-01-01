@@ -5,8 +5,6 @@ import 'package:trabalho_01/bloc/database_event.dart';
 import 'package:trabalho_01/firebase/database.dart';
 import 'package:trabalho_01/views/maindrawer/maindrawer.dart';
 
-import 'package:trabalho_01/models/studies_models.dart';
-
 class MyMath extends StatelessWidget {
   // This widget is the root of your application.
 
