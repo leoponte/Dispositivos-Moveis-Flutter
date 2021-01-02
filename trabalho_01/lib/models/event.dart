@@ -27,7 +27,7 @@ class EventModel extends DatabaseItem {
         idUser: data['idUser'],
         aula: data['aula'],
         descricao: data['descricao'],
-        eventDate: data['event_date'],
+        eventDate: data['dia do evento'],
         papel: data['papel'],
         nome: data['nome'],
         sala: data['sala']);
@@ -39,7 +39,7 @@ class EventModel extends DatabaseItem {
         idUser: data['idUser'],
         aula: data['aula'],
         descricao: data['descricao'],
-        eventDate: data['event_date'].toDate(),
+        eventDate: data['dia do evento'].toDate(),
         papel: data['papel'],
         nome: data['nome'],
         sala: data['sala']);
@@ -50,7 +50,7 @@ class EventModel extends DatabaseItem {
       "idUser": idUser,
       "aula": aula,
       "descricao": descricao,
-      "event_date": eventDate,
+      "dia do evento": eventDate,
       "papel": papel,
       "nome": nome,
       "sala": sala,

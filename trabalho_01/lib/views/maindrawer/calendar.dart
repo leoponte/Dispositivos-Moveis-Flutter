@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:trabalho_01/bloc/calendar_event.dart';
+import 'package:trabalho_01/bloc/add_calendar_event.dart';
+import 'package:trabalho_01/bloc/edit_calendar_event.dart';
 import 'package:trabalho_01/firebase/database.dart';
 import 'package:trabalho_01/firebase/event_firestore_service.dart';
 import 'package:trabalho_01/models/event.dart';
 import 'package:trabalho_01/views/maindrawer/calendar_view.dart';
-import 'package:trabalho_01/views/maindrawer/edit.dart';
 
 //import 'main.dart';
 import 'maindrawer.dart';
@@ -177,19 +177,65 @@ class _MyCalendarPageState extends State<MyCalendarPage> {
                   ..._selectedEvents.map((event) => Card(
                         child: ListTile(
                           title: Text(event.aula),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => EventDetailsPage(
+                                          event: event,
+                                        )));
+                          },
                           trailing:
                               Row(mainAxisSize: MainAxisSize.min, children: [
                             GestureDetector(
                                 child: Icon(Icons.delete),
                                 onTap: () async {
                                   if (getCurrentUserId() == event.idUser) {
-                                    print(event.id);
-                                    eventDBS.removeItem(event.id);
-                                    //Queria só recarregar a página
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (_) => MyCalendar()));
+                                    return showDialog(
+                                        context: context,
+                                        builder: (contextA) {
+                                          return Container(
+                                            padding: EdgeInsets.only(
+                                                left: 10,
+                                                right: 10,
+                                                top: 50,
+                                                bottom: 100),
+                                            child: SingleChildScrollView(
+                                                // Mostrar Politica de Privacidade
+                                                child: AlertDialog(
+                                                    title: Text(
+                                                        "Você tem certeza que quer excluir essa aula? "),
+                                                    actions: [
+                                                      FlatButton(
+                                                        child: Text("Sim"),
+                                                        onPressed: () {
+                                                          print(event.id);
+
+                                                          eventDBS.removeItem(
+                                                              event.id);
+                                                          Navigator.of(contextA)
+                                                              .pop();
+                                                          //Queria só recarregar a página
+                                                          Navigator.push(
+                                                              context,
+                                                              MaterialPageRoute(
+                                                                  builder: (_) =>
+                                                                      MyCalendar()));
+                                                        },
+                                                      ),
+                                                      FlatButton(
+                                                        child: Text("Não"),
+                                                        onPressed: () {
+                                                          // Faça algo
+                                                          Navigator.of(contextA)
+                                                              .pop();
+                                                        },
+                                                      ),
+                                                    ],
+                                                    elevation: 24.0)),
+                                          );
+                                        },
+                                        barrierDismissible: true);
                                   } else {
                                     return showDialog(
                                         context: context,
@@ -209,7 +255,9 @@ class _MyCalendarPageState extends State<MyCalendarPage> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (_) => EditDetailsPage()));
+                                            builder: (_) => EditCalendarPage(
+                                                  event: event,
+                                                )));
                                   } else {
                                     return showDialog(
                                         context: context,
@@ -221,14 +269,6 @@ class _MyCalendarPageState extends State<MyCalendarPage> {
                                   }
                                 }),
                           ]),
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) => EventDetailsPage(
-                                          event: event,
-                                        )));
-                          },
                         ),
                       )),
                 ],

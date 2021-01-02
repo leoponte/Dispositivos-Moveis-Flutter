@@ -211,7 +211,7 @@ class AddEventPageState extends State<AddEventPage> {
                                 await eventDBS.updateData(widget.note.id, {
                                   "aula": _aula.text,
                                   "description": _descricao.text,
-                                  "event_date": widget.note.eventDate,
+                                  "dia do evento": widget.note.eventDate,
                                   "papel": papel,
                                   "nome": nome,
                                   "sala": sala,
