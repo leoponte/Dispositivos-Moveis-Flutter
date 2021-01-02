@@ -14,8 +14,6 @@ class LoginUser extends AuthEvent {
   String password;
 }
 
-//class LoginAnonymousUser extends AuthEvent {}
-
 class Logout extends AuthEvent {}
 
 class InnerServerEvent extends AuthEvent {

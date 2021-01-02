@@ -1,9 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:trabalho_01/firebase/database.dart';
-//import 'main.dart';
-import 'maindrawer.dart';
+import 'package:trabalho_01/firebase/functions.dart';
+import 'package:trabalho_01/views/maindrawer/maindrawer.dart';
 
 class MySociology extends StatelessWidget {
   // This widget is the root of your application.

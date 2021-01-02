@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:trabalho_01/bloc/add_calendar_event.dart';
-import 'package:trabalho_01/bloc/edit_calendar_event.dart';
-import 'package:trabalho_01/firebase/database.dart';
-import 'package:trabalho_01/firebase/event_firestore_service.dart';
-import 'package:trabalho_01/models/event.dart';
-import 'package:trabalho_01/views/maindrawer/calendar_view.dart';
+import 'package:trabalho_01/firebase/calendar.dart';
+
+import 'package:trabalho_01/firebase/functions.dart';
+
+import 'package:trabalho_01/models/calendar_models.dart';
+
+import 'package:trabalho_01/views/maindrawer/calendar/add_calendar.dart';
+import 'package:trabalho_01/views/maindrawer/calendar/calendar_view.dart';
+import 'package:trabalho_01/views/maindrawer/calendar/edit_calendar.dart';
+
+import 'package:trabalho_01/views/maindrawer/maindrawer.dart';
 
 //import 'main.dart';
-import 'maindrawer.dart';
 
 class MyCalendar extends StatelessWidget {
   // This widget is the root of your application.
@@ -252,8 +257,11 @@ class _MyCalendarPageState extends State<MyCalendarPage> {
                                           context: context,
                                           builder: (context) {
                                             return AlertDialog(
-                                                title: Text(
-                                                    "Aula não criada por você, então não pode excluir"));
+                                                title: Row(children: [
+                                              Icon(MaterialCommunityIcons.lock,
+                                                  size: 20),
+                                              Text("  Não permitido excluir!"),
+                                            ]));
                                           });
                                     }
                                   }),
@@ -275,8 +283,11 @@ class _MyCalendarPageState extends State<MyCalendarPage> {
                                         context: context,
                                         builder: (context) {
                                           return AlertDialog(
-                                              title: Text(
-                                                  "Aula não criada por você, então não pode editar"));
+                                              title: Row(children: [
+                                            Icon(MaterialCommunityIcons.lock,
+                                                size: 20),
+                                            Text("  Não permitido editar!"),
+                                          ]));
                                         });
                                   }
                                 }),

@@ -1,16 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:connectivity/connectivity.dart';
-import 'package:trabalho_01/bloc/database_bloc.dart';
+
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:trabalho_01/login.dart';
 import 'bloc/auth_bloc.dart';
 import 'bloc/auth_state.dart';
 
 import 'views/maindrawer/maindrawer.dart';
-
-//MyTheme currentTheme = MyTheme(); // Usado para mudança de ligth mode para night mode
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,13 +41,7 @@ class Wrapper extends StatelessWidget {
       builder: (context, AuthState state) {
         print("RECEBI MENSAGEM NO WRAPPER");
         if (state is Authenticated) {
-          return BlocProvider<DatabaseBloc>(
-              create: (context) {
-                return DatabaseBloc(state.user.uid);
-              },
-
-              //print("Autenticado");
-              child: MyMainDrawer());
+          return MyMainDrawer();
         } else {
           return MyApp();
         }

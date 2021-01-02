@@ -32,9 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
   GlobalKey<FormState> formKey = new GlobalKey<FormState>();
   RegisterUser registerData = RegisterUser();
   bool _obscureText = true;
-  // Valor default para o dropdown
-  //String dropdownValue = 'Salona';
-  // Deixar visivel a senha.
+
   void _toggle() {
     setState(() {
       _obscureText = !_obscureText;
@@ -43,7 +41,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    //this._context = context;
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -239,16 +236,54 @@ class _MyHomePageState extends State<MyHomePage> {
                   // Função anonima
                   if (formKey.currentState.validate()) {
                     formKey.currentState.save();
-                    FocusScope.of(context)
-                        .unfocus(); //Faz descer o teclado após apertar o botão
-                    BlocProvider.of<AuthBloc>(context).add(registerData);
+                    FocusScope.of(context).unfocus();
+                    return showDialog(
+                        context: context,
+                        builder: (contextA) {
+                          return Container(
+                            padding: EdgeInsets.only(
+                                left: 10, right: 10, top: 50, bottom: 100),
+                            child: SingleChildScrollView(
+                                // Mostrar Politica de Privacidade
+                                child: AlertDialog(
+                                    title: Text("Politica de Privacidade"),
+                                    content: Text(
+                                        " A sua privacidade é importante para nós.\n  É política do Cursinho Comunitário Pimentas respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site Cursinho Comunitário Pimentas, e outros sites que possuímos e operamos.\n  Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço.\n Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado.\n Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado.\n Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis ​​para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados.\n Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.\n  O nosso site pode ter links para sites externos que não são operados por nós. Esteja ciente de que não temos controle sobre o conteúdo e práticas desses sites e não podemos aceitar responsabilidade por suas respectivas políticas de privacidade.\n Você é livre para recusar a nossa solicitação de informações pessoais, entendendo que talvez não possamos fornecer alguns dos serviços desejados.\n O uso continuado de nosso site será considerado como aceitação de nossas práticas em torno de privacidade e informações pessoais. Se você tiver alguma dúvida sobre como lidamos com dados do usuário e informações pessoais, entre em contato conosco.\n Esperemos que esteja esclarecido e, como mencionado anteriormente, se houver algo que você não tem certeza se precisa ou não, geralmente é mais seguro deixar os cookies ativados, caso interaja com um dos recursos que você usa em nosso site.\n  Esta política é efetiva a partir de November/2020."),
+                                    actions: [
+                                      FlatButton(
+                                        child: Text("Aceitar"),
+                                        onPressed: () {
+                                          Navigator.of(contextA).pop();
 
-                    BlocProvider.of<AuthBloc>(context).add(Logout());
-                    // GAMBIARRA PARA PARAR NA TELA DE LOGIN (PERGUNTAR PARA O PROFESSOR)
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => MyApp()));
+                                          BlocProvider.of<AuthBloc>(context)
+                                              .add(registerData);
+
+                                          BlocProvider.of<AuthBloc>(context)
+                                              .add(Logout());
+                                          // GAMBIARRA PARA PARAR NA TELA DE LOGIN (PERGUNTAR PARA O PROFESSOR)
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder:
+                                                      (BuildContext context) =>
+                                                          MyApp()));
+                                        },
+                                      ),
+                                      FlatButton(
+                                        child: Text("Discordar"),
+                                        onPressed: () {
+                                          // Faça algo
+                                          Navigator.of(contextA).pop();
+                                        },
+                                      ),
+                                    ],
+                                    elevation: 24.0)),
+                          );
+                        },
+                        barrierDismissible: true);
+
+                    //Faz descer o teclado após apertar o botão
+
                   }
                   // validar os valores do TextFormField
                 },

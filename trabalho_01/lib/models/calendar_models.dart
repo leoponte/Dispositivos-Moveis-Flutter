@@ -1,5 +1,4 @@
 import 'package:firebase_helpers/firebase_helpers.dart';
-import 'package:flutter/material.dart';
 
 class EventModel extends DatabaseItem {
   final String id;
@@ -60,7 +59,6 @@ class EventModel extends DatabaseItem {
       "papel": papel,
       "nome": nome,
       "sala": sala,
-      //"id": id,
     };
   }
 }

@@ -1,15 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:trabalho_01/firebase/database.dart';
-import 'package:trabalho_01/firebase/event_firestore_service.dart';
-import 'package:trabalho_01/models/event.dart';
-import 'package:trabalho_01/views/maindrawer/calendar.dart';
+import 'package:trabalho_01/firebase/calendar.dart';
 
-class EditCalendarPage extends StatelessWidget {
+import 'package:trabalho_01/firebase/functions.dart';
+
+import 'package:trabalho_01/models/calendar_models.dart';
+
+import 'package:trabalho_01/views/maindrawer/calendar/calendar.dart';
+
+class AddCalendarPage extends StatelessWidget {
   // This widget is the root of your application.
-  final EventModel event;
-
-  const EditCalendarPage({Key key, this.event}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,28 +31,30 @@ class EditCalendarPage extends StatelessWidget {
                 ),
               );
             } else {
-              return EditEventPage(
-                event: event,
-              );
+              return AddEventPage(category: snapshot.data);
             }
           },
         ));
   }
 }
 
-class EditEventPage extends StatefulWidget {
+class AddEventPage extends StatefulWidget {
+  final DocumentSnapshot category;
+
   final EventModel event;
 
-  const EditEventPage({Key key, this.event}) : super(key: key);
+  const AddEventPage({Key key, this.event, this.category}) : super(key: key);
 
   @override
-  EditEventPageState createState() => EditEventPageState(event: event);
+  AddEventPageState createState() => AddEventPageState(category: category);
 }
 
-class EditEventPageState extends State<EditEventPage> {
-  final EventModel event;
-
-  EditEventPageState({Key key, this.event});
+class AddEventPageState extends State<AddEventPage> {
+  final DocumentSnapshot category;
+  AddEventPageState({this.category}) {
+    papel = category["Papel"];
+    nome = category["Nome"];
+  }
 
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
   TextEditingController _aula;
@@ -70,26 +72,20 @@ class EditEventPageState extends State<EditEventPage> {
   @override
   void initState() {
     super.initState();
-    _aula =
-        TextEditingController(text: event != null ? event.aula : event.aula);
+    _aula = TextEditingController(
+        text: widget.event != null ? widget.event.aula : "");
     _descricao = TextEditingController(
-        text: event != null ? event.descricao : event.descricao);
-    _eventDate = event.eventDate;
-    _time = TimeOfDay(
-        hour: int.parse(event.hora.split(":")[0]),
-        minute: int.parse(event.hora.split(":")[1]));
-
+        text: widget.event != null ? widget.event.descricao : "");
+    _eventDate = DateTime.now();
+    _time = TimeOfDay.now();
     processing = false;
-    setState(() {
-      sala = event.sala;
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Editar aula"),
+        title: Text("Adicionar aula"),
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.push(
@@ -105,6 +101,7 @@ class EditEventPageState extends State<EditEventPage> {
           alignment: Alignment.center,
           child: ListView(
             children: <Widget>[
+              const SizedBox(height: 10.0),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -203,7 +200,7 @@ class EditEventPageState extends State<EditEventPage> {
               SizedBox(height: 10.0),
               ListTile(
                   title: Text("Horário da aula"),
-                  subtitle: Text("Time: ${_time.hour}:${_time.minute}"),
+                  subtitle: Text("Hora: ${_time.hour}:${_time.minute}"),
                   trailing: Icon(Icons.keyboard_arrow_down),
                   onTap: () async {
                     TimeOfDay pickTime = await showTimePicker(
@@ -228,14 +225,14 @@ class EditEventPageState extends State<EditEventPage> {
                               setState(() {
                                 processing = true;
                               });
-                              if (event != null) {
-                                await eventDBS.updateData(event.id, {
+                              if (widget.event != null) {
+                                await eventDBS.updateData(widget.event.id, {
                                   "aula": _aula.text,
-                                  "descricao": _descricao.text,
-                                  "dia do evento": _eventDate,
-                                  "hora do evento": _time.format(context),
-                                  "papel": event.papel,
-                                  "nome": event.nome,
+                                  "description": _descricao.text,
+                                  "dia do evento": widget.event.eventDate,
+                                  "hora do evento": widget.event.hora,
+                                  "papel": papel,
+                                  "nome": nome,
                                   "sala": sala,
                                 });
                               } else {
@@ -262,7 +259,7 @@ class EditEventPageState extends State<EditEventPage> {
                             }
                           },
                           child: Text(
-                            "Save",
+                            "Salvar",
                             style: style.copyWith(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),

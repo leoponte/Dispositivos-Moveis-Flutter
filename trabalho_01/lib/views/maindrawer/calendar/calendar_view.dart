@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:trabalho_01/models/event.dart';
-import 'package:trabalho_01/views/maindrawer/calendar.dart';
+import 'package:trabalho_01/models/calendar_models.dart';
+
+import 'package:trabalho_01/views/maindrawer/calendar/calendar.dart';
 
 class EventDetailsPage extends StatelessWidget {
   final EventModel event;

@@ -2,18 +2,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trabalho_01/bloc/auth_event.dart';
-import 'package:trabalho_01/firebase/database.dart';
+import 'package:trabalho_01/firebase/functions.dart';
+import 'package:trabalho_01/views/maindrawer/calendar/calendar.dart';
 import 'package:trabalho_01/views/maindrawer/itemhomepage.dart';
-import 'package:trabalho_01/views/maindrawer/math.dart';
-import 'package:trabalho_01/views/maindrawer/philosophy.dart';
-import 'package:trabalho_01/views/maindrawer/portuguese.dart';
-import 'package:trabalho_01/views/maindrawer/sociology.dart';
+
+import 'package:trabalho_01/views/maindrawer/subjects/math.dart';
+import 'package:trabalho_01/views/maindrawer/subjects/philosophy.dart';
+import 'package:trabalho_01/views/maindrawer/subjects/portuguese.dart';
+import 'package:trabalho_01/views/maindrawer/subjects/sociology.dart';
 
 import '../../bloc/auth_bloc.dart';
 
 import 'dart:async';
 import 'about.dart';
-import 'calendar.dart';
 
 class MyMainDrawer extends StatelessWidget {
   @override
@@ -45,21 +46,11 @@ class MyMainDrawer extends StatelessWidget {
   }
 }
 
-class LoginData {
-  var checkboxValue = false;
-  var checkboxValue1 = false;
-
-  doSomething() {
-    print("CheckBox: $checkboxValue");
-  }
-}
-
 class MyMainDrawerPage extends StatefulWidget {
   final DocumentSnapshot category;
 
   MyMainDrawerPage({this.category});
 
-  final LoginData loginData = new LoginData();
   @override
   State<StatefulWidget> createState() => _MyMainDrawerPageState(category);
 }
@@ -71,9 +62,12 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
 
   _MyMainDrawerPageState(this.category) {
     // coloca mensagem no final da tela
+    String nome = category['Nome'];
+    List primeiroNome = [];
+    primeiroNome = nome.split(" ");
 
     scheduleMicrotask(() => _scaffoldKey.currentState.showSnackBar(SnackBar(
-        content: Text('Olá, ' + category['Nome'] + '!'),
+        content: Text('Olá, ' + primeiroNome[0] + '!'),
         duration: Duration(seconds: 5))));
   }
 
@@ -296,10 +290,6 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
                     color: Colors.black)),
             onTap: () {
               BlocProvider.of<AuthBloc>(context).add(Logout());
-              /* Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => MyApp()));*/
             }),
         Container(
           //para decorar a tela

@@ -2,8 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
 import 'package:trabalho_01/bloc/auth_state.dart';
 import 'package:trabalho_01/firebase/auth.dart';
 import 'package:trabalho_01/models/user_model.dart';
@@ -36,8 +35,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             password: event.password,
             nome: event.name,
             role: event.role);
-        //} else if (event is LoginAnonymousUser) {
-        //await _authenticationService.signInAnonimo();
       } else if (event is LoginUser) {
         await _authenticationService.signInWithEmailAndPassword(
             email: event.username, password: event.password);

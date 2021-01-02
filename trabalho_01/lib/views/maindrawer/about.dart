@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trabalho_01/firebase/functions.dart';
 //import 'main.dart';
 import 'maindrawer.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -159,23 +160,5 @@ class _MyAboutPageState extends State<MyAboutPage> {
                         })),
               ]))
         ])));
-  }
-
-  abrirUrlFacebook() async {
-    const url = 'https://www.facebook.com/cursinhocomunitariopimentascp';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
-
-  abrirUrlYoutube() async {
-    const url = 'https://www.youtube.com/user/cursinhopimentas';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
   }
 }
