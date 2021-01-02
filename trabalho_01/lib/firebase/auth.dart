@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:trabalho_01/bloc/database_event.dart';
-import 'package:trabalho_01/firebase/database.dart';
 
 import 'package:trabalho_01/models/user_model.dart';
 import 'package:trabalho_01/repo/auth.dart';

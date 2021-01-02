@@ -1,4 +1,3 @@
-import 'package:trabalho_01/bloc/database_event.dart';
 import 'package:trabalho_01/models/user_model.dart';
 
 abstract class AuthEvent {}

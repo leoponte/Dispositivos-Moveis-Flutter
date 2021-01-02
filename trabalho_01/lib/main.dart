@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:connectivity/connectivity.dart';
 import 'package:trabalho_01/bloc/database_bloc.dart';
 import 'package:trabalho_01/login.dart';
 import 'bloc/auth_bloc.dart';
@@ -24,6 +24,7 @@ class MyAppi extends StatelessWidget {
     return BlocProvider<AuthBloc>(
       create: (context) => AuthBloc(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Wrapper(),
       ),
     );

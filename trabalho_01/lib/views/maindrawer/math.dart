@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:trabalho_01/bloc/database_event.dart';
+
 import 'package:trabalho_01/firebase/database.dart';
 import 'package:trabalho_01/views/maindrawer/maindrawer.dart';
 
@@ -24,7 +24,7 @@ class MyMath extends StatelessWidget {
             if (!snapshot.hasData) {
               return Center(
                 child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation(Colors.white),
+                  valueColor: AlwaysStoppedAnimation(Colors.red),
                 ),
               );
             } else {

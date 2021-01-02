@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trabalho_01/bloc/auth_event.dart';
+import 'package:trabalho_01/firebase/database.dart';
 import 'package:trabalho_01/views/maindrawer/itemhomepage.dart';
 import 'package:trabalho_01/views/maindrawer/math.dart';
 import 'package:trabalho_01/views/maindrawer/philosophy.dart';
@@ -23,7 +24,23 @@ class MyMainDrawer extends StatelessWidget {
         primarySwatch: Colors.pink,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyMainDrawerPage(),
+      home: StreamBuilder<DocumentSnapshot>(
+        stream: FirebaseFirestore.instance
+            .collection("Informações adicionais")
+            .doc(getCurrentUserId())
+            .snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation(Colors.red),
+              ),
+            );
+          } else {
+            return MyMainDrawerPage(category: snapshot.data);
+          }
+        },
+      ),
     );
   }
 }
@@ -38,19 +55,26 @@ class LoginData {
 }
 
 class MyMainDrawerPage extends StatefulWidget {
+  final DocumentSnapshot category;
+
+  MyMainDrawerPage({this.category});
+
   final LoginData loginData = new LoginData();
   @override
-  State<StatefulWidget> createState() => _MyMainDrawerPageState();
+  State<StatefulWidget> createState() => _MyMainDrawerPageState(category);
 }
 
 class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
+  final DocumentSnapshot category;
+
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  _MyMainDrawerPageState() {
+  _MyMainDrawerPageState(this.category) {
     // coloca mensagem no final da tela
 
     scheduleMicrotask(() => _scaffoldKey.currentState.showSnackBar(SnackBar(
-        content: Text('Menu principal!'), duration: Duration(seconds: 5))));
+        content: Text('Olá, ' + category['Nome'] + '!'),
+        duration: Duration(seconds: 5))));
   }
 
   @override

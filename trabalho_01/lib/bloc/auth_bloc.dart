@@ -1,6 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:trabalho_01/bloc/auth_state.dart';
 import 'package:trabalho_01/firebase/auth.dart';
 import 'package:trabalho_01/models/user_model.dart';
@@ -47,6 +50,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           yield Authenticated(event.userModel);
         }
       }
+    } on FirebaseException catch (err) {
+      print('Failed with error code: ${err.code}');
+      String teste = "Sem conexão com a internet";
+      yield AuthError(teste);
     } catch (e) {
       yield AuthError(e.toString());
     }

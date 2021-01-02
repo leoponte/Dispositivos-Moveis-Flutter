@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trabalho_01/bloc/auth_bloc.dart';
 import 'package:trabalho_01/bloc/auth_event.dart';
-import 'package:trabalho_01/bloc/database_bloc.dart';
-import 'package:trabalho_01/bloc/database_event.dart';
 
 import 'package:trabalho_01/login.dart';
 
