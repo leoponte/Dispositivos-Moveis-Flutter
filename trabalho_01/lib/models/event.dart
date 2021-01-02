@@ -1,4 +1,5 @@
 import 'package:firebase_helpers/firebase_helpers.dart';
+import 'package:flutter/material.dart';
 
 class EventModel extends DatabaseItem {
   final String id;
@@ -6,6 +7,7 @@ class EventModel extends DatabaseItem {
   final String aula;
   final String descricao;
   final DateTime eventDate;
+  final String hora;
   final String papel;
   final String nome;
   final int sala;
@@ -15,6 +17,7 @@ class EventModel extends DatabaseItem {
       this.idUser,
       this.aula,
       this.descricao,
+      this.hora,
       this.eventDate,
       this.papel,
       this.nome,
@@ -28,6 +31,7 @@ class EventModel extends DatabaseItem {
         aula: data['aula'],
         descricao: data['descricao'],
         eventDate: data['dia do evento'],
+        hora: data['hora do evento'],
         papel: data['papel'],
         nome: data['nome'],
         sala: data['sala']);
@@ -40,6 +44,7 @@ class EventModel extends DatabaseItem {
         aula: data['aula'],
         descricao: data['descricao'],
         eventDate: data['dia do evento'].toDate(),
+        hora: data['hora do evento'],
         papel: data['papel'],
         nome: data['nome'],
         sala: data['sala']);
@@ -51,6 +56,7 @@ class EventModel extends DatabaseItem {
       "aula": aula,
       "descricao": descricao,
       "dia do evento": eventDate,
+      "hora do evento": hora,
       "papel": papel,
       "nome": nome,
       "sala": sala,

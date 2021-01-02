@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'main.dart';
 import 'maindrawer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyAbout extends StatelessWidget {
   // This widget is the root of your application.
@@ -142,14 +143,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
                           height: 100.0,
                         ),
                         onTap: () {
-                          return showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                    title:
-                                        Text("@cursinhocomunitariopimentascp"));
-                              },
-                              barrierDismissible: true);
+                          abrirUrlFacebook();
                         })),
                 Container(
                     padding:
@@ -161,15 +155,27 @@ class _MyAboutPageState extends State<MyAboutPage> {
                           height: 95.0,
                         ),
                         onTap: () {
-                          return showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                    title: Text("cursinhopimentas"));
-                              },
-                              barrierDismissible: true);
+                          abrirUrlYoutube();
                         })),
               ]))
         ])));
+  }
+
+  abrirUrlFacebook() async {
+    const url = 'https://www.facebook.com/cursinhocomunitariopimentascp';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  abrirUrlYoutube() async {
+    const url = 'https://www.youtube.com/user/cursinhopimentas';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

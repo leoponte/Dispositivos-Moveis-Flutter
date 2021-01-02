@@ -57,6 +57,7 @@ class AddEventPageState extends State<AddEventPage> {
   TextEditingController _aula;
   TextEditingController _descricao;
   DateTime _eventDate;
+  TimeOfDay _time;
   var papel;
   var nome;
   int sala;
@@ -73,7 +74,7 @@ class AddEventPageState extends State<AddEventPage> {
     _descricao = TextEditingController(
         text: widget.note != null ? widget.note.descricao : "");
     _eventDate = DateTime.now();
-
+    _time = TimeOfDay.now();
     processing = false;
   }
 
@@ -193,6 +194,19 @@ class AddEventPageState extends State<AddEventPage> {
                 },
               ),
               SizedBox(height: 10.0),
+              ListTile(
+                  title: Text("Horário da aula"),
+                  subtitle: Text("Time: ${_time.hour}:${_time.minute}"),
+                  trailing: Icon(Icons.keyboard_arrow_down),
+                  onTap: () async {
+                    TimeOfDay pickTime = await showTimePicker(
+                        context: context, initialTime: _time);
+                    if (pickTime != null)
+                      setState(() {
+                        _time = pickTime;
+                        print(_time);
+                      });
+                  }),
               processing
                   ? Center(child: CircularProgressIndicator())
                   : Padding(
@@ -212,6 +226,7 @@ class AddEventPageState extends State<AddEventPage> {
                                   "aula": _aula.text,
                                   "description": _descricao.text,
                                   "dia do evento": widget.note.eventDate,
+                                  "hora do evento": widget.note.hora,
                                   "papel": papel,
                                   "nome": nome,
                                   "sala": sala,
@@ -221,6 +236,7 @@ class AddEventPageState extends State<AddEventPage> {
                                   aula: _aula.text,
                                   descricao: _descricao.text,
                                   eventDate: _eventDate,
+                                  hora: _time.format(context),
                                   papel: papel,
                                   nome: nome,
                                   sala: sala,

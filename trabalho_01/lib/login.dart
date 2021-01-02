@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trabalho_01/bloc/auth_event.dart';
-
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:trabalho_01/register.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'bloc/auth_bloc.dart';
 
@@ -30,23 +31,6 @@ class _MyAppCreate extends State<MyApp> {
   }
 }
 
-/*
-class LoginData {
-  String username = "";
-  String password = "";
-
-  var switchValue = false;
-
-  doSomething() {
-    print("Username: $username");
-    print("Password: $password");
-    print("");
-    print("Switch: $switchValue");
-
-    print("");
-  }
-}
-*/
 class MyAppPages extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -90,8 +74,53 @@ class _MyLoginPage extends State<MyAppPages> {
                                 builder: (BuildContext context) {
                                   return AlertDialog(
                                       title: Text("Desenvolvedores:"),
-                                      content: Text(
-                                          "@laribene - Larissa Benevides \n@leoponte - Leonardo Ponte"),
+                                      content: Container(
+                                        height: 100,
+                                        child: Column(
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Icon(
+                                                    MaterialCommunityIcons
+                                                        .github_circle,
+                                                    size: 30),
+                                                InkWell(
+                                                    child: Text(
+                                                        ' Leonardo Ponte',
+                                                        style: TextStyle(
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .underline,
+                                                            color: Colors.black,
+                                                            fontSize: 20)),
+                                                    onTap: () =>
+                                                        abrirUrlLeonardo()),
+                                              ],
+                                            ),
+                                            SizedBox(height: 20.0),
+                                            Row(
+                                              children: [
+                                                Icon(
+                                                  MaterialCommunityIcons
+                                                      .github_circle,
+                                                  size: 30,
+                                                ),
+                                                InkWell(
+                                                    child: Text(
+                                                        ' Larissa Benevides',
+                                                        style: TextStyle(
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .underline,
+                                                            color: Colors.black,
+                                                            fontSize: 20)),
+                                                    onTap: () =>
+                                                        abrirUrlLarissa()),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
                                       elevation: 24.0);
                                 },
                                 barrierDismissible: true);
@@ -162,6 +191,24 @@ class _MyLoginPage extends State<MyAppPages> {
                 ])))
       ])),
     );
+  }
+
+  abrirUrlLeonardo() async {
+    const url = 'https://github.com/leoponte';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  abrirUrlLarissa() async {
+    const url = 'https://github.com/Laribene';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 
   Widget loginFormulario() {

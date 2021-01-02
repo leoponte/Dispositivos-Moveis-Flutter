@@ -11,8 +11,8 @@ class EventDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     String sala;
     if (event.sala == 1)
-      sala = "Salinha";
-    else if (event.sala == 2) sala = "Salona";
+      sala = "salinha";
+    else if (event.sala == 2) sala = "salona";
     return Scaffold(
       appBar: AppBar(
         title: Text("Informações da Aula"),
@@ -53,6 +53,12 @@ class EventDetailsPage extends StatelessWidget {
                       "A aula será ministrada na ",
                     ),
                     Text(sala,
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold)),
+                    Text(
+                      " às ",
+                    ),
+                    Text(event.hora,
                         style: TextStyle(
                             color: Colors.black, fontWeight: FontWeight.bold)),
                   ],

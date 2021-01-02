@@ -175,7 +175,8 @@ class _MyCalendarPageState extends State<MyCalendarPage> {
                   ),
                   ..._selectedEvents.map((event) => Card(
                         child: ListTile(
-                          title: Text(event.aula),
+                          title: Text(
+                              "Aula de " + event.aula + " às " + event.hora),
                           onTap: () {
                             Navigator.push(
                                 context,
@@ -186,11 +187,14 @@ class _MyCalendarPageState extends State<MyCalendarPage> {
                           },
                           trailing:
                               Row(mainAxisSize: MainAxisSize.min, children: [
-                            GestureDetector(
-                                child: Icon(Icons.delete),
-                                onTap: () async {
-                                  if (getCurrentUserId() == event.idUser) {
-                                    return showDialog(
+                            Container(
+                              margin: const EdgeInsets.all(10.0),
+                              child: GestureDetector(
+                                  child: Icon(Icons.delete),
+                                  onTap: () async {
+                                    if (getCurrentUserId() == event.idUser) {
+                                      return showDialog(
+                                        barrierDismissible: false,
                                         context: context,
                                         builder: (contextA) {
                                           return Container(
@@ -201,50 +205,59 @@ class _MyCalendarPageState extends State<MyCalendarPage> {
                                                 bottom: 100),
                                             child: SingleChildScrollView(
                                                 // Mostrar Politica de Privacidade
-                                                child: AlertDialog(
-                                                    title: Text(
-                                                        "Você tem certeza que quer excluir essa aula? "),
-                                                    actions: [
-                                                      FlatButton(
-                                                        child: Text("Sim"),
-                                                        onPressed: () {
-                                                          print(event.id);
+                                                child: Container(
+                                              margin: const EdgeInsets.only(
+                                                  left: 0.0,
+                                                  right: 0.0,
+                                                  bottom: 0,
+                                                  top: 200),
+                                              child: AlertDialog(
+                                                  title: Text(
+                                                      "Você tem certeza que quer excluir essa aula? "),
+                                                  actions: [
+                                                    FlatButton(
+                                                      child: Text("Sim"),
+                                                      onPressed: () {
+                                                        print(event.id);
 
-                                                          eventDBS.removeItem(
-                                                              event.id);
-                                                          Navigator.of(contextA)
-                                                              .pop();
-                                                          //Queria só recarregar a página
-                                                          Navigator.push(
-                                                              context,
-                                                              MaterialPageRoute(
-                                                                  builder: (_) =>
-                                                                      MyCalendar()));
-                                                        },
-                                                      ),
-                                                      FlatButton(
-                                                        child: Text("Não"),
-                                                        onPressed: () {
-                                                          // Faça algo
-                                                          Navigator.of(contextA)
-                                                              .pop();
-                                                        },
-                                                      ),
-                                                    ],
-                                                    elevation: 24.0)),
+                                                        eventDBS.removeItem(
+                                                            event.id);
+                                                        Navigator.of(contextA)
+                                                            .pop();
+                                                        //Queria só recarregar a página
+                                                        Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                                builder: (_) =>
+                                                                    MyCalendar()));
+                                                      },
+                                                    ),
+                                                    FlatButton(
+                                                      child: Text("Não"),
+                                                      onPressed: () {
+                                                        // Faça algo
+                                                        Navigator.of(contextA)
+                                                            .pop();
+                                                      },
+                                                    ),
+                                                  ],
+                                                  elevation: 24.0),
+                                            )),
                                           );
                                         },
-                                        barrierDismissible: true);
-                                  } else {
-                                    return showDialog(
-                                        context: context,
-                                        builder: (context) {
-                                          return AlertDialog(
-                                              title: Text(
-                                                  "Aula não criada por você, então não pode excluir"));
-                                        });
-                                  }
-                                }),
+                                        //barrierDismissible: true
+                                      );
+                                    } else {
+                                      return showDialog(
+                                          context: context,
+                                          builder: (context) {
+                                            return AlertDialog(
+                                                title: Text(
+                                                    "Aula não criada por você, então não pode excluir"));
+                                          });
+                                    }
+                                  }),
+                            ),
                             Text("          "),
                             GestureDetector(
                                 child: Icon(Icons.edit),

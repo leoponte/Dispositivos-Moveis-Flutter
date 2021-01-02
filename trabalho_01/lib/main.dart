@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:trabalho_01/bloc/database_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:trabalho_01/login.dart';
 import 'bloc/auth_bloc.dart';
 import 'bloc/auth_state.dart';
@@ -24,6 +25,11 @@ class MyAppi extends StatelessWidget {
     return BlocProvider<AuthBloc>(
       create: (context) => AuthBloc(),
       child: MaterialApp(
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate
+        ],
+        supportedLocales: [const Locale('pt', 'BR')],
         debugShowCheckedModeBanner: false,
         home: Wrapper(),
       ),

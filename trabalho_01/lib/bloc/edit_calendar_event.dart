@@ -58,6 +58,7 @@ class EditEventPageState extends State<EditEventPage> {
   TextEditingController _aula;
   TextEditingController _descricao;
   DateTime _eventDate;
+  TimeOfDay _time;
   var papel;
   var nome;
   int sala;
@@ -74,6 +75,9 @@ class EditEventPageState extends State<EditEventPage> {
     _descricao = TextEditingController(
         text: event != null ? event.descricao : event.descricao);
     _eventDate = event.eventDate;
+    _time = TimeOfDay(
+        hour: int.parse(event.hora.split(":")[0]),
+        minute: int.parse(event.hora.split(":")[1]));
 
     processing = false;
     setState(() {
@@ -197,6 +201,19 @@ class EditEventPageState extends State<EditEventPage> {
                 },
               ),
               SizedBox(height: 10.0),
+              ListTile(
+                  title: Text("Horário da aula"),
+                  subtitle: Text("Time: ${_time.hour}:${_time.minute}"),
+                  trailing: Icon(Icons.keyboard_arrow_down),
+                  onTap: () async {
+                    TimeOfDay pickTime = await showTimePicker(
+                        context: context, initialTime: _time);
+                    if (pickTime != null)
+                      setState(() {
+                        _time = pickTime;
+                        print(_time);
+                      });
+                  }),
               processing
                   ? Center(child: CircularProgressIndicator())
                   : Padding(
@@ -215,7 +232,8 @@ class EditEventPageState extends State<EditEventPage> {
                                 await eventDBS.updateData(event.id, {
                                   "aula": _aula.text,
                                   "descricao": _descricao.text,
-                                  "dia do evento": event.eventDate,
+                                  "dia do evento": _eventDate,
+                                  "hora do evento": _time.format(context),
                                   "papel": event.papel,
                                   "nome": event.nome,
                                   "sala": sala,
@@ -225,6 +243,7 @@ class EditEventPageState extends State<EditEventPage> {
                                   aula: _aula.text,
                                   descricao: _descricao.text,
                                   eventDate: _eventDate,
+                                  hora: _time.format(context),
                                   papel: papel,
                                   nome: nome,
                                   sala: sala,
