@@ -67,7 +67,11 @@ class _MyMainDrawerPageState extends State<MyMainDrawerPage> {
     primeiroNome = nome.split(" ");
 
     scheduleMicrotask(() => _scaffoldKey.currentState.showSnackBar(SnackBar(
-        content: Text('Olá, ' + primeiroNome[0] + '!'),
+        content: Text('Olá, ' +
+            primeiroNome[0] +
+            ' ' +
+            primeiroNome[primeiroNome.length - 1] +
+            '!'),
         duration: Duration(seconds: 5))));
   }
 

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:trabalho_01/firebase/functions.dart';
 //import 'main.dart';
 import 'maindrawer.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class MyAbout extends StatelessWidget {
   // This widget is the root of your application.

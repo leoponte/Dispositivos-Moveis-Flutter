@@ -49,8 +49,23 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       }
     } on FirebaseException catch (err) {
       print('Failed with error code: ${err.code}');
-      String teste = "Sem conexão com a internet";
-      yield AuthError(teste);
+      String teste;
+      if (err.code == 'invalid-email') {
+        teste = "E-mail inválido!";
+        yield AuthError(teste);
+      } else if (err.code == 'wrong-password') {
+        teste = "Senha inválida!";
+        yield AuthError(teste);
+      } else if (err.code == 'too-many-requests') {
+        teste =
+            "O seu acesso foi bloqueado devido a muitas tentativas. Tente novamente mais tarde! ";
+        yield AuthError(teste);
+      } else if (err.code == 'unknown') {
+        teste = 'Sem acesso a internet!';
+        yield AuthError(teste);
+      } else {
+        yield AuthError(err.toString());
+      }
     } catch (e) {
       yield AuthError(e.toString());
     }

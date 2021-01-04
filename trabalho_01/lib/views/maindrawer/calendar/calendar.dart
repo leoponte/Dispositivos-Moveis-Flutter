@@ -129,6 +129,7 @@ class _MyCalendarPageState extends State<MyCalendarPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   TableCalendar(
+                    locale: 'pt_BR',
                     events: _events,
                     initialCalendarFormat: CalendarFormat.month,
                     calendarStyle: CalendarStyle(
