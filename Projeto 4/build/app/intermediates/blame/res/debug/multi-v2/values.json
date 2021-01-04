@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/bene/Documents/projeto_4/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/home/bene/Desktop/Dispositivos-Moveis/Projeto 4/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
                 {
                     "source": "/home/bene/.gradle/caches/transforms-2/files-2.1/0c0f74809edd956e6cee0d4cebd73fc6/jetified-play-services-basement-17.1.0/res/values/values.xml",
@@ -18,6 +18,25 @@
                         "startOffsets": "5259,6437",
                         "endColumns": "67,166",
                         "endOffsets": "5322,6599"
+                    }
+                },
+                {
+                    "source": "/home/bene/Desktop/Dispositivos-Moveis/Projeto 4/android/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "134,777",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "426,937"
+                    },
+                    "to": {
+                        "startLines": "112,117",
+                        "startColumns": "4,4",
+                        "startOffsets": "8537,8834",
+                        "endLines": "116,119",
+                        "endColumns": "12,12",
+                        "endOffsets": "8829,8994"
                     }
                 },
                 {
@@ -59,26 +78,7 @@
                     }
                 },
                 {
-                    "source": "/home/bene/Documents/projeto_4/android/app/src/main/res/values/styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "134,777",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "426,937"
-                    },
-                    "to": {
-                        "startLines": "112,117",
-                        "startColumns": "4,4",
-                        "startOffsets": "8537,8834",
-                        "endLines": "116,119",
-                        "endColumns": "12,12",
-                        "endOffsets": "8829,8994"
-                    }
-                },
-                {
-                    "source": "/home/bene/Documents/projeto_4/build/app/generated/res/google-services/debug/values/values.xml",
+                    "source": "/home/bene/Desktop/Dispositivos-Moveis/Projeto 4/build/app/generated/res/google-services/debug/values/values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8",
                         "startColumns": "4,4,4,4,4,4,4",

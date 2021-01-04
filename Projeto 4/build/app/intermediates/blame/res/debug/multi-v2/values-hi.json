@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/bene/Documents/projeto_4/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-hi/values-hi.xml",
+            "outputFile": "/home/bene/Desktop/Dispositivos-Moveis/Projeto 4/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-hi/values-hi.xml",
             "map": [
                 {
                     "source": "/home/bene/.gradle/caches/transforms-2/files-2.1/0c0f74809edd956e6cee0d4cebd73fc6/jetified-play-services-basement-17.1.0/res/values-hi/values.xml",

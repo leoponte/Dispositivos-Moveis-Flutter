@@ -43,8 +43,8 @@ android {
         applicationId "cursinho.comunitario.pimentas.trabalho_1"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
+        versionCode 1
+        versionName "1.0"
     }
 
     buildTypes {

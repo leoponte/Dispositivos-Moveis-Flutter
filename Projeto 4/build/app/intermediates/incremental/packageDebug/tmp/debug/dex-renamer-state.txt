@@ -1,4 +1,4 @@
-#Sat Dec 12 14:12:34 BRT 2020
+#Sat Dec 19 23:12:11 BRT 2020
 path.1=classes.dex
 path.0=classes.dex
 renamed.6=classes7.dex
@@ -8,13 +8,13 @@ renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.6=/home/bene/Documents/projeto_4/build/app/intermediates/dex/debug/mergeLibDexDebug/out/classes_3.dex
-base.5=/home/bene/Documents/projeto_4/build/app/intermediates/dex/debug/mergeLibDexDebug/out/classes_2.dex
-base.4=/home/bene/Documents/projeto_4/build/app/intermediates/dex/debug/mergeLibDexDebug/out/classes_1.dex
-base.3=/home/bene/Documents/projeto_4/build/app/intermediates/dex/debug/mergeLibDexDebug/out/classes_0.dex
-base.2=/home/bene/Documents/projeto_4/build/app/intermediates/dex/debug/mergeExtDexDebug/out/classes2.dex
-base.1=/home/bene/Documents/projeto_4/build/app/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex
-base.0=/home/bene/Documents/projeto_4/build/app/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
+base.6=/home/bene/Desktop/Dispositivos-Moveis/Projeto 4/build/app/intermediates/dex/debug/mergeLibDexDebug/out/classes_3.dex
+base.5=/home/bene/Desktop/Dispositivos-Moveis/Projeto 4/build/app/intermediates/dex/debug/mergeLibDexDebug/out/classes_2.dex
+base.4=/home/bene/Desktop/Dispositivos-Moveis/Projeto 4/build/app/intermediates/dex/debug/mergeLibDexDebug/out/classes_1.dex
+base.3=/home/bene/Desktop/Dispositivos-Moveis/Projeto 4/build/app/intermediates/dex/debug/mergeLibDexDebug/out/classes_0.dex
+base.2=/home/bene/Desktop/Dispositivos-Moveis/Projeto 4/build/app/intermediates/dex/debug/mergeExtDexDebug/out/classes2.dex
+base.1=/home/bene/Desktop/Dispositivos-Moveis/Projeto 4/build/app/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex
+base.0=/home/bene/Desktop/Dispositivos-Moveis/Projeto 4/build/app/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
 path.6=classes_3.dex
 path.5=classes_2.dex
 path.4=classes_1.dex

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trabalho_01/bloc/auth_event.dart';
-import 'package:trabalho_01/maindrawer.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:trabalho_01/register.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'bloc/auth_bloc.dart';
 
@@ -19,34 +21,16 @@ class MyApp extends StatefulWidget {
 
 class _MyAppCreate extends State<MyApp> {
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
-      //debugShowCheckedModeBanner: false,
-      //theme: ThemeData.light(),
-      //darkTheme: ThemeData.dark(),
-
-      //resizeToAvoidBottomInset: false,
       home: MyAppPages(),
     );
   }
 }
 
-/*
-class LoginData {
-  String username = "";
-  String password = "";
-
-  var switchValue = false;
-
-  doSomething() {
-    print("Username: $username");
-    print("Password: $password");
-    print("");
-    print("Switch: $switchValue");
-
-    print("");
-  }
-}
-*/
 class MyAppPages extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -90,8 +74,53 @@ class _MyLoginPage extends State<MyAppPages> {
                                 builder: (BuildContext context) {
                                   return AlertDialog(
                                       title: Text("Desenvolvedores:"),
-                                      content: Text(
-                                          "@laribene - Larissa Benevides \n@leoponte - Leonardo Ponte"),
+                                      content: Container(
+                                        height: 100,
+                                        child: Column(
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Icon(
+                                                    MaterialCommunityIcons
+                                                        .github_circle,
+                                                    size: 30),
+                                                InkWell(
+                                                    child: Text(
+                                                        ' Leonardo Ponte',
+                                                        style: TextStyle(
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .underline,
+                                                            color: Colors.black,
+                                                            fontSize: 20)),
+                                                    onTap: () =>
+                                                        abrirUrlLeonardo()),
+                                              ],
+                                            ),
+                                            SizedBox(height: 20.0),
+                                            Row(
+                                              children: [
+                                                Icon(
+                                                  MaterialCommunityIcons
+                                                      .github_circle,
+                                                  size: 30,
+                                                ),
+                                                InkWell(
+                                                    child: Text(
+                                                        ' Larissa Benevides',
+                                                        style: TextStyle(
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .underline,
+                                                            color: Colors.black,
+                                                            fontSize: 20)),
+                                                    onTap: () =>
+                                                        abrirUrlLarissa()),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
                                       elevation: 24.0);
                                 },
                                 barrierDismissible: true);
@@ -164,6 +193,24 @@ class _MyLoginPage extends State<MyAppPages> {
     );
   }
 
+  abrirUrlLeonardo() async {
+    const url = 'https://github.com/leoponte';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  abrirUrlLarissa() async {
+    const url = 'https://github.com/Laribene';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   Widget loginFormulario() {
     return Form(
         key: formKey,
@@ -231,39 +278,7 @@ class _MyLoginPage extends State<MyAppPages> {
                       formKey.currentState.save();
                       FocusScope.of(context).unfocus();
 
-                      return showDialog(
-                          context: context,
-                          builder: (contextA) {
-                            return Container(
-                              padding: EdgeInsets.only(
-                                  left: 10, right: 10, top: 50, bottom: 100),
-                              child: SingleChildScrollView(
-                                  // Mostrar Politica de Privacidade
-                                  child: AlertDialog(
-                                      title: Text("Politica de Privacidade"),
-                                      content: Text(
-                                          " A sua privacidade é importante para nós.\n  É política do Cursinho Comunitário Pimentas respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site Cursinho Comunitário Pimentas, e outros sites que possuímos e operamos.\n  Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço.\n Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado.\n Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado.\n Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis ​​para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados.\n Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.\n  O nosso site pode ter links para sites externos que não são operados por nós. Esteja ciente de que não temos controle sobre o conteúdo e práticas desses sites e não podemos aceitar responsabilidade por suas respectivas políticas de privacidade.\n Você é livre para recusar a nossa solicitação de informações pessoais, entendendo que talvez não possamos fornecer alguns dos serviços desejados.\n O uso continuado de nosso site será considerado como aceitação de nossas práticas em torno de privacidade e informações pessoais. Se você tiver alguma dúvida sobre como lidamos com dados do usuário e informações pessoais, entre em contato conosco.\n Esperemos que esteja esclarecido e, como mencionado anteriormente, se houver algo que você não tem certeza se precisa ou não, geralmente é mais seguro deixar os cookies ativados, caso interaja com um dos recursos que você usa em nosso site.\n  Esta política é efetiva a partir de November/2020."),
-                                      actions: [
-                                        FlatButton(
-                                          child: Text("Aceitar"),
-                                          onPressed: () {
-                                            Navigator.of(contextA).pop();
-                                            BlocProvider.of<AuthBloc>(context)
-                                                .add(registerData);
-                                          },
-                                        ),
-                                        FlatButton(
-                                          child: Text("Discordar"),
-                                          onPressed: () {
-                                            // Faça algo
-                                            Navigator.of(context).pop();
-                                          },
-                                        ),
-                                      ],
-                                      elevation: 24.0)),
-                            );
-                          },
-                          barrierDismissible: true);
+                      BlocProvider.of<AuthBloc>(context).add(registerData);
                     }
                   },
                 ),

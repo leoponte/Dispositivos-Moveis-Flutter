@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:projeto_4/models/user_model.dart';
 
 abstract class AuthEvent {}

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/bene/Documents/projeto_4/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-vi/values-vi.xml",
+            "outputFile": "/home/bene/Desktop/Dispositivos-Moveis/Projeto 4/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-vi/values-vi.xml",
             "map": [
                 {
                     "source": "/home/bene/.gradle/caches/transforms-2/files-2.1/44b1706abe044cd42dcac5be863451ed/core-1.1.0/res/values-vi/values-vi.xml",
