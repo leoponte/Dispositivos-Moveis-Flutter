@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/home/bene/Desktop/Dispositivos-Moveis/Trabalho Final/build/url_launcher/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/home/bene/.gradle/caches/transforms-2/files-2.1/44b1706abe044cd42dcac5be863451ed/core-1.1.0/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/home/bene/Desktop/Dispositivos-Moveis/Trabalho Final/build/url_launcher/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/home/bene/.gradle/caches/transforms-2/files-2.1/44b1706abe044cd42dcac5be863451ed/core-1.1.0/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/home/bene/Desktop/Dispositivos-Moveis/Trabalho Final/build/url_launcher/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/home/bene/.gradle/caches/transforms-2/files-2.1/44b1706abe044cd42dcac5be863451ed/core-1.1.0/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/home/bene/Desktop/Dispositivos-Moveis/Trabalho Final/build/url_launcher/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/home/bene/.gradle/caches/transforms-2/files-2.1/44b1706abe044cd42dcac5be863451ed/core-1.1.0/res/layout-v21/notification_action_tombstone.xml"
+    }
+]

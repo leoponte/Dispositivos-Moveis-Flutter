@@ -1,0 +1,21 @@
+# This is a generated file; do not edit or check into version control.
+cloud_firestore=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.14.4/
+cloud_firestore_web=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-0.2.1+2/
+connectivity=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity-2.0.2/
+connectivity_for_web=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity_for_web-0.3.1+4/
+connectivity_macos=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity_macos-0.1.0+7/
+connectivity_plus=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity_plus-0.7.1/
+connectivity_plus_linux=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity_plus_linux-0.2.0/
+connectivity_plus_macos=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity_plus_macos-0.3.0/
+connectivity_plus_web=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity_plus_web-0.5.0/
+firebase_auth=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-0.18.4+1/
+firebase_auth_web=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-0.3.2+3/
+firebase_core=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-0.5.3/
+firebase_core_web=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-0.2.1+1/
+firebase_storage=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-5.2.0/
+firebase_storage_web=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-0.1.1+1/
+url_launcher=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-5.7.10/
+url_launcher_linux=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_linux-0.0.1+4/
+url_launcher_macos=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_macos-0.0.1+9/
+url_launcher_web=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_web-0.1.5+1/
+url_launcher_windows=/home/bene/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_windows-0.0.1+3/
