@@ -4,8 +4,9 @@ Repositório dedicado à disciplina de dispositivos móveis, do segundo semestre
 Foi utilizado a linguagem de programção dart e o framework flutter.
 
 
-## Primeiro aplicativo     |             Segundo aplicativo
-![](Projeto1.gif)                        ![](Projeto2.gif)
+|   Primeiro aplicativo            |           Segundo aplicativo    |
+|----------------------------------|---------------------------------| 
+|  ![](Projeto1.gif)               |              ![](Projeto2.gif)  |
 
 
 
