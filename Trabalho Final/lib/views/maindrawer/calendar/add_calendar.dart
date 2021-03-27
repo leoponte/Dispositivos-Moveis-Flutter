@@ -236,7 +236,7 @@ class AddEventPageState extends State<AddEventPage> {
                                   "sala": sala,
                                 });
                               } else {
-                                await eventDBS.createItem(EventModel(
+                                await eventDBS.create(EventModel(
                                   aula: _aula.text,
                                   descricao: _descricao.text,
                                   eventDate: _eventDate,
@@ -245,7 +245,7 @@ class AddEventPageState extends State<AddEventPage> {
                                   nome: nome,
                                   sala: sala,
                                   idUser: getCurrentUserId(),
-                                ));
+                                ).toMap());
                               }
                               Navigator.push(
                                   context,

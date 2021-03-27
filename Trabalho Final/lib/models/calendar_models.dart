@@ -1,6 +1,4 @@
-import 'package:firebase_helpers/firebase_helpers.dart';
-
-class EventModel extends DatabaseItem {
+class EventModel {
   final String id;
   final String idUser;
   final String aula;
@@ -20,8 +18,7 @@ class EventModel extends DatabaseItem {
       this.eventDate,
       this.papel,
       this.nome,
-      this.sala})
-      : super(id);
+      this.sala});
 
   factory EventModel.fromMap(Map data) {
     return EventModel(

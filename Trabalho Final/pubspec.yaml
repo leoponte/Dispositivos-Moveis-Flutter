@@ -26,25 +26,31 @@ dependencies:
   flutter_localizations: # Add this line
     sdk: flutter   
   #Permite inserir novo logo no apk gerado para o aplicativo
-  flutter_launcher_icons: ^0.8.1
-  #Permitindo utilização do firebase para autenticação
-  firebase_core: ^0.5.3 
-  firebase_auth: ^0.18.4+1
-  #Permitindo utilização do banco de dados Cloud Firestore
-  cloud_firestore: ^0.14.4 
-  #Auxilia o programa a detectar status de conexão do usuário
-  connectivity: ^2.0.2
-  connectivity_plus: ^0.7.1
-  #Permite o redirecionamento da aplicação para outras urls
-  url_launcher: ^5.7.10
-  #Permite a utilização do bloc, necessário para a autenticação dos usuários
+  flutter_launcher_icons: ^0.9.0
+  #Permitindo utilização do firebase para autenticação 
+  firebase_core: ^1.0.2
+  firebase_auth: ^1.0.1
+  firebase_auth_web: ^1.0.3
+  firebase_core_platform_interface: ^4.0.0
+  # #Permitindo utilização do banco de dados Cloud Firestore
+  cloud_firestore: ^1.0.3
+  plugin_platform_interface: ^2.0.0
+  # #Auxilia o programa a detectar status de conexão do usuário
+  connectivity: ^3.0.3
+  connectivity_plus: ^1.0.0
+  connectivity_plus_linux: ^1.0.0
+  dbus: ^0.2.1
+  args: ^2.0.0
+  # #Permite o redirecionamento da aplicação para outras urls
+  url_launcher: ^6.0.3
+  # #Permite a utilização do bloc, necessário para a autenticação dos usuários
   bloc: ^6.1.1
   flutter_bloc: ^6.1.1
-  #Permite conexão com o firebase, utilizado no calendário
-  firebase_helpers: ^0.2.2
-  #Permite criação de calendário personalizável
+  # #Permite conexão com o firebase, utilizado no calendário
+  firebase_helpers: ^0.3.1
+  # #Permite criação de calendário personalizável
   table_calendar: ^2.3.3
-  #Permite a utilização de icones personalizados, como o do Github, na parte dos desenvolvedores
+  # #Permite a utilização de icones personalizados, como o do Github, na parte dos desenvolvedores
   flutter_icons: ^1.1.0
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
