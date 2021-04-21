@@ -43,7 +43,7 @@ class _MyBottomNavigationBar extends State<MyFirstBottomNavigationBar> {
         darkTheme: ThemeData.dark(),
         //themeMode: currentTheme.currentTheme(), // Usado para mudança de ligth mode para night mode
         home: Scaffold(
-          resizeToAvoidBottomInset: false,
+          resizeToAvoidBottomInset: false, //Usado para evitar Flutter widgets a se redimensionar, gerando sobrecarga do teclado na tela
 
           body: Center(child: _pages.elementAt(_currentPage)),
           //appBar: AppBar(title: Text("Nosso primeiro BottomNavigationBar")),
